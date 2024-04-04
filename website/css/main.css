@@ -1,0 +1,47 @@
+/* main.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+}
+
+.navbar a {
+    color: #000000;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.navbar #order {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.socials img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Responsive styles */
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .navbar a {
+        margin: 10px 0;
+    }
+
+    .navbar #order {
+        margin-top: 20px;
+    }
+}

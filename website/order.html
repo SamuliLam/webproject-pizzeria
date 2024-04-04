@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Page</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="frontpage.html"><div>Pizzeria En Rico</div></a>
+        <div>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="order.html" id="order">Order</a>
+        </div>
+    </div>
+    <h1>Order Form</h1>
+    
+    <form action="process_order.php" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" required></textarea><br><br>
+        
+        <label for="item">Item:</label>
+        <select id="item" name="item" required>
+            <option value="item1">Item 1</option>
+            <option value="item2">Item 2</option>
+            <option value="item3">Item 3</option>
+        </select><br><br>
+        
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+        
+        <input type="submit" value="Place Order">
+    </form>
+</body>
+</html>
