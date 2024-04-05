@@ -23,11 +23,18 @@
 
 body {
     font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .socials img {
     width: 30px;
     height: 30px;
+}
+
+footer {
+    margin-top: auto;
 }
 
 /* Responsive styles */
