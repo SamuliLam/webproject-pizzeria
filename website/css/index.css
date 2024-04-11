@@ -1,15 +1,13 @@
-/* front.css */
-
-.header {
+main {
     text-align: center;
-    padding: 50px;
+    margin: 5rem auto;
 }
 
-.header h1 {
+main h1 {
     font-size: 2em;
 }
 
-.header p {
+main p {
     font-size: 1.2em;
 }
 
@@ -38,16 +36,16 @@ h2 + small {
 }
 
 .feedback_box {
-    flex: 1 0 200px; /* Adjust as needed */
-    margin: 10px; /* Adjust as needed */
+    flex: 1 0 200px;
+    margin: 10px;
     color: black;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Drop shadow */
-    transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
 
 }
 
 .feedback_box:hover {
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 #pizzeria {
@@ -55,19 +53,16 @@ h2 + small {
     width: 40%;
 }
 
-
-
-/* Responsive styles */
 @media screen and (max-width: 600px) {
-    .header {
+    main {
         padding: 20px;
     }
 
-    .header h1 {
+    main h1 {
         font-size: 1.5em;
     }
 
-    .header p {
+    main p {
         font-size: 1em;
     }
 
