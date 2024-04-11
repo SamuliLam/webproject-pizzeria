@@ -14,7 +14,7 @@ document.getElementById('confirm_password').addEventListener('input', function()
 
 document.querySelectorAll('input').forEach(input => {
     input.addEventListener('input', function() {
-        var firstname = document.getElementById('firstname').value;
+        let firstname = document.getElementById('firstname').value;
         var lastname = document.getElementById('lastname').value;
         var email = document.getElementById('email').value;
         var phone = document.getElementById('phone').value;
