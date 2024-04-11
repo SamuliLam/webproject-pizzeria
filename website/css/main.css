@@ -1,74 +1,91 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
-    font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 header {
-    width: 100%;
-    position: fixed;
-    flex-shrink: 1;
-    flex-grow: 0;
-    background-color: rgb(250, 54, 54);
+  width: 100%;
+  position: fixed;
+  flex-shrink: 1;
+  flex-grow: 0;
+  background-color: rgb(255, 0, 0);
 }
 
 :root {
-    --main-color: #ffb411;
-    --text-color: #1e1c2a;
-    --bg-color: #fff;
+  --main-color: #ffb411;
+  --text-color: #ffffff;
+  --bg-color: #fff;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    margin: 1rem 1rem;
-    letter-spacing: 1px;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 1rem;
+  letter-spacing: 1px;
+  font-size: large;
+  align-items: center;
 }
-
 
 nav a {
-    color: var(--text-color);
-    text-decoration: none;
-    margin: 0 10px;
+  color: var(--text-color);
+  text-decoration: none;
+  margin: 0 10px;
 }
 
+nav img {
+  height: 35px;
+  width: 35px;
+}
 nav #order {
-    background-color: #000000;
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 10px;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 10px;
 }
 
 body {
-    color: var(--text-color);
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #f3c681;
+  color: var(--text-color);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: url(../media/pizza-levite.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .socials img {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
+}
+
+.nav-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  
 }
 
 footer {
-    margin-top: auto;
+  margin-top: auto;
 }
 
 /* Responsive styles */
 
 @media screen and (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-    }
+  .navbar {
+    flex-direction: column;
+  }
 
-    .navbar a {
-        margin: 10px 0;
-    }
+  .navbar a {
+    margin: 10px 0;
+  }
 
-    .navbar #order {
-        margin-top: 20px;
-    }
+  .navbar #order {
+    margin-top: 20px;
+  }
 }
