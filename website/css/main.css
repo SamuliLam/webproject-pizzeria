@@ -70,6 +70,10 @@ body {
   
 }
 
+.icon {
+  filter: invert(1);
+}
+
 footer {
   margin-top: auto;
 }
