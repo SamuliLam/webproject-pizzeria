@@ -26,7 +26,7 @@ header {
     width: 100%;
 }
 
-nav {
+#main-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -99,13 +99,15 @@ footer {
 }
 
 #hamburger-icon-sidebar {
-    font-size: 1rem;
-    display: none;
+    position: absolute;
+    right: 10px;
+    font-size: 1.875rem;
     cursor: pointer;
-    margin-left: 0.2rem;
 }
 
 #side-bar {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 0;
     left: 0;
@@ -119,6 +121,12 @@ footer {
 
 #side-bar.show {
     transform: translateX(0);
+}
+
+#side-bar-links {
+    list-style: none;
+    padding: 0.5rem;
+    margin: 0;
 }
 
 #hamburger-icon {
