@@ -8,22 +8,24 @@
     <link rel="stylesheet" type="text/css" href="css/menu.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div>
-                <a class="nav-logo" href="index.html">
-                    Pizzeria En Rico
-                    <img src="./media/pizza-oven.png">
-                </a>
-            </div>
-            <div>
-                <a href="index.html">Home</a>
-                <a href="menu.html">Menu</a>
-                <a href="about.html">About</a>
-                <a href="order.html" id="order">Order</a>
-            </div>
-        </nav>
-    </header>
+<header>
+    <nav id="main-nav" aria-label="Main navigation">
+        <span id="hamburger-icon">&#9776</span>
+        <div>
+            <a class="nav-logo-box" href="index.html">
+                Pizzeria En Rico
+                <img class="icon" src="./media/pizza-oven.png"/>
+            </a>
+        </div>
+        <ul id="main-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="order.html" id="order">Order</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="root-container">
     <div class="container" id="menu">
         <div class="menu-item">
             <h3>Item 1</h3>
@@ -38,16 +40,31 @@
             <p>Description for item 3</p>
         </div>
     </div>
-    <footer>
-        <div class="footer-content">
-            <h3>Pizzeria En Rico</h3>
-            <p>© 2024 Pizzeria En Rico. All rights reserved.</p>
-            <ul class="socials">
-                <li><a href="https://www.facebook.com/yourcompany" target="_blank"><img src="media\facebook_logo.jpg" alt="Facebook"></a></li>
-                <li><a href="https://www.twitter.com/yourcompany" target="_blank"><img src="media\facebook_logo.jpg" alt="Twitter"></a></li>
-                <li><a href="https://www.instagram.com/yourcompany" target="_blank"><img src="media\facebook_logo.jpg" alt="Instagram"></a></li>
-            </ul>
-        </div>
-    </footer>
+
+    <nav id="side-bar" aria-label="Sidebar Navigation">
+        <span id="hamburger-icon-sidebar">&#9776</span>
+        <ul id="side-bar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="order.html">Order</a></li>
+        </ul>
+    </nav>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <h3>Pizzeria En Rico</h3>
+        <p>© 2024 Pizzeria En Rico. All rights reserved.</p>
+        <ul class="socials">
+            <li><a href="https://www.facebook.com/yourcompany" target="_blank"><img src="media\facebook_logo.jpg"
+                                                                                    alt="Facebook"></a></li>
+            <li><a href="https://www.twitter.com/yourcompany" target="_blank"><img src="media\facebook_logo.jpg"
+                                                                                   alt="Twitter"></a></li>
+            <li><a href="https://www.instagram.com/yourcompany" target="_blank"><img src="media\facebook_logo.jpg"
+                                                                                     alt="Instagram"></a></li>
+        </ul>
+    </div>
+</footer>
 </body>
 </html>
