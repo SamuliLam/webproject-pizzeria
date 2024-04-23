@@ -9,19 +9,20 @@
 </head>
 <body>
     <header>
-        <nav>
+        <nav id="main-nav" aria-label="Main navigation">
+            <span id="hamburger-icon">&#9776</span>
             <div>
-                <a class="nav-logo" href="index.html">
+                <a class="nav-logo-box" href="index.html">
                     Pizzeria En Rico
-                    <img class="icon" src="./media/pizza-oven.png" />
+                    <img class="icon" src="./media/pizza-oven.png"/>
                 </a>
             </div>
-            <div>
-                <a href="index.html">Home</a>
-                <a href="menu.html">Menu</a>
-                <a href="about.html">About</a>
-                <a href="order.html" id="order">Order</a>
-            </div>
+            <ul id="main-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="order.html" id="order">Order</a></li>
+            </ul>
         </nav>
     </header>
     <div class="container">
