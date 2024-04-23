@@ -24,93 +24,95 @@
         </ul>
     </nav>
 </header>
-<main>
-    <div class="signup-container">
-        <form action>
-            <h1 class="signup-title">Sign Up</h1>
-            <p class="signup-subtitle">Create a new account</p>
+<div class="root-container">
 
-            <label for="firstname">First Name</label>
-            <input
-                    type="text"
-                    name="firstname"
-                    id="firstname"
-                    placeholder="First Name"
-                    autocomplete="given-name"
-            />
+    <main>
+        <div class="signup-container">
+            <form action>
+                <h1 class="signup-title">Sign Up</h1>
+                <p class="signup-subtitle">Create a new account</p>
 
-            <label for="lastname">Last Name</label>
-            <input
-                    type="text"
-                    name="lastname"
-                    id="lastname"
-                    placeholder="Last Name"
-                    autocomplete="family-name"
-            />
+                <label for="firstname">First Name</label>
+                <input
+                        type="text"
+                        name="firstname"
+                        id="firstname"
+                        placeholder="First Name"
+                        autocomplete="given-name"
+                />
 
-            <label for="email">Email Address</label>
-            <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Email Address"
-                    autocomplete="email"
-            />
+                <label for="lastname">Last Name</label>
+                <input
+                        type="text"
+                        name="lastname"
+                        id="lastname"
+                        placeholder="Last Name"
+                        autocomplete="family-name"
+                />
 
-            <label for="phone">Phone Number</label>
-            <input
-                    type="tel"
-                    name="phone"
-                    id="phone"
-                    placeholder="Phone Number"
-                    autocomplete="tel"
-            />
+                <label for="email">Email Address</label>
+                <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Email Address"
+                        autocomplete="email"
+                />
 
-            <label for="address">Address</label>
-            <input
-                    type="text"
-                    name="address"
-                    id="address"
-                    placeholder="Address"
-                    autocomplete="street-address"
-            />
+                <label for="phone">Phone Number</label>
+                <input
+                        type="tel"
+                        name="phone"
+                        id="phone"
+                        placeholder="Phone Number"
+                        autocomplete="tel"
+                />
 
-            <label for="password">Password</label>
-            <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Password"
-                    autocomplete="new-password"
-            />
+                <label for="address">Address</label>
+                <input
+                        type="text"
+                        name="address"
+                        id="address"
+                        placeholder="Address"
+                        autocomplete="street-address"
+                />
 
-            <label for="confirm_password">Confirm Password</label>
-            <input
-                    type="password"
-                    name="confirm_password"
-                    id="confirm_password"
-                    placeholder="Confirm Password"
-                    autocomplete="new-password"
-            />
-            <span id="password_match" class="password-feedback"></span>
+                <label for="password">Password</label>
+                <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Password"
+                        autocomplete="new-password"
+                />
 
-            <button
-                    type="submit"
-                    class="submit-button"
-                    id="signup-button"
-                    disabled
-            >
-                Sign Up
-            </button>
+                <label for="confirm_password">Confirm Password</label>
+                <input
+                        type="password"
+                        name="confirm_password"
+                        id="confirm_password"
+                        placeholder="Confirm Password"
+                        autocomplete="new-password"
+                />
+                <span id="password_match" class="password-feedback"></span>
 
-            <p class="login-text">
-                Already have an account?
-                <a href="login.html" class="login-link">Sign in</a>.
-            </p>
-        </form>
-    </div>
-</main>
+                <button
+                        type="submit"
+                        class="submit-button"
+                        id="signup-button"
+                        disabled
+                >
+                    Sign Up
+                </button>
 
+                <p class="login-text">
+                    Already have an account?
+                    <a href="login.html" class="login-link">Sign in</a>.
+                </p>
+            </form>
+        </div>
+    </main>
+</div>
 <nav id="side-bar" aria-label="Sidebar Navigation">
     <span id="hamburger-icon-sidebar">&#9776</span>
     <ul id="side-bar-links">
