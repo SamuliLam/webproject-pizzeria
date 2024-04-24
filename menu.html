@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="media/pizza.png" />
     <title>Menu</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/menu.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/menu.css" />
+    <script src="scripts/menu.js" defer></script>
     <script src="scripts/main.js" defer></script>
 </head>
 <body>
@@ -27,43 +29,49 @@
     </nav>
 </header>
 <div class="root-container">
+<main>
+    <div id="top-container">
+        <div id="top-image-container"></div>
+    </div>
     <div class="container" id="menu">
-        <div class="menu-item">
-            <h3>Item 1</h3>
-            <p>Description for item 1</p>
-        </div>
-        <div class="menu-item">
-            <h3>Item 2</h3>
-            <p>Description for item 2</p>
-        </div>
-        <div class="menu-item">
-            <h3>Item 3</h3>
-            <p>Description for item 3</p>
+        <div class="menu-table">
+            <h2>Our pizzas</h2>
+            <div class="menu-row menu-header">
+            </div>
+            <!-- Dynamic content will be added here -->
         </div>
     </div>
-
-    <nav id="side-bar" aria-label="Sidebar Navigation">
-        <span id="hamburger-icon-sidebar">&#9776</span>
-        <ul id="side-bar-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="menu.html">Menu</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="order.html">Order</a></li>
-        </ul>
-    </nav>
+</main>
 </div>
-
+<nav id="side-bar" aria-label="Sidebar Navigation">
+    <span id="hamburger-icon-sidebar">&#9776</span>
+    <ul id="side-bar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="order.html">Order</a></li>
+    </ul>
+</nav>
 <footer>
     <div class="footer-content">
         <h3>Pizzeria En Rico</h3>
         <p>© 2024 Pizzeria En Rico. All rights reserved.</p>
         <ul class="socials">
-            <li><a href="https://www.facebook.com/yourcompany" target="_blank"><img src="media\facebook_logo.jpg"
-                                                                                    alt="Facebook"></a></li>
-            <li><a href="https://www.twitter.com/yourcompany" target="_blank"><img src="media\facebook_logo.jpg"
-                                                                                   alt="Twitter"></a></li>
-            <li><a href="https://www.instagram.com/yourcompany" target="_blank"><img src="media\facebook_logo.jpg"
-                                                                                     alt="Instagram"></a></li>
+            <li>
+                <a href="https://www.facebook.com/yourcompany" target="_blank"
+                ><img src="media\facebook_logo.jpg" alt="Facebook"
+                /></a>
+            </li>
+            <li>
+                <a href="https://www.twitter.com/yourcompany" target="_blank"
+                ><img src="media\facebook_logo.jpg" alt="Twitter"
+                /></a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/yourcompany" target="_blank"
+                ><img src="media\facebook_logo.jpg" alt="Instagram"
+                /></a>
+            </li>
         </ul>
     </div>
 </footer>
