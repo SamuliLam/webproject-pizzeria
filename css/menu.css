@@ -53,10 +53,6 @@
     display: none;
 }
 
-#top-container {
-    height: 1000px;
-    width: 100%;
-}
 
 #top-image-container {
     background-image: url('/media/pizza-menu.jpg');
