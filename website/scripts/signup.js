@@ -25,7 +25,6 @@ signupForm.addEventListener("submit", (e) => {
 const postSignup = async (firstName, lastName, email, phone, password) => {
     try {
         const response = await fetch('http://10.120.32.55/app/api/v1/users', {
-            mode: "no-cors",
             method: "POST",
             headers: {
                 "Content-type": "application/json",
@@ -36,6 +35,7 @@ const postSignup = async (firstName, lastName, email, phone, password) => {
                 email: email,
                 phone: phone,
                 password: password,
+                role: "user",
             })
         })
         const data = await response.json();
