@@ -1,3 +1,7 @@
+main {
+    all: initial;
+}
+
 #menu {
     background-image: url('/media/beige-background-menu.jpg');
     background-size: cover;
