@@ -1,35 +1,52 @@
-document.getElementById('confirm_password').addEventListener('input', function() {
-    var password = document.getElementById('password').value;
-    var confirmPassword = document.getElementById('confirm_password').value;
-    var passwordMatch = document.getElementById('password_match');
+'use strict';
 
-    if (password === confirmPassword) {
-        passwordMatch.textContent = "Passwords match";
-        passwordMatch.className = "password-feedback match";
+const signupForm = document.getElementById("signupForm");
+
+let message = document.querySelector("#message");
+
+
+signupForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let firstName = signupForm.firstname.value;
+    let lastName = signupForm.lastname.value;
+    let email = signupForm.email.value;
+    let phone = signupForm.phone.value;
+    let password = signupForm.password.value;
+    let confirmPassword = signupForm.confirmPassword.value;
+
+    if (password !== confirmPassword) {
+        message.innerHTML = "Passwords do not match";
+        return;
     } else {
-        passwordMatch.textContent = "Passwords do not match";
-        passwordMatch.className = "password-feedback no-match";
+        postSignup(firstName, lastName, email, phone, password);
     }
 });
 
-document.querySelectorAll('input').forEach(input => {
-    input.addEventListener('input', function() {
-        let firstname = document.getElementById('firstname').value;
-        var lastname = document.getElementById('lastname').value;
-        var email = document.getElementById('email').value;
-        var phone = document.getElementById('phone').value;
-        var address = document.getElementById('address').value;
-        var password = document.getElementById('password').value;
-        var confirmPassword = document.getElementById('confirm_password').value;
-        var signupButton = document.getElementById('signup-button');
-
-        var emailIsValid = email.includes('@');
-        var phoneIsValid = /^[\d+]+$/.test(phone);
-
-        if (firstname && lastname && emailIsValid && phoneIsValid && address && password && confirmPassword && password === confirmPassword) {
-            signupButton.disabled = false;
+const postSignup = async (firstName, lastName, email, phone, password) => {
+    try {
+        const response = await fetch('http://10.120.32.55/app/api/v1/users', {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify({
+                first_name: firstName,
+                last_name: lastName,
+                email: email,
+                phone: phone,
+                password: password,
+                role: "user",
+            })
+        })
+        const data = await response.json();
+        if (response.status === 201) {
+            message.innerHTML = data.message + ", redirecting..."
+            setTimeout(() => {
+                window.location.href = "login.html";
+            }, 2000);
         } else {
-            signupButton.disabled = true;
+            message.innerHTML = data.message;
         }
-    });
-});
+    } catch (error) {
+    }
+}

@@ -1,3 +1,6 @@
+.root-container {
+    background: url(../media/login-background.jpg);
+}
 
 
 .login-content {
@@ -5,6 +8,7 @@
     padding: 20px;
     background-color: rgb(255, 0, 0);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
 }
 
 .login-header {
@@ -54,4 +58,9 @@ label {
     color: #bfb8b8;
     text-decoration: none;
     font-style: italic;
+}
+
+#message {
+    height: 20px;
+    text-align: center;
 }

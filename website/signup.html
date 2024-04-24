@@ -4,8 +4,7 @@
     <title>Pizzeria En Rico - Sign Up</title>
     <link rel="stylesheet" type="text/css" href="css/main.css"/>
     <link rel="stylesheet" type="text/css" href="css/signup.css"/>
-    <script src="scripts/signup.js"></script>
-    <script src="./scripts/main.js" defer></script>
+    <script src="./scripts/signup.js" defer></script>
 </head>
 <body>
 <header>
@@ -29,7 +28,7 @@
 
     <main>
         <div class="signup-container">
-            <form action>
+            <form id="signupForm">
                 <h1 class="signup-title">Sign Up</h1>
                 <p class="signup-subtitle">Create a new account</p>
 
@@ -87,11 +86,11 @@
                         autocomplete="new-password"
                 />
 
-                <label for="confirm_password">Confirm Password</label>
+                <label for="confirmPassword">Confirm Password</label>
                 <input
                         type="password"
-                        name="confirm_password"
-                        id="confirm_password"
+                        name="confirmPassword"
+                        id="confirmPassword"
                         placeholder="Confirm Password"
                         autocomplete="new-password"
                 />
@@ -101,7 +100,6 @@
                         type="submit"
                         class="submit-button"
                         id="signup-button"
-                        disabled
                 >
                     Sign Up
                 </button>
@@ -110,6 +108,7 @@
                     Already have an account?
                     <a href="login.html" class="login-link">Sign in</a>.
                 </p>
+                <p id="message"></p>
             </form>
         </div>
     </main>
