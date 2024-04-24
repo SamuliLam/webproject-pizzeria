@@ -30,8 +30,8 @@ const postSignup = async (firstName, lastName, email, phone, password) => {
                 "Content-type": "application/json",
             },
             body: JSON.stringify({
-                firstName: firstName,
-                lastName: lastName,
+                first_name: firstName,
+                last_name: lastName,
                 email: email,
                 phone: phone,
                 password: password,
