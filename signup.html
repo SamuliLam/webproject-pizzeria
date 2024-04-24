@@ -28,87 +28,38 @@
 
     <main>
         <div class="signup-container">
+            <div class="signup-header">
+                <h1>Sign up</h1>
+                <p>Create a new account</p>
+            </div>
             <form id="signupForm">
-                <h1 class="signup-title">Sign Up</h1>
-                <p class="signup-subtitle">Create a new account</p>
-
                 <label for="firstname">First Name</label>
-                <input
-                        type="text"
-                        name="firstname"
-                        id="firstname"
-                        placeholder="First Name"
-                        autocomplete="given-name"
-                />
+                <input type="text" name="firstname" id="firstname" placeholder="First Name" autocomplete="given-name" required/>
 
                 <label for="lastname">Last Name</label>
-                <input
-                        type="text"
-                        name="lastname"
-                        id="lastname"
-                        placeholder="Last Name"
-                        autocomplete="family-name"
-                />
+                <input type="text" name="lastname" id="lastname" placeholder="Last Name" autocomplete="family-name" required/>
 
                 <label for="email">Email Address</label>
-                <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="Email Address"
-                        autocomplete="email"
-                />
+                <input type="email" name="email" id="email" placeholder="Email Address" autocomplete="email" required/>
 
                 <label for="phone">Phone Number</label>
-                <input
-                        type="tel"
-                        name="phone"
-                        id="phone"
-                        placeholder="Phone Number"
-                        autocomplete="tel"
-                />
+                <input type="tel" name="phone" id="phone" placeholder="Phone Number" autocomplete="tel" required/>
 
                 <label for="address">Address</label>
-                <input
-                        type="text"
-                        name="address"
-                        id="address"
-                        placeholder="Address"
-                        autocomplete="street-address"
-                />
+                <input type="text" name="address" id="address" placeholder="Address" autocomplete="street-address" required/>
 
                 <label for="password">Password</label>
-                <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        placeholder="Password"
-                        autocomplete="new-password"
-                />
+                <input type="password" name="password" id="password" placeholder="Password"
+                       autocomplete="new-password" required/>
 
                 <label for="confirmPassword">Confirm Password</label>
-                <input
-                        type="password"
-                        name="confirmPassword"
-                        id="confirmPassword"
-                        placeholder="Confirm Password"
-                        autocomplete="new-password"
-                />
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password"
+                       autocomplete="new-password" required/>
+
                 <span id="password_match" class="password-feedback"></span>
-
-                <button
-                        type="submit"
-                        class="submit-button"
-                        id="signup-button"
-                >
-                    Sign Up
-                </button>
-
-                <p class="login-text">
-                    Already have an account?
-                    <a href="login.html" class="login-link">Sign in</a>.
-                </p>
-                <p id="message"></p>
+                <button class="submit-button" type="submit"> Sign Up</button>
+                <p class="login-text"> Already have an account? <a href="login.html" class="login-link">Sign in.</a> </p>
+                <p id="status-message"></p>
             </form>
         </div>
     </main>
