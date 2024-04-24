@@ -1,0 +1,60 @@
+#pizza-container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  margin: 50px auto;
+}
+
+#pizza-base {
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  border-radius: 50%;
+  background-image: url("/website/media/pizzamaking/pizza-dough-empty-2.png");
+  background-size: contain; /* Ensure the entire background image is visible within the container */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  background-position: center;
+}
+
+#pizza-maker {
+  display: flex;
+  margin-top: 5rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+#pizza-toppings {
+  border: solid 2px black;
+}
+
+#pizza-price {
+  border: solid 2px black;
+}
+
+.topping {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.pepperoni {
+  background-image: url("/website/media/pizzamaking/pepperoni.png");
+}
+
+.mushroom {
+  background-image: url("/website/media/pizzamaking/mushroom.png"); /* Add URL for mushroom image */
+}
+
+.mozzarella {
+  background-image: url("/website/media/pizzamaking/mozzarella.png"); /* Add URL for mozzarella image */
+}
+
+.pepper {
+  background-image: url("/website/media/pizzamaking/pepper.png"); /* Add URL for pepper image */
+}
+
+.shrimp {
+  background-image: url("/website/media/pizzamaking/shrimp.png"); /* Add URL for shrimp image */
+}

@@ -1,53 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="media/pizza.png" />
     <title>Menu</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/menu.css">
-</head>
-<body>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/menu.css" />
+    <script src="scripts/menu.js"></script>
+  </head>
+  <body>
     <header>
-        <nav>
-            <div>
-                <a class="nav-logo" href="index.html">
-                    Pizzeria En Rico
-                    <img class="icon" src="./media/pizza-oven.png" />
-                </a>
-            </div>
-            <div>
-                <a href="index.html">Home</a>
-                <a href="menu.html">Menu</a>
-                <a href="about.html">About</a>
-                <a href="order.html" id="order">Order</a>
-            </div>
-        </nav>
+      <nav>
+        <div>
+          <a class="nav-logo" href="index.html">
+            Pizzeria En Rico
+            <img class="icon" src="./media/pizza-oven.png" />
+          </a>
+        </div>
+        <div>
+          <a href="index.html">Home</a>
+          <a href="menu.html">Menu</a>
+          <a href="about.html">About</a>
+          <a href="pizzaMaker.html">Pizzamaker</a>
+          <a href="order.html" id="order">Order</a>
+        </div>
+      </nav>
     </header>
-    <div class="container" id="menu">
-        <div class="menu-item">
-            <h3>Item 1</h3>
-            <p>Description for item 1</p>
+    <main>
+      <div id="top-container">
+        <div id="top-image-container"></div>
+      </div>
+      <div class="container" id="menu">
+        <div class="menu-table">
+          <h2>Our pizzas</h2>
+          <div class="menu-row menu-header">
+          </div>
+          <!-- Dynamic content will be added here -->
         </div>
-        <div class="menu-item">
-            <h3>Item 2</h3>
-            <p>Description for item 2</p>
-        </div>
-        <div class="menu-item">
-            <h3>Item 3</h3>
-            <p>Description for item 3</p>
-        </div>
-    </div>
+      </div>
+    </main>
     <footer>
-        <div class="footer-content">
-            <h3>Pizzeria En Rico</h3>
-            <p>© 2024 Pizzeria En Rico. All rights reserved.</p>
-            <ul class="socials">
-                <li><a href="https://www.facebook.com/yourcompany" target="_blank"><img src="media\facebook_logo.jpg" alt="Facebook"></a></li>
-                <li><a href="https://www.twitter.com/yourcompany" target="_blank"><img src="media\facebook_logo.jpg" alt="Twitter"></a></li>
-                <li><a href="https://www.instagram.com/yourcompany" target="_blank"><img src="media\facebook_logo.jpg" alt="Instagram"></a></li>
-            </ul>
-        </div>
+      <div class="footer-content">
+        <h3>Pizzeria En Rico</h3>
+        <p>© 2024 Pizzeria En Rico. All rights reserved.</p>
+        <ul class="socials">
+          <li>
+            <a href="https://www.facebook.com/yourcompany" target="_blank"
+              ><img src="media\facebook_logo.jpg" alt="Facebook"
+            /></a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com/yourcompany" target="_blank"
+              ><img src="media\facebook_logo.jpg" alt="Twitter"
+            /></a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/yourcompany" target="_blank"
+              ><img src="media\facebook_logo.jpg" alt="Instagram"
+            /></a>
+          </li>
+        </ul>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
