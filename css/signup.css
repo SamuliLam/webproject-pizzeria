@@ -40,16 +40,19 @@
 }
 
 .submit-button {
+    display: block;
+    margin: 1rem auto;
+    text-align: center;
+    background-color: #000000;
+    color: #fff;
     padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .submit-button:hover {
-    background-color: #0056b3;
+    background-color: #000000;
 }
 
 .login-text {
