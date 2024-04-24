@@ -1,11 +1,5 @@
 /* signup.css */
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: url(../media/login-background.jpg);
-}
+
 
 .signup-container {
     margin-top: 70px;

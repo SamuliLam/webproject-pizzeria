@@ -26,6 +26,12 @@ header {
     width: 100%;
 }
 
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #main-nav {
     display: flex;
     justify-content: space-between;
