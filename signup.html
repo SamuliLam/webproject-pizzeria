@@ -28,9 +28,11 @@
 
     <main>
         <div class="signup-container">
+            <div class="signup-header">
+                <h1>Sign up</h1>
+                <p>Create a new account</p>
+            </div>
             <form id="signupForm">
-                <h1 class="signup-title">Sign Up</h1>
-                <p class="signup-subtitle">Create a new account</p>
                 <label for="firstname">First Name</label>
                 <input type="text" name="firstname" id="firstname" placeholder="First Name" autocomplete="given-name" required/>
 
@@ -56,8 +58,8 @@
 
                 <span id="password_match" class="password-feedback"></span>
                 <button class="submit-button" type="submit"> Sign Up</button>
-                <p class="login-text"> Already have an account?<a href="login.html" class="login-link">Sign in</a>. </p>
-                <p id="message"></p>
+                <p class="login-text"> Already have an account? <a href="login.html" class="login-link">Sign in.</a> </p>
+                <p id="status-message"></p>
             </form>
         </div>
     </main>

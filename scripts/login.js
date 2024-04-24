@@ -2,7 +2,7 @@
 
 const loginForm = document.getElementById("loginForm");
 
-let message = document.querySelector("#message");
+let message = document.querySelector("#status-message");
 
 loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
