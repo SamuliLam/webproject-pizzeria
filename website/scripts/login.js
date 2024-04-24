@@ -1,14 +1,14 @@
 'use strict';
 
+const loginForm = document.getElementById("loginForm");
+
 let message = document.querySelector("#message");
 
-const loginForm = document.querySelector("form");
 loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let email = loginForm.email.value;
     let password = loginForm.password.value;
     postLogin(email, password)
-
 })
 
 const postLogin = async (email, password) => {

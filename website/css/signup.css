@@ -67,3 +67,8 @@ main {
 .password-feedback {
     font-size: 0.8em;
 }
+
+#message {
+    height: 20px;
+    text-align: center;
+}
