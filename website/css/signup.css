@@ -1,9 +1,6 @@
 /* signup.css */
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+.root-container {
     background: url(../media/login-background.jpg);
 }
 
