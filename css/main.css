@@ -21,6 +21,7 @@ header {
 .root-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     flex-grow: 1;
     margin-top: 1rem;
     width: 100%;
@@ -75,11 +76,6 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: url(../media/pizza-levite.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 }
 
 .socials img {
