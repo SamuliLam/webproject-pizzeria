@@ -26,7 +26,7 @@ const postLogin = async (email, password) => {
         const data = await response.json();
         if (response.status === 200) {
             sessionStorage.setItem("token", data.token);
-            sessionStorage.setItem("user", data.user);
+            sessionStorage.setItem("user", JSON.stringify(data.user));
             message.innerHTML = data.message + ", redirecting..."
             setTimeout(() => {
                 window.location.href = "index.html";
