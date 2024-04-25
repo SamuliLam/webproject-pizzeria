@@ -8,9 +8,19 @@ body {
     align-items: center;
 }
 
-.admin-panel {
-    width: 80%;
+.admin-content-container {
     display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.admin-panel {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+    display: flex;
+    padding: 1rem;
+    flex-grow: 1;
+    flex-shrink: 1;
     flex-direction: column;
     align-items: center;
     border: 1px solid #ddd;
@@ -22,16 +32,40 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    gap: 30%;
-    width: 80%;
     margin-bottom: 1rem;
 }
 
 .order-container {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    justify-content: center;
 }
+
+
+.order-table {
+    border-spacing: 1rem; /* Change this from 1rem to 0 */
+}
+
+.order-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    background-color: #4CAF50; /* Change this to the color you want for the headers */
+    color: white;
+}
+
+thead {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white; /* This styles the table headers */
+}
+
+.customer-name-button {
+    all: unset;
+}
+
+
 
 @media screen and (max-width: 768px) {
     .admin-panel-buttons-container {

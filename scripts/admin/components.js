@@ -3,7 +3,8 @@
 export const orderComponent = (orders) => {
     const orderKeys = ["order_id", "Name", "order_date", "delivery_address", "status", "total_price", "phone", "email"];
 
-    const table = createTable(orders, orderKeys, "Order Details");
+    const headers = ["Order ID", "Customer Name", "Order Date", "Delivery Address", "Status", "Total Price", "Phone Number", "Email Address"];
+    const table = createTable(orders, orderKeys, "Order Details", headers);
 
     const container = document.createElement("div");
     container.classList.add("order-container");
@@ -12,7 +13,7 @@ export const orderComponent = (orders) => {
     return container;
 }
 
-function createTable(orders, keys, title) {
+function createTable(orders, keys, title, headers) {
     const table = document.createElement("table");
     table.classList.add("order-table", "responsive-table");
 
@@ -22,9 +23,9 @@ function createTable(orders, keys, title) {
     const headerRow = document.createElement("tr");
     thead.appendChild(headerRow);
 
-    keys.forEach(key => {
+    headers.forEach(header => {
         const th = document.createElement("th");
-        th.textContent = key;
+        th.textContent = header;
         headerRow.appendChild(th);
     });
 
@@ -36,8 +37,14 @@ function createTable(orders, keys, title) {
             td.setAttribute("data-label", key);
             if (key === "Name") {
                 const button = document.createElement("button");
+                button.classList.add("customer-name-button");
                 button.textContent = `${order.first_name} ${order.last_name}`;
                 td.appendChild(button);
+            } else if (key === "order_date") {
+                const date = new Date(order[key]);
+                const dateOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
+                const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+                td.textContent = `${date.toLocaleDateString('en-GB', dateOptions)} ${date.toLocaleTimeString('en-GB', timeOptions)}`;
             } else {
                 td.textContent = order[key];
             }
@@ -50,11 +57,7 @@ function createTable(orders, keys, title) {
     const tableTitle = document.createElement("h2");
     tableTitle.textContent = title;
 
-    const tableContainer = document.createElement("div");
-    tableContainer.appendChild(tableTitle);
-    tableContainer.appendChild(table);
-
-    return tableContainer;
+    return table;
 }
 
 export const menuComponent = (menu) => {
