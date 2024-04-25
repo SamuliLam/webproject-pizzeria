@@ -3,13 +3,20 @@ main {
 }
 
 #menu {
+    padding: 1px;
     background-image: url('/media/beige-background-menu.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 1000px;
+    flex: 2;
 }
 
+h1, h2 {
+    font-family: "Lugrasimo", cursive;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
+}
 .menu-table {
     display: flex;
     flex-direction: column;
@@ -27,17 +34,23 @@ main {
 .menu-cell {
     flex: 1;
     padding: 10px;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    border-top: 1px solid rgba(221, 221, 221, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Lugrasimo", cursive;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
 }
 
+
 .menu-cell:not(:first-child):not(:last-child) {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+    border-left: 1px solid rgba(221, 221, 221, 0.35);
+    border-right: 1px solid rgba(221, 221, 221, 0.35);
 }
 
 .menu-header {
-    background-color: #f0f0f0;
     font-weight: bold;
 }
 
@@ -45,7 +58,6 @@ main {
     display: flex;
     flex-direction: row;
     border-radius: 5px;
-    margin-top: 10px;
 }
 
 
@@ -57,14 +69,32 @@ main {
     display: none;
 }
 
-
 #top-image-container {
+    padding: 1px;
     background-image: url('/media/pizza-menu.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
-    height: 1080px;
+    height: 300px;
+}
+
+#top-image-container h1 {
+    margin-top: 1.6em;
+    width: 100%;
+    text-align: center;
+    font-size: 5em;
+    color: gray;
+    font-style: italic;
+    font-weight: normal;
+}
+
+#menu img {
+    width: 8em;
+    height: 8em;
+    display: block;
+    margin: -1em auto;
+    padding-bottom: 1em;
 }
 
 .menu-item h3 {
@@ -87,17 +117,10 @@ main {
 }
 
 .cart-button {
-    border-color: #04AA6D;
+    border: none;
     padding: 10px 25px;
-    font-size: 16px;
+    font-size: 30px;
     cursor: pointer;
-    border-radius: 5px;
-    float: right;
-    background-color: black;
+    background-color: rgba(255, 255, 255, 0);
     color: white;
-}
-
-
-.cart-button:hover {
-    background-color: #04AA6D;
 }
