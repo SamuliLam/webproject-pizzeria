@@ -33,6 +33,7 @@ body {
     flex-direction: row;
     justify-content: center;
     margin-bottom: 1rem;
+    gap: 1rem;
 }
 
 .order-container {
@@ -65,7 +66,10 @@ thead {
     all: unset;
 }
 
-
+.customer-name-button:hover {
+    cursor: pointer;
+    color: blue;
+}
 
 @media screen and (max-width: 768px) {
     .admin-panel-buttons-container {
