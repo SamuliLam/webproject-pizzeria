@@ -1,16 +1,14 @@
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.root-container {
     background: url(../media/login-background.jpg);
 }
+
 
 .login-content {
     width: 400px;
     padding: 20px;
     background-color: rgb(255, 0, 0);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
 }
 
 .login-header {
@@ -57,7 +55,12 @@ label {
 }
 
 .signup-link {
-    color: #bfb8b8;
+    color: #000000;
     text-decoration: none;
     font-style: italic;
+}
+
+#status-message {
+    height: 20px;
+    text-align: center;
 }

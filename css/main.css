@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    flex-shrink: 1;
+    flex-grow: 0;
+    background-color: rgb(255, 0, 0);
+}
+
+:root {
+    --main-color: #ffb411;
+    --text-color: #ffffff;
+    --bg-color: #fff;
+}
+
+.root-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+    margin-top: 1rem;
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+#main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0.5rem;
+}
+
+#main-nav-links {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 1rem;
+    letter-spacing: 1px;
+    font-size: large;
+    align-items: center;
+}
+
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav img {
+    height: 35px;
+    width: 35px;
+}
+
+.login-signup-btn {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+body {
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.socials img {
+    width: 30px;
+    height: 30px;
+}
+
+.nav-logo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon {
+    filter: invert(1);
+}
+
+footer {
+    margin-top: auto;
+}
+
+#main-nav-links, #side-bar-links {
+    list-style: none;
+}
+
+#hamburger-icon-sidebar {
+    position: absolute;
+    right: 10px;
+    font-size: 1.875rem;
+    cursor: pointer;
+}
+
+#side-bar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    /*placeholder color */
+    background-color: #7e0030;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+}
+
+#side-bar.show {
+    transform: translateX(0);
+}
+
+#side-bar-links {
+    list-style: none;
+    padding: 0.5rem;
+    margin: 0;
+}
+
+#hamburger-icon {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Responsive styles */
+
+@media screen and (max-width: 768px) {
+
+    #main-nav-links {
+        display: none;
+    }
+
+    #hamburger-icon {
+        display: inline;
+    }
+
+    .navbar a {
+        margin: 10px 0;
+    }
+
+    .navbar #order {
+        margin-top: 20px;
+    }
+}

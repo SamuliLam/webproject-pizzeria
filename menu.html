@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="media/pizza.png" />
+    <title>Menu</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/menu.css" />
+    <script src="scripts/menu.js" defer></script>
+    <script src="scripts/main.js" defer></script>
+</head>
+<body>
+<header>
+    <nav id="main-nav" aria-label="Main navigation">
+        <span id="hamburger-icon">&#9776</span>
+        <div>
+            <a class="nav-logo-box" href="index.html">
+                Pizzeria En Rico
+                <img class="icon" src="media/pizza-oven.png"/>
+            </a>
+        </div>
+        <ul id="main-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="login.html" id="login-button">Sign in</a></li>
+            <li><a href="account.html" id="account-button" style="display: none">Account</a></li>
+            <li><a href="index.html" id="logout-button" style="display: none">Log out</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="root-container">
+<main>
+    <div id="top-image-container">
+        <h1>Our menu</h1>
+    </div>
+    <div class="menu-container" id="menu">
+        <img src="/media/menu.png" />
+        <div class="menu-table" id="pizza-list">
+            <h2>Our pizzas</h2>
+            <div class="menu-row menu-header">
+            </div>
+            <!-- Dynamic content will be added here -->
+        </div>
+        <div class="menu-table" id="salad-list">
+            <h2>Our Salads</h2>
+            <div class="menu-row menu-header">
+            </div>
+            <!-- Dynamic content will be added here -->
+        </div>
+        <div class="menu-table" id="appetizer-list">
+            <h2>Our Appetizers</h2>
+            <div class="menu-row menu-header">
+            </div>
+            <!-- Dynamic content will be added here -->
+        </div>
+        <div class="menu-table" id="kebab-list">
+            <h2>Our Kebab</h2>
+            <div class="menu-row menu-header">
+            </div>
+            <!-- Dynamic content will be added here -->
+        </div>
+    </div>
+</main>
+</div>
+<nav id="side-bar" aria-label="Sidebar Navigation">
+    <span id="hamburger-icon-sidebar">&#9776</span>
+    <ul id="side-bar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="order.html">Order</a></li>
+    </ul>
+</nav>
+<footer>
+    <div class="footer-content">
+        <h3>Pizzeria En Rico</h3>
+        <p>© 2024 Pizzeria En Rico. All rights reserved.</p>
+        <ul class="socials">
+            <li>
+                <a href="https://www.facebook.com/yourcompany" target="_blank"
+                ><img src="media\facebook_logo.jpg" alt="Facebook"
+                /></a>
+            </li>
+            <li>
+                <a href="https://www.twitter.com/yourcompany" target="_blank"
+                ><img src="media\facebook_logo.jpg" alt="Twitter"
+                /></a>
+            </li>
+            <li>
+                <a href="https://www.instagram.com/yourcompany" target="_blank"
+                ><img src="media\facebook_logo.jpg" alt="Instagram"
+                /></a>
+            </li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>

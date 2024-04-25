@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pizzeria En Rico - Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/signup.css"/>
+    <script src="scripts/signup.js" defer></script>
+</head>
+<body>
+<header>
+    <nav id="main-nav" aria-label="Main navigation">
+        <span id="hamburger-icon">&#9776</span>
+        <div>
+            <a class="nav-logo-box" href="index.html">
+                Pizzeria En Rico
+                <img class="icon" src="media/pizza-oven.png"/>
+            </a>
+        </div>
+        <ul id="main-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="login.html" id="login-button">Sign in</a></li>
+            <li><a href="account.html" id="account-button" style="display: none">Account</a></li>
+            <li><a href="index.html" id="logout-button" style="display: none">Log out</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="root-container">
+
+    <main>
+        <div class="signup-container">
+            <div class="signup-header">
+                <h1>Sign up</h1>
+                <p>Create a new account</p>
+            </div>
+            <form id="signupForm">
+                <label for="firstname">First Name</label>
+                <input type="text" name="firstname" id="firstname" placeholder="First Name" autocomplete="given-name" required/>
+
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" id="lastname" placeholder="Last Name" autocomplete="family-name" required/>
+
+                <label for="email">Email Address</label>
+                <input type="email" name="email" id="email" placeholder="Email Address" autocomplete="email" required/>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" name="phone" id="phone" placeholder="Phone Number" autocomplete="tel" required/>
+
+                <label for="address">Address</label>
+                <input type="text" name="address" id="address" placeholder="Address" autocomplete="street-address" required/>
+
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" placeholder="Password"
+                       autocomplete="new-password" required/>
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password"
+                       autocomplete="new-password" required/>
+
+                <span id="password_match" class="password-feedback"></span>
+                <button class="submit-button" type="submit"> Sign Up</button>
+                <p class="login-text"> Already have an account? <a href="login.html" class="login-link">Sign in.</a> </p>
+                <p id="status-message"></p>
+            </form>
+        </div>
+    </main>
+</div>
+<nav id="side-bar" aria-label="Sidebar Navigation">
+    <span id="hamburger-icon-sidebar">&#9776</span>
+    <ul id="side-bar-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="order.html">Order</a></li>
+    </ul>
+</nav>
+
+</body>
+</html>

@@ -3,12 +3,17 @@ main {
     margin: 5rem auto;
 }
 
-main h1 {
-    font-size: 2em;
-}
 
 main p {
     font-size: 1.2em;
+}
+
+.root-container {
+    background: url(../media/pizza-levite.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .feedback {
