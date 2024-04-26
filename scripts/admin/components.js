@@ -44,7 +44,7 @@ function createTable(orders, keys, title, headers) {
                 const date = new Date(order[key]);
                 const dateOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
                 const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
-                td.textContent = `${date.toLocaleDateString('en-GB', dateOptions)} ${date.toLocaleTimeString('en-GB', timeOptions)}`;
+                td.textContent = `${date.toLocaleDateString('fi-FI', dateOptions)} ${date.toLocaleTimeString('en-GB', timeOptions)}`;
             } else {
                 td.textContent = order[key];
             }
