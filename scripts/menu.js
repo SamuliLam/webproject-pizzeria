@@ -4,34 +4,49 @@ window.onload = async function() {
         const data = await response.json();
 
         if (response.ok) {
-            data.forEach(product => {
-                // Create menu item element
-                const menuItem = document.createElement("div");
-                menuItem.classList.add("menu-row", "menu-item");
+            const categories = [...new Set(data.map(product => product.category))];
 
-                // Create and append cells for each product detail
-                const cells = ["name", "description", "price", "allergens"];
-                cells.forEach(key => {
-                    const cell = document.createElement("div");
-                    cell.classList.add("menu-cell");
-                    cell.textContent = product[key];
-                    menuItem.appendChild(cell);
+            categories.forEach(category => {
+                const headerRow = document.createElement("div");
+                headerRow.classList.add("menu-row", "menu-header");
+                const headerNames = ["Name", "Description", "Price (€)", "Allergens", "Buy"];
+                headerNames.forEach(name => {
+                    const headerCell = document.createElement("div");
+                    headerCell.classList.add("menu-cell");
+                    headerCell.textContent = name;
+                    headerRow.appendChild(headerCell);
                 });
 
-                // Create and append the order button
-                const orderButtonCell = document.createElement("div");
-                orderButtonCell.classList.add("menu-cell");
-                const orderButton = document.createElement("button");
-                orderButton.classList.add("cart-button");
-                orderButton.innerHTML = "&#x1F6D2;";
-                orderButtonCell.appendChild(orderButton);
-                menuItem.appendChild(orderButtonCell);
-
-                // Append the menu item to the corresponding category div
-                const categoryList = getCategoryList(product.category);
+                const categoryList = getCategoryList(category);
                 if (categoryList) {
-                    categoryList.appendChild(menuItem);
+                    categoryList.appendChild(headerRow);
                 }
+
+                data.filter(product => product.category.toLowerCase() === category.toLowerCase())
+                    .forEach(product => {
+                        const menuItem = document.createElement("div");
+                        menuItem.classList.add("menu-row", "menu-item");
+
+                        const cells = ["name", "description", "price", "allergens"];
+                        cells.forEach(key => {
+                            const cell = document.createElement("div");
+                            cell.classList.add("menu-cell");
+                            cell.textContent = product[key];
+                            menuItem.appendChild(cell);
+                        });
+
+                        const orderButtonCell = document.createElement("div");
+                        orderButtonCell.classList.add("menu-cell");
+                        const orderButton = document.createElement("button");
+                        orderButton.classList.add("cart-button");
+                        orderButton.innerHTML = "&#x1F6D2;";
+                        orderButtonCell.appendChild(orderButton);
+                        menuItem.appendChild(orderButtonCell);
+
+                        if (categoryList) {
+                            categoryList.appendChild(menuItem);
+                        }
+                    });
             });
         } else {
             console.error("Failed to fetch products:", data.error);
@@ -42,7 +57,6 @@ window.onload = async function() {
 };
 
 function getCategoryList(category) {
-    // Map the product category to the corresponding div ID
     const lowercaseCategory = category.toLowerCase();
     switch (lowercaseCategory) {
         case "pizza":
@@ -54,7 +68,6 @@ function getCategoryList(category) {
         case "category 1":
             return document.getElementById("kebab-list");
         default:
-            return null; // Return null if category is not found
+            return null;
     }
 }
-
