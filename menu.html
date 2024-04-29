@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/menu.css" />
     <script src="scripts/menu.js" defer></script>
     <script src="scripts/main.js" defer></script>
+    <script src="scripts/carousel.js" defer></script>
 </head>
 <body>
 <header>
@@ -39,19 +40,46 @@
         <h1>Our menu</h1>
     </div>
     <div class="menu-container" id="menu">
-        <img src="/media/menu.png" />
+        <img id="menu-top-img" src="/media/menu.png" />
         <div class="menu-table" id="pizza-list">
             <h2>Our pizzas</h2>
             <div class="menu-row menu-header">
             </div>
-
         </div>
+        <div class="banner-ads">
+        <img class="pizza-banner" src="/media/pizza-banner.png" />
+        <img class="pizza-banner" src="/media/pizza-sale.png" />
         <div class="menu-table" id="salad-list">
             <h2>Our Salads</h2>
             <div class="menu-row menu-header">
             </div>
 
         </div>
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="/media/caprese-salad.png" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="/media/ceaser-salad.png" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="/media/greek-salad.png" style="width:100%">
+                </div>
+
+            </div>
+            <br>
+
+            <div style="text-align:center">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
         <div class="menu-table" id="appetizer-list">
             <h2>Our Appetizers</h2>
             <div class="menu-row menu-header">

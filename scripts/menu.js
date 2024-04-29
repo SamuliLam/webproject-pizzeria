@@ -40,6 +40,10 @@ window.onload = async function() {
                         const orderButton = document.createElement("button");
                         orderButton.classList.add("cart-button");
                         orderButton.innerHTML = "&#x1F6D2;";
+                        orderButton.addEventListener("click", function() {
+                            // Function to handle fetching the single order
+                            addProductToOrder(product); // Change the order ID as needed
+                        });
                         orderButtonCell.appendChild(orderButton);
                         menuItem.appendChild(orderButtonCell);
 
@@ -56,6 +60,39 @@ window.onload = async function() {
     }
 };
 
+async function addProductToOrder(product) {
+    try {
+        const response = await fetch("http://10.120.32.55/app//api/v1/orders/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                order: {
+                    customer_id: 2,
+                    delivery_address: "Samulin katu 1",
+                    status: "processing",
+                    total_price: product.price
+                },
+                products: [
+                    { product_id: product.id }
+                ]
+            })
+        });
+
+        if (response.ok) {
+            console.log("Order created successfully");
+            console.log(product)
+        } else {
+            const responseData = await response.json();
+            console.error("Failed to create order:", responseData.error);
+        }
+    } catch (error) {
+        console.error("Error creating order:", error.message);
+    }
+}
+
+
 function getCategoryList(category) {
     const lowercaseCategory = category.toLowerCase();
     switch (lowercaseCategory) {
@@ -65,7 +102,7 @@ function getCategoryList(category) {
             return document.getElementById("salad-list");
         case "appetizer":
             return document.getElementById("appetizer-list");
-        case "category 1":
+        case "kebab":
             return document.getElementById("kebab-list");
         default:
             return null;
