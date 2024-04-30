@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <title>About En Rico</title>
-    <script src="scripts/main.js" defer></script>
+    <script src="scripts/main.js" type="module" defer></script>
 </head>
 <body>
 <header>
@@ -18,6 +18,10 @@
             </a>
         </div>
         <ul id="main-nav-links">
+            <div class="cart-container">
+                <span id="cart-count">0</span>
+                <img src="media/shopping-bag.png" alt="Pizza Oven" class="icon" id="shoppingCart"/>
+            </div>
             <li><a href="index.html">HOME</a></li>
             <li><a href="menu.html">MENU</a></li>
             <li><a href="login.html" id="login-button">SIGN IN</a></li>

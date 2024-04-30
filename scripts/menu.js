@@ -1,3 +1,12 @@
+import {updateCartDisplay} from "./main.js";
+
+const shoppingCart = [];
+if (sessionStorage.getItem("shoppingCart") !== null) {
+    shoppingCart.push(...JSON.parse(sessionStorage.getItem("shoppingCart")));
+} else {
+    sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+}
+
 window.onload = async function() {
     try {
         const response = await fetch("http://10.120.32.55/app/api/v1/products");
@@ -41,12 +50,13 @@ window.onload = async function() {
                         orderButton.classList.add("cart-button");
                         orderButton.innerHTML = "&#x1F6D2;";
                         orderButton.addEventListener("click", function() {
-                            // Function to handle fetching the single order
-                            addProductToOrder(product); // Change the order ID as needed
+                            shoppingCart.push(product)
+                            sessionStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
+                            updateCartDisplay();
+                            console.log(shoppingCart)
                         });
                         orderButtonCell.appendChild(orderButton);
                         menuItem.appendChild(orderButtonCell);
-
                         if (categoryList) {
                             categoryList.appendChild(menuItem);
                         }
@@ -59,39 +69,6 @@ window.onload = async function() {
         console.error("Error fetching products:", error.message);
     }
 };
-
-async function addProductToOrder(product) {
-    try {
-        const response = await fetch("http://10.120.32.55/app//api/v1/orders/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                order: {
-                    customer_id: 2,
-                    delivery_address: "Samulin katu 1",
-                    status: "processing",
-                    total_price: product.price
-                },
-                products: [
-                    { product_id: product.id }
-                ]
-            })
-        });
-
-        if (response.ok) {
-            console.log("Order created successfully");
-            console.log(product)
-        } else {
-            const responseData = await response.json();
-            console.error("Failed to create order:", responseData.error);
-        }
-    } catch (error) {
-        console.error("Error creating order:", error.message);
-    }
-}
-
 
 function getCategoryList(category) {
     const lowercaseCategory = category.toLowerCase();

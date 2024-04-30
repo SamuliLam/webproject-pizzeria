@@ -1,5 +1,8 @@
 'use strict';
 
+const shoppingCart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+console.log(shoppingCart);
+
 const createUserData = (user) => {
     editForm.firstName.placeholder = user.first_name;
     editForm.lastName.placeholder = user.last_name;
