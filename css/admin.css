@@ -17,6 +17,7 @@ body {
 .admin-panel {
     margin-top: 6rem;
     margin-bottom: 2rem;
+    max-height: 80vh;
     display: flex;
     padding: 1rem;
     flex-grow: 1;
@@ -38,19 +39,19 @@ body {
 
 .order-container {
     display: flex;
-    align-items: center;
     justify-content: center;
+    max-height: 60vh;
+    overflow-y: auto;
 }
 
-
 .order-table {
-    border-spacing: 1rem; /* Change this from 1rem to 0 */
+    border-spacing: 1rem;
 }
 
 .order-table th {
     border: 1px solid #ddd;
     padding: 8px;
-    background-color: #4CAF50; /* Change this to the color you want for the headers */
+    background-color: #4CAF50;
     color: white;
 }
 
@@ -59,7 +60,7 @@ thead {
     padding-bottom: 12px;
     text-align: left;
     background-color: #4CAF50;
-    color: white; /* This styles the table headers */
+    color: white;
 }
 
 .customer-name-button {

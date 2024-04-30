@@ -1,4 +1,5 @@
 'use strict';
+import { getOrderItemsByOrderId } from "../api/fetchCalls.js";
 
 export const orderComponent = (orders) => {
     const orderKeys = ["order_id", "Name", "order_date", "delivery_address", "status", "total_price", "phone", "email"];
@@ -32,6 +33,31 @@ function createTable(orders, keys, title, headers) {
     orders.forEach(order => {
         const row = document.createElement("tr");
 
+        row.addEventListener("click", async () => {
+            const detailsContainer = row.nextElementSibling;
+            detailsContainer.style.display = detailsContainer.style.display === "none" ? "" : "none";
+            if (detailsContainer.style.display !== "none") {
+                const items = await getOrderItemsByOrderId(order.order_id);
+                const itemCounts = countItems(items);
+                detailsContainer.textContent = ""; // Clear the previous content
+                const header = document.createElement("h3");
+                header.textContent = "Ordered Items";
+                detailsContainer.appendChild(header);
+                const itemsText = document.createElement("p");
+                itemsText.textContent = formatItemCounts(itemCounts);
+                detailsContainer.appendChild(itemsText);
+            }
+        });
+
+        const detailsContainer = document.createElement("tr");
+        detailsContainer.style.display = "none";
+        const detailsCell = document.createElement("td");
+        detailsCell.colSpan = keys.length;
+        detailsContainer.appendChild(detailsCell);
+
+        table.appendChild(row);
+        table.appendChild(detailsContainer);
+
         keys.forEach(key => {
             const td = document.createElement("td");
             td.setAttribute("data-label", key);
@@ -58,6 +84,24 @@ function createTable(orders, keys, title, headers) {
     tableTitle.textContent = title;
 
     return table;
+}
+
+function countItems(items) {
+    const counts = new Map();
+    for (const item of items) {
+        const count = counts.get(item.name) || 0;
+        counts.set(item.name, count + 1);
+    }
+    return counts;
+}
+
+function formatItemCounts(counts) {
+    let text = "";
+    for (const [name, count] of counts) {
+        if (text !== "") text += ", ";
+        text += `${name}: ${count}`;
+    }
+    return text;
 }
 
 export const menuComponent = (menu) => {
