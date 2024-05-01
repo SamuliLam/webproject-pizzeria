@@ -1,5 +1,5 @@
 'use strict';
-import { getOrderItemsByOrderId } from "../api/fetchCalls.js";
+import {getOrderItemsByOrderId, modifyOrderStatus} from "../api/fetchCalls.js";
 
 export const orderComponent = (orders) => {
     const orderKeys = ["order_id", "Name", "order_date", "delivery_address", "status", "total_price", "phone", "email"];
@@ -33,22 +33,6 @@ function createTable(orders, keys, title, headers) {
     orders.forEach(order => {
         const row = document.createElement("tr");
 
-        row.addEventListener("click", async () => {
-            const detailsContainer = row.nextElementSibling;
-            detailsContainer.style.display = detailsContainer.style.display === "none" ? "" : "none";
-            if (detailsContainer.style.display !== "none") {
-                const items = await getOrderItemsByOrderId(order.order_id);
-                const itemCounts = countItems(items);
-                detailsContainer.textContent = ""; // Clear the previous content
-                const header = document.createElement("h3");
-                header.textContent = "Ordered Items";
-                detailsContainer.appendChild(header);
-                const itemsText = document.createElement("p");
-                itemsText.textContent = formatItemCounts(itemCounts);
-                detailsContainer.appendChild(itemsText);
-            }
-        });
-
         const detailsContainer = document.createElement("tr");
         detailsContainer.style.display = "none";
         const detailsCell = document.createElement("td");
@@ -61,21 +45,67 @@ function createTable(orders, keys, title, headers) {
         keys.forEach(key => {
             const td = document.createElement("td");
             td.setAttribute("data-label", key);
-            if (key === "Name") {
+            if (key === "order_id") {
+                td.textContent = order[key];
+                td.addEventListener("click", async () => {
+                    const detailsContainer = row.nextElementSibling;
+                    detailsContainer.style.display = detailsContainer.style.display === "none" ? "" : "none";
+                    if (detailsContainer.style.display !== "none") {
+                        const items = await getOrderItemsByOrderId(order[key]);
+                        const itemCounts = countItems(items);
+                        detailsContainer.textContent = ""; // Clear the previous content
+                        const header = document.createElement("h3");
+                        header.textContent = "Ordered Items";
+                        detailsContainer.appendChild(header);
+                        const itemsText = document.createElement("p");
+                        itemsText.textContent = formatItemCounts(itemCounts);
+                        detailsContainer.appendChild(itemsText);
+                    }
+                });
+            } else if (key === "Name") {
                 const button = document.createElement("button");
                 button.classList.add("customer-name-button");
                 button.textContent = `${order.first_name} ${order.last_name}`;
                 td.appendChild(button);
             } else if (key === "order_date") {
                 const date = new Date(order[key]);
-                const dateOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
-                const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+                const dateOptions = {year: 'numeric', month: '2-digit', day: '2-digit'};
+                const timeOptions = {hour: '2-digit', minute: '2-digit', second: '2-digit'};
                 td.textContent = `${date.toLocaleDateString('fi-FI', dateOptions)} ${date.toLocaleTimeString('en-GB', timeOptions)}`;
+            } else if (key === "status") {
+                const select = document.createElement("select");
+                ["preparing", "being delivered", "delivered"].forEach(status => {
+                    const option = document.createElement("option");
+                    option.value = status;
+                    option.text = status;
+                    if (status === order[key]) {
+                        option.selected = true;
+                    }
+                    select.appendChild(option);
+                });
+                td.appendChild(select);
             } else {
                 td.textContent = order[key];
             }
             row.appendChild(td);
         });
+
+        const updateButtonTd = document.createElement("td");
+        const updateButton = document.createElement("button");
+        updateButton.textContent = "Update";
+        updateButton.addEventListener("click", async () => {
+            const statusMessage = document.getElementById("status-message");
+            const fetchStatus = await modifyOrderStatus(order.order_id, row.querySelector("select").value);
+            if (fetchStatus === 200) {
+                statusMessage.style.color = "green";
+                statusMessage.textContent = "Order updated";
+            } else {
+                statusMessage.style.color = "red";
+                statusMessage.textContent = "Failed to update order";
+            }
+        });
+        updateButtonTd.appendChild(updateButton);
+        row.appendChild(updateButtonTd);
 
         table.appendChild(row);
     });
