@@ -59,7 +59,9 @@ const displayCartContents = () => {
         const mainProductContainer = document.createElement("div");
         mainProductContainer.classList.add("cart-product")
         const productContainer = document.createElement("div");
+        productContainer.classList.add("cart-product")
         const productButtons = document.createElement("div");
+        productButtons.classList.add("cart-buttons")
         const productName = document.createElement("span");
         productName.textContent = product.name;
         productContainer.appendChild(productName);

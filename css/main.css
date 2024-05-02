@@ -140,6 +140,20 @@ body {
     margin: 0 1rem;
 }
 
+.cart-buttons {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
+
+.cart-buttons button {
+    max-height: 2rem;
+    max-width: 2rem;
+    background-color: darkgrey;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+}
 #cart-count {
     position: absolute;
     top: -25px;
