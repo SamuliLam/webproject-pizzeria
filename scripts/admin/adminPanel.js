@@ -1,5 +1,6 @@
 import {getOrders, getProducts} from "../api/fetchCalls.js";
-import {orderComponent, menuComponent} from "./components.js";
+import {orderComponent} from "./orderComponents.js";
+import {menuComponent} from "./menuComponents.js";
 
 const adminContentContainer = document.getElementById("admin-content-container");
 
