@@ -1,0 +1,20 @@
+body {
+    color: black;
+}
+
+.root-container {
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#save-button {
+    margin: 10px auto auto;
+    width: 20%;
+}

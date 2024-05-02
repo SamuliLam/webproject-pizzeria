@@ -4,32 +4,37 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <script src="scripts/main.js" defer></script>
+    <script src="scripts/main.js" type="module" defer></script>
 </head>
 <body>
-    <header>
-        <nav id="main-nav" aria-label="Main navigation">
-            <span id="hamburger-icon">&#9776</span>
-            <div>
-                <a class="nav-logo-box" href="index.html">
-                    Pizzeria En Rico
-                    <img class="icon" src="media/pizza-oven.png"/>
-                </a>
+<header>
+    <nav id="main-nav" aria-label="Main navigation">
+        <span id="hamburger-icon">&#9776</span>
+        <div>
+            <a class="nav-logo-box" href="index.html">
+                PIZZERIA EN RICO
+                <img class="icon" src="media/pizza-oven.png"/>
+            </a>
+        </div>
+        <ul id="main-nav-links">
+            <div class="cart-container">
+                <span id="cart-count">0</span>
+                <img src="media/shopping-bag.png" alt="Pizza Oven" class="icon" id="shoppingCart"/>
             </div>
-            <ul id="main-nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="order.html" id="order">Order</a></li>
-            </ul>
-        </nav>
-    </header>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="menu.html">MENU</a></li>
+            <li><a href="login.html" id="login-button">SIGN IN</a></li>
+            <li><a href="account.html" id="account-button" style="display: none">ACCOUNT</a></li>
+            <li><a href="index.html" id="logout-button" style="display: none">LOG OUT</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+        </ul>
+    </nav>
+</header>
 
     <div class="root-container">
         <main>
             <h1>Pizzeria En Rico</h1>
             <p>We create pizzas with passion for those who love good darra mättö.</p>
-            <p>Please <a href="login.html">log in</a> or <a href="login.html">sign up</a> to place an order.</p>
         </main>
         <div class="feedback">
             <section>
@@ -63,10 +68,17 @@
         </ul>
     </nav>
 
-    <footer>
-        <div class="footer-content">
-            <p>© 2024 Pizzeria En Rico. All rights reserved.</p>
+<footer>
+    <div class="footer-content">
+        <h3>Pizzeria En Rico</h3>
+        <p>© 2024 Pizzeria En Rico. All rights reserved.</p>
+        <div id="social-icons">
+            <img src="/media/twitter.png" alt="X">
+            <img src="/media/facebook-app-symbol.png" alt="F">
+            <img src="/media/instagram.png" alt="I">
+            <img src="/media/business.png" alt="In">
         </div>
-    </footer>
+    </div>
+</footer>
 </body>
 </html>

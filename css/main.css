@@ -1,15 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lugrasimo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 * {
-    font-family: "Poppins", sans-serif;
+    font-family: "Lugrasimo", cursive;
+    font-weight: 400;
+    font-style: normal;
+    text-align: center;
 }
 
 header {
+
     width: 100%;
     position: fixed;
     flex-shrink: 1;
     flex-grow: 0;
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(32,37,54);
+    z-index: 1000;
 }
 
 :root {
@@ -19,12 +24,12 @@ header {
 }
 
 .root-container {
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
     margin-top: 1rem;
+    width: 100%;
 }
 
 main {
@@ -40,6 +45,7 @@ main {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 0.5rem;
+
 }
 
 #main-nav-links {
@@ -53,6 +59,7 @@ main {
 
 
 nav a {
+    font-family: "Arial", cursive;
     color: var(--text-color);
     text-decoration: none;
     margin: 0 10px;
@@ -63,10 +70,10 @@ nav img {
     width: 35px;
 }
 
-nav #order {
+.login-signup-btn {
     background-color: #000000;
     color: #ffffff;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 5px;
 }
 
@@ -94,10 +101,35 @@ body {
     filter: invert(1);
 }
 
+#shoppingCart {
+    width: 50px;
+    height: 50px;
+    margin: -15px 5px;
+    cursor: pointer;
+}
+
+.cart-container {
+    position: relative;
+    display: inline-block;
+}
+
+#cart-count {
+    position: absolute;
+    top: -25px;
+    right: 0;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 50%;
+}
+
 footer {
-    margin-top: auto;
-    flex-grow: 0;
-    flex-shrink: 1;
+    background-image: url(/media/footer-image.jpg);
+    background-repeat: repeat;
+    background-position: center;
+    color: black;
+    padding: 5rem;
+    font-size: 1.5rem;
+    border-top: solid 1px black;
 }
 
 #main-nav-links, #side-bar-links {
@@ -138,6 +170,20 @@ footer {
 #hamburger-icon {
     display: none;
     font-size: 2rem;
+    cursor: pointer;
+}
+
+#social-icons {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+#social-icons img {
+    height: 30px;
+    width: auto;
+    margin: 1em 1em;
     cursor: pointer;
 }
 
