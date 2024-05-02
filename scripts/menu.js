@@ -20,18 +20,13 @@ window.onload = async function () {
             data.forEach(product => {
                 const existingProduct = mergedData.find(item => item.id === product.id);
                 if (existingProduct) {
-                    if (!existingProduct.allergens.includes(product.allergen_name)) {
-                        existingProduct.allergens.push(product.allergen_name);
-                    }
-                } else {
-                    mergedData.push({
-                        id: product.id,
-                        name: product.name,
-                        description: product.description,
-                        price: product.price,
-                        category: product.category,
-                        allergens: [product.allergen_name]
+                    product.allergens.forEach(allergen => {
+                        if (!existingProduct.allergens.find(existingAllergen => existingAllergen.id === allergen.id)) {
+                            existingProduct.allergens.push(allergen);
+                        }
                     });
+                } else {
+                    mergedData.push(product);
                 }
             });
 
@@ -63,7 +58,7 @@ window.onload = async function () {
                             if (key === "allergens") {
                                 const allergenCell = document.createElement("div");
                                 allergenCell.classList.add("menu-cell");
-                                allergenCell.textContent = product.allergens.join(", ");
+                                allergenCell.textContent = product.allergens.map(allergen => allergen.name).join(", ");
                                 menuItem.appendChild(allergenCell);
                             } else {
                                 cell.textContent = product[key];
