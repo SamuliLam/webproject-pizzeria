@@ -41,7 +41,7 @@ const shoppingCart = document.getElementById("shoppingCart");
 const cartContent = document.getElementById("cartContent");
 
 shoppingCart.addEventListener("click", function() {
-    if (cartContent.style.display === "block") {
+    if (sessionStorage.getItem("shoppingCart") === null || JSON.parse(sessionStorage.getItem("shoppingCart")).length === 0) {
         cartContent.style.display = "none";
     } else {
         cartContent.style.display = "block";
@@ -67,16 +67,36 @@ const displayCartContents = () => {
         productName.textContent = product.name;
         productContainer.appendChild(productName);
 
+
+
         const minusButton = document.createElement("button");
         minusButton.textContent = "-";
         minusButton.addEventListener("click", () => {
-            product.quantity > 0 ? product.quantity-- : shoppingCart.slice(product, 1);
-            if (product.quantity === 0) {
-                cartProducts.removeChild(mainProductContainer);
-                cartProducts.removeChild(productButtons);
+            if (product.quantity > 0) {
+                product.quantity--;
+                sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+                console.log("session storage", sessionStorage.getItem("shoppingCart").length);
             }
+
+            if (product.quantity === 0) {
+                const index = shoppingCart.indexOf(product);
+                if (index !== -1) {
+                    shoppingCart.splice(index, 1);
+                }
+                productButtons.remove();
+                mainProductContainer.remove()
+                console.log("Tämä on vittusaatana", shoppingCart)
+                sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+                console.log("session storage", sessionStorage.getItem("shoppingCart").length);
+            }
+
             productQuantity.textContent = product.quantity;
             sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+
+            if (shoppingCart.length === 0) {
+                cartContent.style.display = "none";
+            }
+
             updateCartDisplay();
         })
         productButtons.appendChild(minusButton);
@@ -95,7 +115,6 @@ const displayCartContents = () => {
             sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
             updateCartDisplay();
         });
-
 
         mainProductContainer.appendChild(productContainer);
         mainProductContainer.appendChild(productButtons);
