@@ -36,7 +36,6 @@ export const updateCartDisplay = () => {
 const shoppingCart = document.getElementById("shoppingCart");
 const cartContent = document.getElementById("cartContent");
 
-// Add click event listener to shopping cart image
 shoppingCart.addEventListener("click", function() {
     // Toggle the visibility of the cart content
     if (cartContent.style.display === "block") {
@@ -54,7 +53,7 @@ const displayCartContents = () => {
     cartProducts.innerHTML = "";
 
     const shoppingCart = JSON.parse(sessionStorage.getItem("shoppingCart")) || [];
-    console.log(shoppingCart)
+    console.log("Tämä on himoshopcart", shoppingCart)
     shoppingCart.forEach(product => {
         const mainProductContainer = document.createElement("div");
         mainProductContainer.classList.add("cart-product")
@@ -72,7 +71,7 @@ const displayCartContents = () => {
         productButtons.appendChild(minusButton);
 
         const productQuantity = document.createElement("span");
-        productQuantity.textContent = 1; // Change this to the actual quantity of the product
+        productQuantity.textContent = 1;
         productButtons.appendChild(productQuantity);
 
         const plusButton = document.createElement("button");

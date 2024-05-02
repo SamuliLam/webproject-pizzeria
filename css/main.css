@@ -117,7 +117,7 @@ body {
     display: none;
     position: absolute;
     top: 100%;
-    left: -155px;
+    left: -365px;
     background-color: #fff;
     border: 3px solid #000000;
     padding: 10px;
@@ -153,6 +153,8 @@ body {
     padding: 15px;
     justify-content: center;
     align-items: center;
+    margin: auto;
+    display: flex;
 }
 #cart-count {
     position: absolute;
