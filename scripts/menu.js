@@ -58,7 +58,7 @@ window.onload = async function () {
                             if (key === "allergens") {
                                 const allergenCell = document.createElement("div");
                                 allergenCell.classList.add("menu-cell");
-                                allergenCell.textContent = product.allergens.join(", ");
+                                allergenCell.textContent = product.allergens.map(allergen => allergen.name).join(", ");
                                 menuItem.appendChild(allergenCell);
                             } else {
                                 cell.textContent = product[key];
