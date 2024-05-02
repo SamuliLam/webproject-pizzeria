@@ -72,10 +72,16 @@ window.onload = async function () {
                         orderButton.classList.add("cart-button");
                         orderButton.innerHTML = "&#x1F6D2;";
                         orderButton.addEventListener("click", function () {
-                            shoppingCart.push(product)
-                            sessionStorage.setItem('shoppingCart', JSON.stringify(shoppingCart));
-                            updateCartDisplay();
-                            console.log(shoppingCart)
+                            if (!shoppingCart.includes(product)) {
+                                product.quantity = 1;
+                                shoppingCart.push(product);
+                                sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+                                updateCartDisplay();
+                            } else {
+                                shoppingCart.find(item => item.id === product.id).quantity++;
+                                sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+                                updateCartDisplay();
+                            }
                         });
                         orderButtonCell.appendChild(orderButton);
                         menuItem.appendChild(orderButtonCell);

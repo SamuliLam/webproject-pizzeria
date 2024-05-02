@@ -3,7 +3,10 @@ const logOutButton = document.getElementById('logout-button')
 const accountButton = document.getElementById('account-button')
 const cartCount = document.getElementById('cart-count')
 
-cartCount.textContent = sessionStorage.getItem('shoppingCart') ? JSON.parse(sessionStorage.getItem('shoppingCart')).length : 0
+// const productCount = JSON.parse(sessionStorage.getItem('shoppingCart')) || []
+// cartCount.textContent = productCount.reduce((acc, product) => acc + product.quantity, 0).toString();
+
+
 
 if (sessionStorage.getItem('token')) {
     signupButton.style.display = 'none'
@@ -27,7 +30,8 @@ hamburgerIcon.addEventListener('click', () => {
 
 export const updateCartDisplay = () => {
     if (sessionStorage.getItem('shoppingCart')) {
-        cartCount.textContent = JSON.parse(sessionStorage.getItem('shoppingCart')).length
+        const shoppingCart = JSON.parse(sessionStorage.getItem('shoppingCart'))
+        cartCount.textContent = shoppingCart.reduce((acc, product) => acc + product.quantity, 0).toString();
     } else {
         cartCount.textContent = 0
     }
@@ -37,12 +41,10 @@ const shoppingCart = document.getElementById("shoppingCart");
 const cartContent = document.getElementById("cartContent");
 
 shoppingCart.addEventListener("click", function() {
-    // Toggle the visibility of the cart content
     if (cartContent.style.display === "block") {
         cartContent.style.display = "none";
     } else {
         cartContent.style.display = "block";
-        // You can fetch and display the current shopping bag contents here
         displayCartContents();
     }
 });
@@ -67,17 +69,33 @@ const displayCartContents = () => {
 
         const minusButton = document.createElement("button");
         minusButton.textContent = "-";
-        minusButton.addEventListener("click", () => decreaseQuantity(product));
+        minusButton.addEventListener("click", () => {
+            product.quantity > 0 ? product.quantity-- : shoppingCart.slice(product, 1);
+            if (product.quantity === 0) {
+                cartProducts.removeChild(mainProductContainer);
+                cartProducts.removeChild(productButtons);
+            }
+            productQuantity.textContent = product.quantity;
+            sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+            updateCartDisplay();
+        })
         productButtons.appendChild(minusButton);
 
         const productQuantity = document.createElement("span");
-        productQuantity.textContent = 1;
+        productQuantity.textContent = product.quantity;
         productButtons.appendChild(productQuantity);
 
         const plusButton = document.createElement("button");
         plusButton.textContent = "+";
-        plusButton.addEventListener("click", () => increaseQuantity(product));
+
         productButtons.appendChild(plusButton);
+        plusButton.addEventListener("click", () => {
+            product.quantity++
+            productQuantity.textContent = product.quantity;
+            sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+            updateCartDisplay();
+        });
+
 
         mainProductContainer.appendChild(productContainer);
         mainProductContainer.appendChild(productButtons);
@@ -86,23 +104,4 @@ const displayCartContents = () => {
     });
 };
 
-const decreaseQuantity = (product) => {
-    // Decrease quantity logic here
-    // Example:
-    // product.quantity -= 1;
-    // Update shopping cart in session storage
-    sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
-    // Update cart display
-    displayCartContents();
-};
-
-const increaseQuantity = (product) => {
-    // Increase quantity logic here
-    // Example:
-    // product.quantity += 1;
-    // Update shopping cart in session storage
-    sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
-    // Update cart display
-    displayCartContents();
-};
-
+updateCartDisplay()
