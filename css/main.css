@@ -113,6 +113,33 @@ body {
     display: inline-block;
 }
 
+.cart-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -155px;
+    background-color: #fff;
+    border: 3px solid #000000;
+    padding: 10px;
+    z-index: 999;
+    color: black;
+
+}
+
+#cartProducts {
+    margin-right: 2rem;
+}
+
+.cart-product {
+    display: flex;
+    flex-direction: row;
+    padding: 1.5rem;
+}
+
+.cart-product span {
+    margin: 0 1rem;
+}
+
 #cart-count {
     position: absolute;
     top: -25px;
@@ -185,6 +212,10 @@ footer {
     width: auto;
     margin: 1em 1em;
     cursor: pointer;
+}
+
+#social-icons img:hover {
+    filter: drop-shadow(0 0 15px black);
 }
 
 /* Responsive styles */

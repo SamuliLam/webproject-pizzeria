@@ -12,6 +12,7 @@ main {
     background-position: center;
     background-repeat: no-repeat;
     flex: 2;
+
 }
 
 .pizza-banner{
@@ -92,7 +93,6 @@ main {
     border-radius: 5px;
 }
 
-
 .menu-item .menu-cell {
     text-align: left;
 }
@@ -138,6 +138,7 @@ main {
     color: #ffffff;
     text-align: right;
 }
+
 
 .image-container {
     width: 300px;
