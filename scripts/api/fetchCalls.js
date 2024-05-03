@@ -68,3 +68,41 @@ export async function modifyOrderStatus(id, status) {
         console.log(error);
     }
 }
+
+export async function updateProduct(id, modifiedProduct, token) {
+    try {
+        const response = await fetch(`http://10.120.32.55/app/api/v1/products/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(modifiedProduct)
+        });
+        const data = await response.json();
+        if (response.ok) {
+            console.log(data)
+            return response.status;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export async function authenticateAdmin(token) {
+    try {
+        const response = await fetch(`http://10.120.32.55/app/api/v1/auth/me`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${token}`
+            }
+        });
+        if (response.ok) {
+            return true;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+

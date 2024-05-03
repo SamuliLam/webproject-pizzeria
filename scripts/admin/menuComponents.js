@@ -1,3 +1,4 @@
+import {updateProduct} from "../api/fetchCalls.js";
 export const menuComponent = (menu) => {
     const menuContainer = document.createElement("div");
     menuContainer.classList.add("menu-container");
@@ -35,6 +36,8 @@ function createTable(menu, headers){
         headerRow.appendChild(th);
     });
 
+    const changedInputs = {};
+
     menu.forEach(menuItem => {
         const row = document.createElement("tr");
         menuTable.appendChild(row);
@@ -42,6 +45,8 @@ function createTable(menu, headers){
         const updateButton = document.createElement("button");
         updateButton.classList.add("update-menu-item-button");
         updateButton.textContent = "Update";
+
+        updateButton.dataset.productId = menuItem.id;
 
         Object.keys(menuItem).forEach(key => {
             const td = document.createElement("td");
@@ -52,15 +57,41 @@ function createTable(menu, headers){
                 const input = document.createElement("input");
                 input.value = menuItem[key];
                 input.classList.add("menu-input");
+                input.id = `${menuItem.id}-${key}`;
                 td.appendChild(input);
 
                 if (key === "allergens") {
                     const allergens = menuItem[key].map(allergen => allergen.name).join(", ");
                     input.value = allergens;
                 }
+
+                input.addEventListener('change', () => {
+                    changedInputs[input.id] = input.value;
+                    console.log(changedInputs);
+                });
+
             }
 
             row.appendChild(td);
+        });
+
+        updateButton.addEventListener('click', async () => {
+            // Populate the changesByProductId object inside the click event listener
+            const changesByProductId = {};
+            for (const key in changedInputs) {
+                const [productId, property] = key.split('-');
+                if (!changesByProductId[productId]) {
+                    changesByProductId[productId] = {};
+                }
+                changesByProductId[productId][property] = changedInputs[key];
+            }
+
+            const productId = updateButton.dataset.productId;
+            const changedProduct = changesByProductId[productId];
+            console.log(changedProduct);
+
+            const result= await updateProduct(productId, changedProduct, sessionStorage.getItem('token'));
+            console.log(result);
         });
 
         row.appendChild(updateButton);
