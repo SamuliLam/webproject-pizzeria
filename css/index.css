@@ -1,6 +1,7 @@
 main {
     text-align: center;
-    margin: 5rem auto;
+    margin: auto;
+    width: 100%;
 }
 
 
@@ -9,11 +10,25 @@ main p {
 }
 
 .root-container {
-    background: url(../media/pizza-levite.jpg) no-repeat center center fixed;
+    background: url(../media/blackbackground.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+#top-image-container {
+    background-image: url('/media/Pizza-index.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 800px;
+    width: 100%;
+}
+
+#top-image-container h1{
+    margin-top: 22rem;
+    margin-left: 40rem;
+    font-size: 5rem;
 }
 
 .feedback {

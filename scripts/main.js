@@ -40,11 +40,13 @@ export const updateCartDisplay = () => {
 const shoppingCart = document.getElementById("shoppingCart");
 const cartContent = document.getElementById("cartContent");
 
+cartContent.style.display = "none";
+
 shoppingCart.addEventListener("click", function() {
     if (sessionStorage.getItem("shoppingCart") === null || JSON.parse(sessionStorage.getItem("shoppingCart")).length === 0) {
-        cartContent.style.display = "none";
+        cartContent.style.display = cartContent.style.display === "none" ? "block" : "none";
     } else {
-        cartContent.style.display = "block";
+        cartContent.style.display = cartContent.style.display === "none" ? "block" : "none";
         displayCartContents();
     }
 });
@@ -85,7 +87,6 @@ const displayCartContents = () => {
                 }
                 productButtons.remove();
                 mainProductContainer.remove()
-                console.log("Tämä on vittusaatana", shoppingCart)
                 sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
                 console.log("session storage", sessionStorage.getItem("shoppingCart").length);
             }
@@ -121,6 +122,17 @@ const displayCartContents = () => {
         cartProducts.appendChild(mainProductContainer);
 
     });
+
+    const proceedToCheckoutButton = document.createElement("button");
+    proceedToCheckoutButton.textContent = "Proceed to Checkout";
+    proceedToCheckoutButton.classList.add("proceed-to-checkout-button");
+    proceedToCheckoutButton.addEventListener("click", () => {
+        window.location.href = "order.html";
+    });
+    const bottomContainer = document.createElement("div");
+    bottomContainer.classList.add("proceed-to-checkout-container");
+    bottomContainer.appendChild(proceedToCheckoutButton);
+    cartProducts.appendChild(bottomContainer);
 };
 
 updateCartDisplay()

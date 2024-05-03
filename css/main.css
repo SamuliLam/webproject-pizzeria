@@ -134,6 +134,7 @@ body {
     display: flex;
     flex-direction: row;
     padding: 1.5rem;
+    justify-content: space-between;
 }
 
 .cart-product span {
@@ -143,7 +144,7 @@ body {
 .cart-buttons {
     display: flex;
     flex-direction: row;
-    margin: auto;
+    align-items: center;
 }
 
 .cart-buttons button {
@@ -155,7 +156,30 @@ body {
     align-items: center;
     margin: auto;
     display: flex;
+    border-style: none;
 }
+
+.proceed-to-checkout-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 32px;
+}
+
+.proceed-to-checkout-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.proceed-to-checkout-button:hover {
+    background-color: #0056b3;
+}
+
 #cart-count {
     position: absolute;
     top: -25px;
