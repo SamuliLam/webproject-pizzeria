@@ -92,7 +92,7 @@ function createTable(menu, headers){
             const user = JSON.parse(sessionStorage.getItem('user'));
             console.log('user', user)
             console.log('changed product', changedProduct);
-            await updateProduct(productId, changedProduct, user, sessionStorage.getItem('token'));
+            await updateProduct(productId, changedProduct, sessionStorage.getItem('token'));
         });
 
         row.appendChild(updateButton);

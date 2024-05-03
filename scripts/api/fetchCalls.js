@@ -69,16 +69,16 @@ export async function modifyOrderStatus(id, status) {
     }
 }
 
-export async function updateProduct(id, modifiedProduct, user, token) {
+export async function updateProduct(id, modifiedProduct, token) {
     console.log(JSON.stringify(modifiedProduct));
     try {
         const response = await fetch(`http://10.120.32.55/app/api/v1/products/${id}`, {
-            method: 'PUT',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 authorization: `Bearer ${token}`
             },
-            body: JSON.stringify(modifiedProduct, user)
+            body: JSON.stringify(modifiedProduct)
 
         });
         const data = await response.json();
