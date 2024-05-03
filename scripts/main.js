@@ -44,7 +44,7 @@ cartContent.style.display = "none";
 
 shoppingCart.addEventListener("click", function() {
     if (sessionStorage.getItem("shoppingCart") === null || JSON.parse(sessionStorage.getItem("shoppingCart")).length === 0) {
-        cartContent.style.display = cartContent.style.display === "none" ? "block" : "none";
+        cartContent.style.display = "none";
     } else {
         cartContent.style.display = cartContent.style.display === "none" ? "block" : "none";
         displayCartContents();
@@ -54,10 +54,10 @@ shoppingCart.addEventListener("click", function() {
 const cartProducts = document.getElementById("cartProducts");
 
 const displayCartContents = () => {
-    cartProducts.innerHTML = "";
-
+    while (cartProducts.firstChild) {
+        cartProducts.removeChild(cartProducts.firstChild);
+    }
     const shoppingCart = JSON.parse(sessionStorage.getItem("shoppingCart")) || [];
-    console.log("Tämä on himoshopcart", shoppingCart)
     shoppingCart.forEach(product => {
         const mainProductContainer = document.createElement("div");
         mainProductContainer.classList.add("cart-product")
@@ -77,7 +77,6 @@ const displayCartContents = () => {
             if (product.quantity > 0) {
                 product.quantity--;
                 sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
-                console.log("session storage", sessionStorage.getItem("shoppingCart").length);
             }
 
             if (product.quantity === 0) {
@@ -88,7 +87,6 @@ const displayCartContents = () => {
                 productButtons.remove();
                 mainProductContainer.remove()
                 sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
-                console.log("session storage", sessionStorage.getItem("shoppingCart").length);
             }
 
             productQuantity.textContent = product.quantity;
@@ -96,6 +94,10 @@ const displayCartContents = () => {
 
             if (shoppingCart.length === 0) {
                 cartContent.style.display = "none";
+                const checkoutButton = document.querySelector(".proceed-to-checkout-button");
+                if (checkoutButton) {
+                    checkoutButton.parentElement.remove();
+                }
             }
 
             updateCartDisplay();
@@ -122,17 +124,19 @@ const displayCartContents = () => {
         cartProducts.appendChild(mainProductContainer);
 
     });
+    if (shoppingCart.length > 0) {
+        const proceedToCheckoutButton = document.createElement("button");
+        proceedToCheckoutButton.textContent = "Proceed to Checkout";
+        proceedToCheckoutButton.classList.add("proceed-to-checkout-button");
+        proceedToCheckoutButton.addEventListener("click", () => {
+            window.location.href = "../ravintola/checkout.html";
+        });
 
-    const proceedToCheckoutButton = document.createElement("button");
-    proceedToCheckoutButton.textContent = "Proceed to Checkout";
-    proceedToCheckoutButton.classList.add("proceed-to-checkout-button");
-    proceedToCheckoutButton.addEventListener("click", () => {
-        window.location.href = "order.html";
-    });
-    const bottomContainer = document.createElement("div");
-    bottomContainer.classList.add("proceed-to-checkout-container");
-    bottomContainer.appendChild(proceedToCheckoutButton);
-    cartProducts.appendChild(bottomContainer);
+        const bottomContainer = document.createElement("div");
+        bottomContainer.classList.add("proceed-to-checkout-container");
+        bottomContainer.appendChild(proceedToCheckoutButton);
+        cartProducts.appendChild(bottomContainer);
+    }
 };
 
 updateCartDisplay()
