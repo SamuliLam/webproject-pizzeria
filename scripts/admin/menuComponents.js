@@ -88,10 +88,11 @@ function createTable(menu, headers){
 
             const productId = updateButton.dataset.productId;
             const changedProduct = changesByProductId[productId];
-            console.log(changedProduct);
 
-            const result= await updateProduct(productId, changedProduct, sessionStorage.getItem('token'));
-            console.log(result);
+            const user = JSON.parse(sessionStorage.getItem('user'));
+            console.log('user', user)
+            console.log('changed product', changedProduct);
+            await updateProduct(productId, changedProduct, user, sessionStorage.getItem('token'));
         });
 
         row.appendChild(updateButton);
