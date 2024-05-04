@@ -25,12 +25,6 @@ main p {
     width: 100%;
 }
 
-#top-image-container h1{
-    margin-top: 22rem;
-    margin-left: 40rem;
-    font-size: 5rem;
-}
-
 .feedback {
     justify-content: space-between;
     padding: 20px;
@@ -68,9 +62,57 @@ h2 + small {
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
+.center-div {
+    background-image: url('/media/wall-texture.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 80vh;
+    width: 80vw;
+    box-shadow: 0 5px 5px -5px rgba(0, 0, 0, 0.5)
+}
+
+.red {
+    color: red;
+}
+
+.white {
+    color: white;
+}
+
+.green {
+    color: green;
+}
+
+.enrico {
+    margin-top: 27rem;
+    margin-left: 40rem;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
 #pizzeria {
     background-color: #f2f2f2;
     width: 40%;
+}
+
+#center-div-image {
+    display: flex;
+    flex-direction: column;
+}
+
+#center-div-image img {
+    margin-top: -8rem;
+    margin-left: 68rem;
+    width: 40%;
+}
+
+#center-div-image p {
+    margin-top: -5px;
+    margin-left: 68.1rem;
+    width: 40%;
+    padding: 20px 0;
+    background-color: rgb(248,243,234);
+    color: black;
 }
 
 @media screen and (max-width: 600px) {
@@ -94,4 +136,21 @@ h2 + small {
         width: 30px;
         height: 30px;
     }
+
+    .enrico {
+        margin-top: 5%;
+        margin-left: 5%;
+        font-size: 3vw;
+    }
+
+    #center-div-image img {
+        width: 100%; /* Full width */
+    }
+
+    #center-div-image p {
+        margin-top: 0;
+        margin-left: 0;
+        width: 100%;
+    }
 }
+

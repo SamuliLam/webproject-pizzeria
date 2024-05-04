@@ -128,7 +128,7 @@ body {
     background-image: url(/media/pine-wood.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 #cartProducts {
