@@ -73,6 +73,7 @@ shoppingCart.addEventListener("click", function() {
 const cartProducts = document.getElementById("cartProducts");
 
 const displayCartContents = () => {
+    let totalPrice = 0;
     while (cartProducts.firstChild) {
         cartProducts.removeChild(cartProducts.firstChild);
     }
@@ -88,7 +89,12 @@ const displayCartContents = () => {
         productName.textContent = product.name;
         productContainer.appendChild(productName);
 
+        let singleProductPrice = Number(product.price) * product.quantity;
+        const singleProduct = document.createElement("p");
+        singleProduct.classList.add("single-price");
 
+        let priceOfProduct = Number(product.price);
+        totalPrice += priceOfProduct * product.quantity;
 
         const minusButton = document.createElement("button");
         minusButton.textContent = "-";
@@ -120,7 +126,8 @@ const displayCartContents = () => {
             }
 
             updateCartDisplay();
-        })
+            displayCartContents();
+        });
         productButtons.appendChild(minusButton);
 
         const productQuantity = document.createElement("span");
@@ -136,13 +143,26 @@ const displayCartContents = () => {
             productQuantity.textContent = product.quantity;
             sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
             updateCartDisplay();
+            displayCartContents();
         });
-
+        singleProduct.textContent = singleProductPrice + "€";
+        productButtons.appendChild(singleProduct);
         mainProductContainer.appendChild(productContainer);
         mainProductContainer.appendChild(productButtons);
         cartProducts.appendChild(mainProductContainer);
 
     });
+
+    const detailContainer = document.createElement("div");
+
+    detailContainer.classList.add("total-price");
+    const totalInfo = document.createElement("p");
+    detailContainer.appendChild(totalInfo);
+
+    let formattedPrice = totalPrice.toFixed(2);
+    totalInfo.textContent = "Total price: " + formattedPrice + "€";
+    cartProducts.appendChild(detailContainer);
+
     if (shoppingCart.length > 0) {
         const proceedToCheckoutButton = document.createElement("button");
         proceedToCheckoutButton.textContent = "Proceed to Checkout";
