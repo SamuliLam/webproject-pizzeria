@@ -90,10 +90,6 @@ thead {
     color: blue;
 }
 
-.menu-container {
-
-}
-
 .menu-table-container {
     overflow-y: auto;
     max-height: 60vh;
