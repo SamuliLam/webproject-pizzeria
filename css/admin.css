@@ -91,10 +91,13 @@ thead {
 }
 
 .menu-container {
-    justify-content: center;
-    max-height: 60vh;
+
+}
+
+.menu-table-container {
     overflow-y: auto;
-    padding-right: 1rem;
+    max-height: 60vh;
+    justify-content: center;
 }
 
 .menu-table {
@@ -104,13 +107,6 @@ thead {
 .description-cell {
     max-width: 200px;
     word-wrap: break-word;
-}
-
-.menu-button-container {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
 }
 
 .menu-header-button {

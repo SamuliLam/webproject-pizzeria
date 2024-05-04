@@ -1,4 +1,4 @@
-import {updateProduct} from "../api/fetchCalls.js";
+import {updateProduct, createProduct} from "../api/fetchCalls.js";
 export const menuComponent = (menu) => {
     const menuContainer = document.createElement("div");
     menuContainer.classList.add("menu-container");
@@ -18,11 +18,6 @@ export const menuComponent = (menu) => {
         menuContainer.appendChild(addMenuItemForm());
     });
 
-    const manageMenuButton = document.createElement("button");
-    manageMenuButton.classList.add("menu-header-button");
-    manageMenuButton.id = "manage-menu-button";
-    manageMenuButton.textContent = "Manage menu";
-    buttonContainer.appendChild(manageMenuButton);
 
     const headers = ["Id", "Name", "Description", "Price", "Category", "Allergens"];
 
@@ -33,8 +28,12 @@ export const menuComponent = (menu) => {
 }
 
 function createTable(menu, headers){
+
+    const menuTableContainer = document.createElement("div");
+    menuTableContainer.classList.add("menu-table-container");
     const menuTable = document.createElement("table");
     menuTable.classList.add("menu-table", "responsive-menu-table");
+    menuTableContainer.appendChild(menuTable);
 
     const thead = document.createElement("thead");
     menuTable.appendChild(thead);
@@ -110,7 +109,7 @@ function createTable(menu, headers){
         row.appendChild(updateButton);
     });
 
-    return menuTable;
+    return menuTableContainer;
 }
 
 const addMenuItemForm = () => {
@@ -166,6 +165,35 @@ const addMenuItemForm = () => {
     submitButton.type = "submit";
     submitButton.textContent = "Submit";
     form.appendChild(submitButton);
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const product = {
+            name: nameInput.value,
+            description: descriptionInput.value,
+            price: priceInput.value,
+            category: categoryInput.value,
+            allergens: allergensInput.value.split(',').map(allergen => ({name: allergen.trim()}))
+        };
+
+        console.log(product)
+
+        const token = sessionStorage.getItem('token');
+
+        const response = await createProduct(product, token);
+        const statusMessage = document.getElementById('status-message');
+
+        if (response === 201) {
+            console.log('Product created');
+            statusMessage.textContent = 'Product created';
+            statusMessage.style.color = 'green';
+        } else {
+            console.log('Product not created');
+            statusMessage.textContent = 'Product not created';
+            statusMessage.style.color = 'red';
+        }
+    });
 
     return form;
 }

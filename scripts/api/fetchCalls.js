@@ -110,7 +110,19 @@ export async function authenticateAdmin(token) {
 
 export async function createProduct(product, token) {
     try {
-        const response = await fetch(`http://`)
+        const response = await fetch(`http://10.120.32.55/app/api/v1/products/`, {
+           method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${token}`
+              },
+                body: JSON.stringify(product)
+        });
+        const data = await response.json();
+        if (response.ok) {
+            console.log(data)
+            return response.status;
+        }
     } catch (error) {
         console.log(error);
     }
