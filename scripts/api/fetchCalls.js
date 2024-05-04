@@ -24,6 +24,10 @@ export const getProducts = async () => {
     }
 }
 
+export const postOrder = async (order) => {
+    // TODO: Implement the postOrder function
+}
+
 export const getOrderItemsByOrderId = async (id) => {
     try {
         const response = await fetch(`http://10.120.32.55/app/api/v1/orders/${id}/items`);

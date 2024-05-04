@@ -114,6 +114,8 @@ body {
 }
 
 .cart-content {
+    max-height: 50vh;
+    overflow: auto;
     display: none;
     position: absolute;
     top: 100%;

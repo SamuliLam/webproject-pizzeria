@@ -148,7 +148,11 @@ const displayCartContents = () => {
         proceedToCheckoutButton.textContent = "Proceed to Checkout";
         proceedToCheckoutButton.classList.add("proceed-to-checkout-button");
         proceedToCheckoutButton.addEventListener("click", () => {
-            window.location.href = "../ravintola/checkout.html";
+            if (sessionStorage.getItem("token")) {
+                window.location.href = "checkout.html";
+            } else {
+                window.location.href = "login.html";
+            }
         });
 
         const bottomContainer = document.createElement("div");

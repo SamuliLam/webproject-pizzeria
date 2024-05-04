@@ -23,7 +23,6 @@
                 <img src="media/shopping-bag.png" alt="Pizza Oven" class="icon" id="shoppingCart"/>
                 <div class="cart-content" id="cartContent">
                     <div id="cartProducts">
-
                     </div>
                 </div>
             </div>
@@ -37,30 +36,34 @@
     </nav>
 </header>
 <div class="root-container">
-
     <main>
         <div class="order-container">
-            <h1>Order</h1>
-            <form id="order-form">
-                <label for="firstname">First Name</label>
-                <input type="text" name="firstname" id="firstname" placeholder="First Name" autocomplete="given-name" required/>
+            <div class="customer-information">
+                <h1>Your Information</h1>
+                <form id="order-form">
+                    <label for="firstname">First Name</label>
+                    <input type="text" name="firstname" id="firstname" placeholder="First Name" autocomplete="given-name"
+                           required/>
 
-                <label for="lastname">Last Name</label>
-                <input type="text" name="lastname" id="lastname" placeholder="Last Name" autocomplete="family-name" required/>
+                    <label for="lastname">Last Name</label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Last Name" autocomplete="family-name"
+                           required/>
 
-                <label for="email">Email Address</label>
-                <input type="email" name="email" id="email" placeholder="Email Address" autocomplete="email" required/>
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" id="email" placeholder="Email Address" autocomplete="email" required/>
 
-                <label for="phone">Phone Number</label>
-                <input type="tel" name="phone" id="phone" placeholder="Phone Number" autocomplete="tel" required/>
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" name="phone" id="phone" placeholder="Phone Number" autocomplete="tel" required/>
 
-                <label for="address">Address</label>
-                <input type="text" name="address" id="address" placeholder="Address" autocomplete="street-address" required/>
-            </form>
+                    <label for="address">Address</label>
+                    <input type="text" name="address" id="address" placeholder="Address" autocomplete="street-address"
+                           required/>
+                </form>
+            </div>
+            <div class="order-summary">
+            </div>
         </div>
-        <div class="order-overview">
-            <h1>Order Overview</h1>
-        </div>
+
     </main>
 </div>
 <nav id="side-bar" aria-label="Sidebar Navigation">
