@@ -108,3 +108,11 @@ export async function authenticateAdmin(token) {
     }
 }
 
+export async function createProduct(product, token) {
+    try {
+        const response = await fetch(`http://`)
+    } catch (error) {
+        console.log(error);
+    }
+
+}

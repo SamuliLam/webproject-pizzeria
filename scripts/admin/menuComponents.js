@@ -3,14 +3,26 @@ export const menuComponent = (menu) => {
     const menuContainer = document.createElement("div");
     menuContainer.classList.add("menu-container");
 
-    const menuTitle = document.createElement("h2");
-    menuTitle.textContent = "Manage your menu";
-    menuContainer.appendChild(menuTitle);
+    const buttonContainer = document.createElement("div");
+    buttonContainer.classList.add("menu-button-container");
+    menuContainer.appendChild(buttonContainer);
 
     const addMenuItemButton = document.createElement("button");
-    addMenuItemButton.classList.add("add-menu-item-button");
+    addMenuItemButton.classList.add("menu-header-button");
+    addMenuItemButton.id = "add-menu-item-button";
     addMenuItemButton.textContent = "Add menu item";
-    menuContainer.appendChild(addMenuItemButton);
+    buttonContainer.appendChild(addMenuItemButton);
+
+    addMenuItemButton.addEventListener('click', () => {
+        menuContainer.innerHTML = '';
+        menuContainer.appendChild(addMenuItemForm());
+    });
+
+    const manageMenuButton = document.createElement("button");
+    manageMenuButton.classList.add("menu-header-button");
+    manageMenuButton.id = "manage-menu-button";
+    manageMenuButton.textContent = "Manage menu";
+    buttonContainer.appendChild(manageMenuButton);
 
     const headers = ["Id", "Name", "Description", "Price", "Category", "Allergens"];
 
@@ -99,4 +111,61 @@ function createTable(menu, headers){
     });
 
     return menuTable;
+}
+
+const addMenuItemForm = () => {
+    const form = document.createElement("form");
+    form.classList.add("menu-item-form");
+
+    const nameLabel = document.createElement("label");
+    nameLabel.textContent = "Name";
+    form.appendChild(nameLabel);
+
+    const nameInput = document.createElement("input");
+    nameInput.type = "text";
+    nameInput.name = "name";
+    form.appendChild(nameInput);
+
+    const descriptionLabel = document.createElement("label");
+    descriptionLabel.textContent = "Description";
+    form.appendChild(descriptionLabel);
+
+    const descriptionInput = document.createElement("input");
+    descriptionInput.type = "text";
+    descriptionInput.name = "description";
+    form.appendChild(descriptionInput);
+
+    const priceLabel = document.createElement("label");
+    priceLabel.textContent = "Price";
+    form.appendChild(priceLabel);
+
+    const priceInput = document.createElement("input");
+    priceInput.type = "text";
+    priceInput.name = "price";
+    form.appendChild(priceInput);
+
+    const categoryLabel = document.createElement("label");
+    categoryLabel.textContent = "Category";
+    form.appendChild(categoryLabel);
+
+    const categoryInput = document.createElement("input");
+    categoryInput.type = "text";
+    categoryInput.name = "category";
+    form.appendChild(categoryInput);
+
+    const allergensLabel = document.createElement("label");
+    allergensLabel.textContent = "Allergens";
+    form.appendChild(allergensLabel);
+
+    const allergensInput = document.createElement("input");
+    allergensInput.type = "text";
+    allergensInput.name = "allergens";
+    form.appendChild(allergensInput);
+
+    const submitButton = document.createElement("button");
+    submitButton.type = "submit";
+    submitButton.textContent = "Submit";
+    form.appendChild(submitButton);
+
+    return form;
 }
