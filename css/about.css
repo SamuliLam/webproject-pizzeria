@@ -10,8 +10,8 @@ body {
 
 .about-container img {
     height: 300px;
-    width: 320px;
-    margin: 0.5em -4.5em;
+    width: auto;
+    margin: 0.5em;
 }
 
 #left-container {
@@ -23,20 +23,50 @@ body {
 }
 
 #left-container a {
-    margin-top: 4rem;
+    margin-top: 2rem;
     text-decoration: none;
     color: white;
     background-color: lightpink;
-    height: 20px;
-    width: 220px;
-    padding-top: 10px;
-    padding-bottom: 15px;
-    padding-left: 25px;
+    height: auto;
+    width: fit-content;
+    padding: 10px 20px;
     text-align: left;
 }
 
 #right-container {
-    margin-left: 10rem;
+    margin-left: 5rem;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#right-container > div {
+    flex: 1 1 45%;
+    margin: 0.5em;
+}
+
+@media screen and (max-width: 768px) {
+    .about-container {
+        margin: 2rem;
+        flex-direction: column;
+    }
+
+    #left-container {
+        margin-left: 0;
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    #right-container {
+        margin-left: 0;
+    }
+
+    #right-container > div {
+        flex: 1 1 100%;
+    }
+
+    .about-container img {
+        height: auto;
+        width: 100%;
+    }
 }
