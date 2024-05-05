@@ -76,7 +76,7 @@ function createTable(menu, headers){
             } else {
                 const input = document.createElement("input");
                 input.value = menuItem[key];
-                input.classList.add("menu-input");
+                input.classList.add("admin-content-input");
                 input.id = `${menuItem.id}-${key}`;
                 td.appendChild(input);
 

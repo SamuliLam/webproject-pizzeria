@@ -55,6 +55,27 @@ body {
     background-color: #7e0030;
 }
 
+.admin-content-input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.edit-menu-item-button {
+    padding: 0.2rem 0.6rem;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(32, 37, 54);
+    color: white;
+    font-size: 1rem;
+
+}
 
 .order-table {
     border-spacing: 1rem;
@@ -84,9 +105,6 @@ thead {
     color: blue;
 }
 
-#admin-content-container {
-    flex-grow: 1;
-}
 
 .menu-container {
     max-height: 100%;
@@ -144,6 +162,11 @@ thead {
     font-size: 1rem;
 }
 
+.menu-button-container {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
 @media screen and (max-width: 768px) {
     .admin-panel-buttons-container {
         flex-direction: column;
@@ -178,5 +201,10 @@ thead {
         float: left;
         text-transform: uppercase;
         font-weight: bold;
+    }
+
+    .button-container {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
     }
 }
