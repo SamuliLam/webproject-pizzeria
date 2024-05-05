@@ -12,10 +12,18 @@
 
 .customer-information {
     width: 25rem;
-    background-color: #dcc15a;
+    background-image: url('/media/pine-wood.jpg');
+    background-color: rgba(193, 193, 193, 0.5);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     padding-bottom: 20px;
+}
+
+input[readonly] {
+    background-color: #9f9f9f;
 }
 
 h1 {
@@ -46,7 +54,11 @@ h1 {
 
 .order-summary {
     width: 30rem;
-    background-color: #007bff;
+    background-image: url('/media/order-summary-background.jpg');
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 0 30px 30px 30px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;

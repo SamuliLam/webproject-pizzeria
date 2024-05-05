@@ -24,8 +24,31 @@ export const getProducts = async () => {
     }
 }
 
-export const postOrder = async (order) => {
-    // TODO: Implement the postOrder function
+export const postOrder = async (user, address, items, totalPriceValue) => {
+    try {
+        const response = await fetch("http://10.120.32.55/app/api/v1/orders/", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "order": {
+                    "customer_id": user.id,
+                    "delivery_address": address,
+                    "status": "processing",
+                    "total_price": totalPriceValue
+                },
+                "products": items
+            })
+        });
+        const data = await response.json();
+        if (response.ok) {
+            console.log(data)
+            return data;
+        }
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 export const getOrderItemsByOrderId = async (id) => {

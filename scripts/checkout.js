@@ -1,11 +1,8 @@
 'use strict';
-
 import { postOrder } from "./api/fetchCalls.js";
-
-let user, shoppingCart, orderForm;
+let user, shoppingCart, orderForm =document.getElementById("order-form");
 
 const createUserData = (user) => {
-    orderForm = document.getElementById("order-form");
     orderForm.firstname.value = user.first_name;
     orderForm.lastname.value = user.last_name;
     orderForm.email.value = user.email;
@@ -47,21 +44,35 @@ const createOrderOverview = (shoppingCart) => {
 
         tbody.appendChild(tr);
     });
-    const totalPriceRow = document.createElement("tr");
-    totalPriceRow.classList.add("order-summary-total-price");
+    if (shoppingCart.length > 0) {
+        const totalPriceValue = shoppingCart.reduce((acc, item) => acc + (parseFloat(item.price) * item.quantity), 0)
+        const totalPriceRow = document.createElement("tr");
+        totalPriceRow.classList.add("order-summary-total-price");
 
-    const totalPriceCell = document.createElement("td");
-    totalPriceCell.textContent = "Total price: " + shoppingCart.reduce((acc, item) => acc + parseFloat(item.price), 0) + "\u20AC";
+        const totalPriceCell = document.createElement("td");
+        totalPriceCell.textContent = "Total price: " + totalPriceValue + "\u20AC";
 
-    totalPriceRow.appendChild(totalPriceCell); tbody.appendChild(totalPriceRow);
-    orderSummaryTable.appendChild(tbody);
+        totalPriceRow.appendChild(totalPriceCell); tbody.appendChild(totalPriceRow);
+        orderSummaryTable.appendChild(tbody);
 
-    const orderButton = document.createElement("button");
-    orderButton.textContent = "Order";
-    orderButton.addEventListener("click", async () => {
-        //TODO: Add order to database
-    });
-    orderSummaryDiv.appendChild(orderButton);
+        const orderButton = document.createElement("button");
+        orderButton.textContent = "Order";
+        orderButton.addEventListener("click", async () => {
+            const address = orderForm.address.value;
+            let items = [];
+            for (let i = 0; i < shoppingCart.length; i++) {
+                for (let j = 0; j < shoppingCart[i].quantity; j++) {
+                    items.push({product_id: shoppingCart[i].id});
+                }
+            }
+            await postOrder(user, address, items, totalPriceValue);
+        });
+        orderSummaryDiv.appendChild(orderButton);
+    } else {
+        const emptyCart = document.createElement("p");
+        emptyCart.textContent = "Your cart is empty";
+        orderSummaryDiv.appendChild(emptyCart);
+    }
 }
 
 if (!sessionStorage.getItem("token")) {
