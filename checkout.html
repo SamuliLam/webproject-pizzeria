@@ -42,7 +42,8 @@
                 <h1>Your Information</h1>
                 <form id="order-form">
                     <label for="firstname">First Name</label>
-                    <input type="text" name="firstname" id="firstname" placeholder="First Name" autocomplete="given-name"
+                    <input type="text" name="firstname" id="firstname" placeholder="First Name"
+                           autocomplete="given-name"
                            readonly/>
 
                     <label for="lastname">Last Name</label>
@@ -50,7 +51,8 @@
                            readonly/>
 
                     <label for="email">Email Address</label>
-                    <input type="email" name="email" id="email" placeholder="Email Address" autocomplete="email" readonly/>
+                    <input type="email" name="email" id="email" placeholder="Email Address" autocomplete="email"
+                           readonly/>
 
                     <label for="phone">Phone Number</label>
                     <input type="tel" name="phone" id="phone" placeholder="Phone Number" autocomplete="tel" readonly/>
@@ -63,7 +65,21 @@
             <div class="order-summary">
             </div>
         </div>
-
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <img src="media/checked.png" alt="order-completed" id="order-completed"/>
+                <img src="media/delete.png" alt="order-not-completed" id="order-not-completed"/>
+                <div class="order-completed">
+                    <h1>Order Completed</h1>
+                    <p>Your order has been placed successfully!</p>
+                </div>
+                <div class="order-not-completed">
+                    <h1>Order Not Completed</h1>
+                    <p>There was an error placing your order. Please try again later.</p>
+                </div>
+            </div>
+        </div>
     </main>
 </div>
 <nav id="side-bar" aria-label="Sidebar Navigation">

@@ -1,6 +1,21 @@
 'use strict';
-import { postOrder } from "./api/fetchCalls.js";
-let user, shoppingCart, orderForm =document.getElementById("order-form");
+import {postOrder} from "./api/fetchCalls.js";
+
+let user, shoppingCart, orderForm = document.getElementById("order-form");
+const modal = document.querySelector(".modal");
+const modalContent = document.querySelector(".modal-content");
+
+const closeButton = document.querySelector(".close");
+
+closeButton.addEventListener("click", function() {
+    modal.style.display = "none";
+});
+
+window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
 
 export const createUserData = (user) => {
     orderForm.firstname.value = user.first_name;
@@ -52,7 +67,8 @@ export const createOrderOverview = (shoppingCart) => {
         const totalPriceCell = document.createElement("td");
         totalPriceCell.textContent = "Total price: " + totalPriceValue + "\u20AC";
 
-        totalPriceRow.appendChild(totalPriceCell); tbody.appendChild(totalPriceRow);
+        totalPriceRow.appendChild(totalPriceCell);
+        tbody.appendChild(totalPriceRow);
         orderSummaryTable.appendChild(tbody);
 
         const orderButton = document.createElement("button");
@@ -65,7 +81,24 @@ export const createOrderOverview = (shoppingCart) => {
                     items.push({product_id: shoppingCart[i].id});
                 }
             }
-            await postOrder(user, address, items, totalPriceValue);
+            const success = await postOrder(user, address, items, totalPriceValue)
+            if (success) {
+                modal.style.display = "flex";
+                document.getElementById("order-completed").style.display = "block";
+                document.querySelector(".order-completed").style.display = "block";
+                setTimeout(() => {
+                    sessionStorage.removeItem("shoppingCart");
+                    window.location.href = "index.html";
+                }, 3000)
+            } else {
+                modal.style.display = "flex";
+                document.getElementById("order-not-completed").style.display = "block";
+                document.querySelector(".order-not-completed").style.display = "block";
+                setTimeout(() => {
+                    sessionStorage.removeItem("shoppingCart");
+                    window.location.href = "index.html";
+                }, 3000)
+            }
         });
         orderSummaryDiv.appendChild(orderButton);
     } else {
