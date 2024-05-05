@@ -12,12 +12,6 @@ body {
     align-items: center;
 }
 
-#admin-content-container {
-    display: flex;
-    flex-direction: column;
-    height: 75%;
-}
-
 .admin-panel {
     margin-top: 6rem;
     margin-bottom: 2rem;
@@ -35,10 +29,16 @@ body {
 
 .admin-panel-buttons-container {
     display: flex;
-    flex-direction: row;
+    flex-shrink: 0;
     justify-content: center;
     margin-bottom: 1rem;
     gap: 1rem;
+}
+
+#admin-content-container {
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: auto;
 }
 
 .admin-panel-buttons-container button {
@@ -55,12 +55,6 @@ body {
     background-color: #7e0030;
 }
 
-.order-container {
-    display: flex;
-    justify-content: center;
-    max-height: 60vh;
-    overflow-y: auto;
-}
 
 .order-table {
     border-spacing: 1rem;
@@ -90,11 +84,16 @@ thead {
     color: blue;
 }
 
-.menu-table-container {
-    overflow-y: auto;
-    max-height: 60vh;
-    justify-content: center;
+#admin-content-container {
+    flex-grow: 1;
 }
+
+.menu-container {
+    max-height: 100%;
+    max-width: 100%;
+    overflow: auto;
+}
+
 
 .menu-table {
     border-spacing: 1rem;
@@ -105,9 +104,6 @@ thead {
     word-wrap: break-word;
 }
 
-.menu-container {
-    max-height: 100%;
-}
 
 .menu-header-button {
     padding: 0.2rem 0.6rem;
