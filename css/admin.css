@@ -12,10 +12,10 @@ body {
     align-items: center;
 }
 
-.admin-content-container {
+#admin-content-container {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 75%;
 }
 
 .admin-panel {
@@ -103,6 +103,10 @@ thead {
 .description-cell {
     max-width: 200px;
     word-wrap: break-word;
+}
+
+.menu-container {
+    max-height: 100%;
 }
 
 .menu-header-button {
