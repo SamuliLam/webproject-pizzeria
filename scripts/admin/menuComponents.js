@@ -1,4 +1,4 @@
-import {updateProduct, createProduct} from "../api/fetchCalls.js";
+import {updateProduct, createProduct, deleteProduct} from "../api/fetchCalls.js";
 export const menuComponent = (menu) => {
     const menuContainer = document.createElement("div");
     menuContainer.classList.add("menu-container");
@@ -53,11 +53,20 @@ function createTable(menu, headers){
         const row = document.createElement("tr");
         menuTable.appendChild(row);
 
-        const updateButton = document.createElement("button");
-        updateButton.classList.add("update-menu-item-button");
-        updateButton.textContent = "Update";
+        const buttonContainer = document.createElement("div");
+        buttonContainer.classList.add("button-container");
 
+        const updateButton = document.createElement("button");
+        updateButton.classList.add("edit-menu-item-button");
+        updateButton.textContent = "Update";
         updateButton.dataset.productId = menuItem.id;
+        buttonContainer.appendChild(updateButton);
+
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("edit-menu-item-button");
+        deleteButton.textContent = "Remove";
+        deleteButton.dataset.productId = menuItem.id;
+        buttonContainer.appendChild(deleteButton);
 
         Object.keys(menuItem).forEach(key => {
             const td = document.createElement("td");
@@ -106,7 +115,17 @@ function createTable(menu, headers){
             await updateProduct(productId, changedProduct, sessionStorage.getItem('token'));
         });
 
-        row.appendChild(updateButton);
+        deleteButton.addEventListener('click', async () => {
+            const productId = deleteButton.dataset.productId;
+            const response = await deleteProduct(productId, sessionStorage.getItem('token'));
+
+            if (response === 200) {
+                const row = deleteButton.parentElement.parentElement;
+                row.remove();
+            }
+        });
+
+        row.appendChild(buttonContainer);
     });
 
     return menuTableContainer;
