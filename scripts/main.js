@@ -59,11 +59,13 @@ export const updateCartDisplay = () => {
 const shoppingCart = document.getElementById("shoppingCart");
 const cartContent = document.getElementById("cartContent");
 
+cartContent.style.display = "none";
+
 shoppingCart.addEventListener("click", function() {
     if (sessionStorage.getItem("shoppingCart") === null || JSON.parse(sessionStorage.getItem("shoppingCart")).length === 0) {
         cartContent.style.display = "none";
     } else {
-        cartContent.style.display = "block";
+        cartContent.style.display = cartContent.style.display === "none" ? "block" : "none";
         displayCartContents();
     }
 });
@@ -71,10 +73,11 @@ shoppingCart.addEventListener("click", function() {
 const cartProducts = document.getElementById("cartProducts");
 
 const displayCartContents = () => {
-    cartProducts.innerHTML = "";
-
+    let totalPrice = 0;
+    while (cartProducts.firstChild) {
+        cartProducts.removeChild(cartProducts.firstChild);
+    }
     const shoppingCart = JSON.parse(sessionStorage.getItem("shoppingCart")) || [];
-    console.log("Tämä on himoshopcart", shoppingCart)
     shoppingCart.forEach(product => {
         const mainProductContainer = document.createElement("div");
         mainProductContainer.classList.add("cart-product")
@@ -86,7 +89,12 @@ const displayCartContents = () => {
         productName.textContent = product.name;
         productContainer.appendChild(productName);
 
+        let singleProductPrice = Number(product.price) * product.quantity;
+        const singleProduct = document.createElement("p");
+        singleProduct.classList.add("single-price");
 
+        let priceOfProduct = Number(product.price);
+        totalPrice += priceOfProduct * product.quantity;
 
         const minusButton = document.createElement("button");
         minusButton.textContent = "-";
@@ -94,7 +102,6 @@ const displayCartContents = () => {
             if (product.quantity > 0) {
                 product.quantity--;
                 sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
-                console.log("session storage", sessionStorage.getItem("shoppingCart").length);
             }
 
             if (product.quantity === 0) {
@@ -104,9 +111,7 @@ const displayCartContents = () => {
                 }
                 productButtons.remove();
                 mainProductContainer.remove()
-                console.log("Tämä on vittusaatana", shoppingCart)
                 sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
-                console.log("session storage", sessionStorage.getItem("shoppingCart").length);
             }
 
             productQuantity.textContent = product.quantity;
@@ -114,10 +119,15 @@ const displayCartContents = () => {
 
             if (shoppingCart.length === 0) {
                 cartContent.style.display = "none";
+                const checkoutButton = document.querySelector(".proceed-to-checkout-button");
+                if (checkoutButton) {
+                    checkoutButton.parentElement.remove();
+                }
             }
 
             updateCartDisplay();
-        })
+            displayCartContents();
+        });
         productButtons.appendChild(minusButton);
 
         const productQuantity = document.createElement("span");
@@ -133,13 +143,43 @@ const displayCartContents = () => {
             productQuantity.textContent = product.quantity;
             sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
             updateCartDisplay();
+            displayCartContents();
         });
-
+        singleProduct.textContent = singleProductPrice + "€";
+        productButtons.appendChild(singleProduct);
         mainProductContainer.appendChild(productContainer);
         mainProductContainer.appendChild(productButtons);
         cartProducts.appendChild(mainProductContainer);
 
     });
+
+    const detailContainer = document.createElement("div");
+
+    detailContainer.classList.add("total-price");
+    const totalInfo = document.createElement("p");
+    detailContainer.appendChild(totalInfo);
+
+    let formattedPrice = totalPrice.toFixed(2);
+    totalInfo.textContent = "Total price: " + formattedPrice + "€";
+    cartProducts.appendChild(detailContainer);
+
+    if (shoppingCart.length > 0) {
+        const proceedToCheckoutButton = document.createElement("button");
+        proceedToCheckoutButton.textContent = "Proceed to Checkout";
+        proceedToCheckoutButton.classList.add("proceed-to-checkout-button");
+        proceedToCheckoutButton.addEventListener("click", () => {
+            if (sessionStorage.getItem("token")) {
+                window.location.href = "checkout.html";
+            } else {
+                window.location.href = "login.html";
+            }
+        });
+
+        const bottomContainer = document.createElement("div");
+        bottomContainer.classList.add("proceed-to-checkout-container");
+        bottomContainer.appendChild(proceedToCheckoutButton);
+        cartProducts.appendChild(bottomContainer);
+    }
 };
 
 updateCartDisplay()

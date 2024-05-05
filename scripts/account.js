@@ -13,11 +13,12 @@ const createUserData = (user) => {
     editForm.confirmPassword.placeholder = "********";
 }
 const editForm = document.querySelector('.edit-form');
-const user = JSON.parse(sessionStorage.getItem('user'));
+let user
 
-if (!user) {
+if (!sessionStorage.getItem("token")) {
     window.location.href = 'index.html';
 } else {
+    user = JSON.parse(sessionStorage.getItem('user'));
     createUserData(user);
 }
 

@@ -114,16 +114,21 @@ body {
 }
 
 .cart-content {
+    max-height: 50vh;
+    overflow: auto;
     display: none;
     position: absolute;
     top: 100%;
     left: -365px;
     background-color: #fff;
-    border: 3px solid #000000;
+    border: 1px solid #000000;
     padding: 10px;
     z-index: 999;
     color: black;
-
+    background-image: url(/media/pine-wood.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-weight: bold;
 }
 
 #cartProducts {
@@ -134,6 +139,7 @@ body {
     display: flex;
     flex-direction: row;
     padding: 1.5rem;
+    justify-content: space-between;
 }
 
 .cart-product span {
@@ -143,7 +149,7 @@ body {
 .cart-buttons {
     display: flex;
     flex-direction: row;
-    margin: auto;
+    align-items: center;
 }
 
 .cart-buttons button {
@@ -155,7 +161,34 @@ body {
     align-items: center;
     margin: auto;
     display: flex;
+    border-style: none;
 }
+
+.proceed-to-checkout-container {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 32px;
+}
+
+.proceed-to-checkout-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.proceed-to-checkout-button:hover {
+    background-color: #0056b3;
+}
+
+.single-price {
+    margin-left: 1rem;
+}
+
 #cart-count {
     position: absolute;
     top: -25px;
@@ -175,6 +208,17 @@ footer {
     border-top: solid 1px black;
 }
 
+#order-banner {
+    background-image: url(/media/footer-image.jpg);
+    background-repeat: repeat;
+    background-position: center;
+    color: black;
+    padding: 2.5rem;
+    font-size: 1.5rem;
+    border-top: solid 1px black;
+    background-color: rgba(244, 185, 46, 0.5);
+    background-blend-mode: multiply;
+}
 #main-nav-links, #side-bar-links {
     list-style: none;
 }
