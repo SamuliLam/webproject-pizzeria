@@ -41,11 +41,7 @@ export const postOrder = async (user, address, items, totalPriceValue) => {
                 "products": items
             })
         });
-        const data = await response.json();
-        if (response.ok) {
-            console.log(data)
-            return data;
-        }
+        return response.ok;
     } catch (error) {
         console.log(error);
     }
