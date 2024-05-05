@@ -64,18 +64,6 @@ export const getOrderItemsByOrderId = async (id) => {
     }
 }
 
-export const getUserById = async (id) => {
-    try {
-        const response = await fetch(`http://10.120.32.55/app/api/v1/users/${id}`);
-        const data = await response.json();
-        if (response.ok) {
-            console.log(data)
-            return data;
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
 
 export async function modifyOrderStatus(id, status) {
     try {
@@ -170,7 +158,78 @@ export async function deleteProduct(id, token) {
             console.log(data)
             return response.status;
         }
-    }catch (error) {
+    } catch (error) {
         console.log(error);
+    }
+}
+
+export const getUserById = async (id) => {
+    try {
+        const response = await fetch(`http://10.120.32.55/app/api/v1/users/${id}`);
+        const data = await response.json();
+        if (response.ok) {
+            console.log(data)
+            return data;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const getUsers = async () => {
+    try {
+        const response = await fetch('http://10.120.32.55/app/api/v1/users');
+        const data = await response.json();
+        if (response.ok) {
+            console.log(data)
+            // Filter out the password from the user data
+            return data.filter(user => user.role === 'user')
+                .map(({password, role, ...rest}) => rest);
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const updateUser = async (id, modifiedUser, token) => {
+    try {
+        const response = await fetch(`http://10.120.32.55/app/api/v1/users/${id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(modifiedUser)
+        });
+        const data = await response.json();
+        if (response.ok) {
+            console.log(data)
+            return response.status;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const deleteUser = async (id, token) => {
+    try {
+        const response = await fetch(`http://10.120.32.55/app/api/v1/users/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                authorization: `Bearer ${token}`
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log(data)
+        return response;
+    } catch (error) {
+        console.log(error);
+        return error;
     }
 }

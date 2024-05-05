@@ -1,6 +1,7 @@
-import {getOrders, getProducts} from "../api/fetchCalls.js";
+import {getOrders, getProducts, getUsers} from "../api/fetchCalls.js";
 import {orderComponent} from "./orderComponents.js";
 import {menuComponent} from "./menuComponents.js";
+import {userComponent} from "./userComponents.js";
 
 const adminContentContainer = document.getElementById("admin-content-container");
 
@@ -14,15 +15,26 @@ async function loadProducts() {
     adminContentContainer.appendChild(menuComponent(products));
 }
 
+async function loadUsers() {
+    const users = await getUsers();
+    adminContentContainer.appendChild(userComponent(users));
+}
+
 const manageOrdersButton = document.getElementById("manage-orders");
 const manageMenuButton = document.getElementById("manage-menu");
+const manageUsersButton = document.getElementById("manage-users");
 
-manageOrdersButton.addEventListener("click", () => {
+manageOrdersButton.addEventListener("click", async() => {
     adminContentContainer.innerHTML = "";
-    loadOrders();
+    await loadOrders();
 });
 
-manageMenuButton.addEventListener("click", () => {
+manageMenuButton.addEventListener("click", async() => {
     adminContentContainer.innerHTML = "";
-    loadProducts();
+    await loadProducts();
+});
+
+manageUsersButton.addEventListener("click", async() => {
+    adminContentContainer.innerHTML = "";
+    await loadUsers();
 });

@@ -67,7 +67,7 @@ body {
     gap: 1rem;
 }
 
-.edit-menu-item-button {
+.admin-edit-button {
     padding: 0.2rem 0.6rem;
     border: none;
     border-radius: 5px;
@@ -77,9 +77,6 @@ body {
 
 }
 
-.order-table {
-    border-spacing: 1rem;
-}
 
 .order-table th {
     border: 1px solid #ddd;
@@ -106,14 +103,14 @@ thead {
 }
 
 
-.menu-container {
+.menu-container, .user-container {
     max-height: 100%;
     max-width: 100%;
     overflow: auto;
 }
 
 
-.menu-table {
+.menu-table, .user-table, .order-table {
     border-spacing: 1rem;
 }
 
@@ -175,15 +172,15 @@ thead {
 }
 
 @media screen and (max-width: 1300px) {
-    .responsive-table, .responsive-menu-table {
+    .responsive-table, .responsive-menu-table, .responsive-user-table {
         width: 100%;
         overflow-x: auto;
         display: block;
     }
-    .responsive-table thead, .responsive-menu-table thead {
+    .responsive-table thead, .responsive-menu-table thead, .responsive-user-table thead{
         display: none;
     }
-    .responsive-table tr, .responsive-menu-table tr {
+    .responsive-table tr, .responsive-menu-table tr, .responsive-user-table tr {
         display: block;
         margin-bottom: 10px;
     }
@@ -192,11 +189,11 @@ thead {
         text-align: right;
     }
 
-    .responsive-menu-table td {
+    .responsive-menu-table td, .responsive-user-table td{
         display: block;
         text-align: center;
     }
-    .responsive-table td::before, .responsive-menu-table td::before{
+    .responsive-table td::before, .responsive-menu-table td::before, .responsive-user-table td::before{
         content: attr(data-label);
         float: left;
         text-transform: uppercase;

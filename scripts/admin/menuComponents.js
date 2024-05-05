@@ -57,13 +57,13 @@ function createTable(menu, headers){
         buttonContainer.classList.add("button-container");
 
         const updateButton = document.createElement("button");
-        updateButton.classList.add("edit-menu-item-button");
+        updateButton.classList.add("admin-edit-button");
         updateButton.textContent = "Update";
         updateButton.dataset.productId = menuItem.id;
         buttonContainer.appendChild(updateButton);
 
         const deleteButton = document.createElement("button");
-        deleteButton.classList.add("edit-menu-item-button");
+        deleteButton.classList.add("admin-edit-button");
         deleteButton.textContent = "Remove";
         deleteButton.dataset.productId = menuItem.id;
         buttonContainer.appendChild(deleteButton);
@@ -109,9 +109,6 @@ function createTable(menu, headers){
             const productId = updateButton.dataset.productId;
             const changedProduct = changesByProductId[productId];
 
-            const user = JSON.parse(sessionStorage.getItem('user'));
-            console.log('user', user)
-            console.log('changed product', changedProduct);
             await updateProduct(productId, changedProduct, sessionStorage.getItem('token'));
         });
 
