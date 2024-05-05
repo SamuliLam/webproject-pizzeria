@@ -3,7 +3,6 @@ import {postOrder} from "./api/fetchCalls.js";
 
 let user, shoppingCart, orderForm = document.getElementById("order-form");
 const modal = document.querySelector(".modal");
-const modalContent = document.querySelector(".modal-content");
 
 const closeButton = document.querySelector(".close");
 
@@ -81,30 +80,33 @@ export const createOrderOverview = (shoppingCart) => {
                     items.push({product_id: shoppingCart[i].id});
                 }
             }
-            const success = await postOrder(user, address, items, totalPriceValue)
-            if (success) {
-                modal.style.display = "flex";
-                document.getElementById("order-completed").style.display = "block";
-                document.querySelector(".order-completed").style.display = "block";
-                setTimeout(() => {
-                    sessionStorage.removeItem("shoppingCart");
-                    window.location.href = "index.html";
-                }, 3000)
-            } else {
-                modal.style.display = "flex";
-                document.getElementById("order-not-completed").style.display = "block";
-                document.querySelector(".order-not-completed").style.display = "block";
-                setTimeout(() => {
-                    sessionStorage.removeItem("shoppingCart");
-                    window.location.href = "index.html";
-                }, 3000)
-            }
+            const success = await postOrder(user, address, items, totalPriceValue);
+            handleOrder(success);
         });
         orderSummaryDiv.appendChild(orderButton);
     } else {
         const emptyCart = document.createElement("p");
         emptyCart.textContent = "Your cart is empty";
         orderSummaryDiv.appendChild(emptyCart);
+    }
+}
+
+const handleOrder = (success) => {
+    if (success) {
+        modal.style.display = "flex";
+        document.getElementById("order-completed").style.display = "block";
+        document.querySelector(".order-completed").style.display = "block";
+        setTimeout(() => {
+            sessionStorage.removeItem("shoppingCart");
+            window.location.href = "index.html";
+        }, 3000)
+    } else {
+        modal.style.display = "flex";
+        document.getElementById("order-not-completed").style.display = "block";
+        document.querySelector(".order-not-completed").style.display = "block";
+        setTimeout(() => {
+            modal.style.display = "none";
+        }, 3000)
     }
 }
 

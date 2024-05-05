@@ -6,14 +6,16 @@
     flex: 2;
 }
 
+
 .order-container {
     display: flex;
+    animation: fadeInMoveUp 1s ease-out;
 }
 
 .customer-information {
     width: 25rem;
-    background-image: url('/media/pine-wood.jpg');
-    background-color: rgba(193, 193, 193, 0.5);
+    background-color: rgb(255, 255, 255);
+    color: rgb(32,37,54);
     background-blend-mode: multiply;
     background-size: cover;
     background-repeat: no-repeat;
@@ -54,11 +56,7 @@ h1 {
 
 .order-summary {
     width: 30rem;
-    background-image: url('/media/order-summary-background.jpg');
-    background-color: rgba(0, 0, 0, 0.3);
-    background-blend-mode: multiply;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: rgb(32,37,54);
     padding: 0 30px 30px 30px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -91,6 +89,23 @@ tbody td {
     margin: 7px 0 7px 0;
 }
 
+.order-summary button {
+    margin: 20px auto auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: rgb(255, 255, 255);
+    color: rgb(50,55,70);;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.order-summary button:hover {
+    transform: scale(1.2);
+    background-color: rgb(50,55,70);
+    color: rgb(255, 255, 255);;
+}
 
 .modal {
     display: none;
@@ -173,4 +188,15 @@ tbody td {
     50% { transform: scale(1); }
     75% { transform: scale(1.1); }
     100% { transform: scale(1); }
+}
+
+@keyframes fadeInMoveUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

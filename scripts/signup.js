@@ -42,11 +42,9 @@ const postSignup = async (firstName, lastName, email, phone, address, password) 
         })
         const data = await response.json();
         if (response.status === 201) {
-            sessionStorage.setItem("token", data.token);
-            sessionStorage.setItem("user", JSON.stringify(data.user));
             message.innerHTML = data.message + ", redirecting..."
             setTimeout(() => {
-                window.location.href = "index.html";
+                window.location.href = "login.html";
             }, 2000);
         } else {
             message.innerHTML = data.message;
