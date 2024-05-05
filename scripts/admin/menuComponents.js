@@ -76,7 +76,7 @@ function createTable(menu, headers){
             } else {
                 const input = document.createElement("input");
                 input.value = menuItem[key];
-                input.classList.add("menu-input");
+                input.classList.add("admin-content-input");
                 input.id = `${menuItem.id}-${key}`;
                 td.appendChild(input);
 
@@ -118,9 +118,12 @@ function createTable(menu, headers){
         deleteButton.addEventListener('click', async () => {
             const productId = deleteButton.dataset.productId;
             const response = await deleteProduct(productId, sessionStorage.getItem('token'));
+            const stausMessage = document.getElementById('status-message');
 
             if (response === 200) {
                 const row = deleteButton.parentElement.parentElement;
+                stausMessage.textContent = 'Product removed';
+                stausMessage.style.color = 'green';
                 row.remove();
             }
         });
