@@ -1,0 +1,92 @@
+.root-container {
+    background-image: url('/media/pizza-menu.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex: 2;
+}
+
+.order-container {
+    display: flex;
+}
+
+.customer-information {
+    width: 25rem;
+    background-image: url('/media/pine-wood.jpg');
+    background-color: rgba(193, 193, 193, 0.5);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding-bottom: 20px;
+}
+
+input[readonly] {
+    background-color: #9f9f9f;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin: 20px auto auto;
+}
+
+.customer-information form {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding: 0.5rem;
+    gap: 0.5rem;
+}
+
+.customer-information label {
+    margin-bottom: 7px;
+}
+
+.customer-information input, textarea {
+    width: 75%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin: auto auto 7px;
+}
+
+.order-summary {
+    width: 30rem;
+    background-image: url('/media/order-summary-background.jpg');
+    background-color: rgba(0, 0, 0, 0.3);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 0 30px 30px 30px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    max-height: 500px;
+    overflow: auto;
+}
+
+.order-summary-table {
+    margin: 20px auto auto;
+    width: 70%;
+}
+
+.order-summary-table thead {
+    font-size: 1.5em;
+}
+
+thead th {
+    border-bottom: 1px solid #ffffff;
+}
+
+tbody tr {
+    display: flex;
+    flex-direction: column;
+    margin: 7px 0 7px 0;
+    border-bottom: 1px solid #ffffff;
+}
+
+tbody td {
+    text-align: left;
+    margin: 7px 0 7px 0;
+}

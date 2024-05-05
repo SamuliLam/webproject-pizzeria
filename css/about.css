@@ -1,0 +1,42 @@
+body {
+    background-color: #686868;
+}
+
+.about-container {
+    margin: 5rem 4rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.about-container img {
+    height: 300px;
+    width: 320px;
+    margin: 0.5em -4.5em;
+}
+
+#left-container {
+    margin-left: 5rem;
+    width: 50%;
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#left-container a {
+    margin-top: 4rem;
+    text-decoration: none;
+    color: white;
+    background-color: lightpink;
+    height: 20px;
+    width: 220px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 25px;
+    text-align: left;
+}
+
+#right-container {
+    margin-left: 10rem;
+    display: flex;
+    flex-direction: row;
+}

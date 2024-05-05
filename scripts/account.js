@@ -1,5 +1,8 @@
 'use strict';
 
+const shoppingCart = JSON.parse(sessionStorage.getItem('shoppingCart'));
+console.log(shoppingCart);
+
 const createUserData = (user) => {
     editForm.firstName.placeholder = user.first_name;
     editForm.lastName.placeholder = user.last_name;
@@ -10,11 +13,12 @@ const createUserData = (user) => {
     editForm.confirmPassword.placeholder = "********";
 }
 const editForm = document.querySelector('.edit-form');
-const user = JSON.parse(sessionStorage.getItem('user'));
+let user
 
-if (!user) {
+if (!sessionStorage.getItem("token")) {
     window.location.href = 'index.html';
 } else {
+    user = JSON.parse(sessionStorage.getItem('user'));
     createUserData(user);
 }
 
