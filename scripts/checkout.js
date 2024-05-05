@@ -2,7 +2,7 @@
 import { postOrder } from "./api/fetchCalls.js";
 let user, shoppingCart, orderForm =document.getElementById("order-form");
 
-const createUserData = (user) => {
+export const createUserData = (user) => {
     orderForm.firstname.value = user.first_name;
     orderForm.lastname.value = user.last_name;
     orderForm.email.value = user.email;
@@ -10,7 +10,7 @@ const createUserData = (user) => {
     orderForm.address.value = user.address;
 }
 
-const createOrderOverview = (shoppingCart) => {
+export const createOrderOverview = (shoppingCart) => {
     const orderSummaryDiv = document.querySelector(".order-summary")
 
     const orderSummaryTable = document.createElement("table");

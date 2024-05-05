@@ -1,4 +1,5 @@
 import {authenticateAdmin} from "./api/fetchCalls.js";
+//import { createOrderOverview } from './checkout.js';
 
 const signupButton = document.getElementById('login-button')
 const logOutButton = document.getElementById('logout-button')
@@ -92,8 +93,15 @@ const displayCartContents = () => {
         let singleProductPrice = Number(product.price) * product.quantity;
         const singleProduct = document.createElement("p");
         singleProduct.classList.add("single-price");
+        const formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'EUR'
+        });
+
+        let formattedSinglePrice = formatter.format(singleProductPrice);
 
         let priceOfProduct = Number(product.price);
+
         totalPrice += priceOfProduct * product.quantity;
 
         const minusButton = document.createElement("button");
@@ -125,6 +133,7 @@ const displayCartContents = () => {
                 }
             }
 
+            //createOrderOverview();
             updateCartDisplay();
             displayCartContents();
         });
@@ -142,10 +151,13 @@ const displayCartContents = () => {
             product.quantity++
             productQuantity.textContent = product.quantity;
             sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+
+
+            //createOrderOverview();
             updateCartDisplay();
             displayCartContents();
         });
-        singleProduct.textContent = singleProductPrice + "€";
+        singleProduct.textContent = formattedSinglePrice;
         productButtons.appendChild(singleProduct);
         mainProductContainer.appendChild(productContainer);
         mainProductContainer.appendChild(productButtons);
@@ -159,8 +171,13 @@ const displayCartContents = () => {
     const totalInfo = document.createElement("p");
     detailContainer.appendChild(totalInfo);
 
-    let formattedPrice = totalPrice.toFixed(2);
-    totalInfo.textContent = "Total price: " + formattedPrice + "€";
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'EUR'
+    });
+
+    let formattedPrice = formatter.format(totalPrice);
+    totalInfo.textContent = "Total price: " + formattedPrice;
     cartProducts.appendChild(detailContainer);
 
     if (shoppingCart.length > 0) {
