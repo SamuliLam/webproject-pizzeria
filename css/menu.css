@@ -61,7 +61,6 @@ main {
 }
 
 .menu-cell {
-    flex: 1;
     min-width: 60px;
     padding: 10px;
     border-top: 1px solid rgba(221, 221, 221, 0.55);
@@ -73,16 +72,17 @@ main {
     font-weight: 400;
     font-style: normal;
     text-align: center;
+    flex: 0 1 auto;
 }
 
 .menu-cell.name {
-    flex: 3;
     align-items: flex-start;
+    flex: 1;
 }
 
 .menu-cell.price,
 .menu-cell.buy {
-    flex: 1;
+    flex: 0 1 auto;
 }
 
 
@@ -202,7 +202,6 @@ main {
     }
 
     .menu-cell {
-        max-width: calc(100% - 16rem);
         font-size: small;
     }
 
@@ -231,13 +230,13 @@ main {
     }
 
     .menu-cell {
-        max-width: calc(100% - 16rem);
         font-size: x-small;
     }
 
-    #top-image-container {
-        background-position: 0 40px;
+    #top-image-container h1{
+        font-size: 4em;
     }
+
 
     .root-container {
         width: 100%;

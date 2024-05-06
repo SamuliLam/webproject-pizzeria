@@ -17,3 +17,19 @@ function showSlides() {
     setTimeout(showSlides, 3000);
 }
 showSlides();
+
+let pizzaSlideIndex = 0;
+
+function showPizzaSlides() {
+    let i;
+    let slides = document.getElementsByClassName("pizza-slide");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    pizzaSlideIndex++;
+    if (pizzaSlideIndex > slides.length) {pizzaSlideIndex = 1}
+    slides[pizzaSlideIndex-1].style.display = "block";
+    setTimeout(showPizzaSlides, 2500);
+}
+
+showPizzaSlides(); // Call
