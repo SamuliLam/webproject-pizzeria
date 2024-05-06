@@ -33,11 +33,17 @@ async function accessAdminPanel(token) {
 }
 
 logOutButton.addEventListener('click', () => {
-    sessionStorage.clear()
-    signupButton.style.display = 'block'
-    logOutButton.style.display = 'none'
-    accountButton.style.display = 'none'
-})
+    const shoppingCartData = sessionStorage.getItem('shoppingCart');
+    sessionStorage.clear();
+
+    if (shoppingCartData) {
+        sessionStorage.setItem('shoppingCart', shoppingCartData);
+    }
+
+    signupButton.style.display = 'block';
+    logOutButton.style.display = 'none';
+    accountButton.style.display = 'none';
+});
 
 const hamburgerIcon = document.getElementById('hamburger-icon')
 const sidebar = document.getElementById('side-bar')
