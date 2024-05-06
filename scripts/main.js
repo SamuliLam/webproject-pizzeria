@@ -8,10 +8,6 @@ const cartCount = document.getElementById('cart-count')
 
 // const productCount = JSON.parse(sessionStorage.getItem('shoppingCart')) || []
 // cartCount.textContent = productCount.reduce((acc, product) => acc + product.quantity, 0).toString();
-
-
-
-
 if (sessionStorage.getItem('token')) {
     signupButton.style.display = 'none'
     logOutButton.style.display = 'block'
@@ -25,10 +21,12 @@ async function accessAdminPanel(token) {
     const navLinks = document.getElementById('main-nav-links');
 
     if (isAdmin) {
-        const adminLink = document.createElement('a');
-        adminLink.href = 'admin.html';
-        adminLink.textContent = 'ADMIN PANEL';
+        const adminLink = document.createElement('li');
+        const adminLinkAnchor = document.createElement('a');
+        adminLinkAnchor.href = 'admin.html';
+        adminLinkAnchor.textContent = 'ADMIN PANEL';
 
+        adminLink.appendChild(adminLinkAnchor);
         navLinks.appendChild(adminLink);
         console.log('Access granted to admin panel');
     }
@@ -188,6 +186,7 @@ const displayCartContents = () => {
             if (sessionStorage.getItem("token")) {
                 window.location.href = "checkout.html";
             } else {
+                sessionStorage.setItem("intendedDestination", "checkout.html");
                 window.location.href = "login.html";
             }
         });
