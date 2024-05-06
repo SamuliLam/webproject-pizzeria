@@ -44,10 +44,12 @@ export const postOrder = async (user, address, items, totalPriceValue) => {
         const data = await response.json();
         if (response.ok) {
             console.log(data)
-            return data;
+            return true;
+        } else {
+            return false;
         }
     } catch (error) {
-        console.log(error);
+        return false;
     }
 }
 
@@ -118,9 +120,7 @@ export async function authenticateAdmin(token) {
         if (response.ok) {
             return true;
         }
-    } catch (error) {
-        console.log(error);
-    }
+    } catch (error) {}
 }
 
 export async function createProduct(product, token) {

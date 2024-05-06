@@ -144,11 +144,85 @@ main {
     flex: 1;
 }
 
+
 .cart-button {
     border: none;
-    padding: 10px 25px;
     font-size: 30px;
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0);
     color: white;
 }
+
+@media screen and (max-width: 1300px) {
+
+}
+
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width: 768px) {
+    .mySlides img {
+        width: 100%;
+        height: auto;
+        border: solid 1px gold;
+    }
+
+    .pizza-banner{
+        margin: 2em 0.25em;
+        height: auto;
+        width: 50%;
+    }
+
+    .menu-cell {
+        max-width: calc(100% - 16rem);
+        font-size: small;
+    }
+
+    #top-image-container {
+        background-position: 0 40px;
+    }
+
+    .root-container {
+        width: 100%;
+    }
+
+    .cart-button {
+        font-size: 20px;
+    }
+
+    .menu-table {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .pizza-banner{
+        margin: 2em 0.25em;
+        height: auto;
+        width: 100%;
+    }
+
+    .menu-cell {
+        max-width: calc(100% - 16rem);
+        font-size: x-small;
+    }
+
+    #top-image-container {
+        background-position: 0 40px;
+    }
+
+    .root-container {
+        width: 100%;
+    }
+
+    .cart-button {
+        font-size: 20px;
+    }
+
+    .menu-table {
+        max-width: 90%;
+    }
+}
+
+

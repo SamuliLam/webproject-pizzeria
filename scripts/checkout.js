@@ -1,8 +1,22 @@
 'use strict';
-import { postOrder } from "./api/fetchCalls.js";
-let user, shoppingCart, orderForm =document.getElementById("order-form");
+import {postOrder} from "./api/fetchCalls.js";
 
-const createUserData = (user) => {
+let user, shoppingCart, orderForm = document.getElementById("order-form");
+const modal = document.querySelector(".modal");
+
+const closeButton = document.querySelector(".close");
+
+closeButton.addEventListener("click", function() {
+    modal.style.display = "none";
+});
+
+window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+export const createUserData = (user) => {
     orderForm.firstname.value = user.first_name;
     orderForm.lastname.value = user.last_name;
     orderForm.email.value = user.email;
@@ -10,7 +24,7 @@ const createUserData = (user) => {
     orderForm.address.value = user.address;
 }
 
-const createOrderOverview = (shoppingCart) => {
+export const createOrderOverview = (shoppingCart) => {
     const orderSummaryDiv = document.querySelector(".order-summary")
 
     const orderSummaryTable = document.createElement("table");
@@ -52,7 +66,8 @@ const createOrderOverview = (shoppingCart) => {
         const totalPriceCell = document.createElement("td");
         totalPriceCell.textContent = "Total price: " + totalPriceValue + "\u20AC";
 
-        totalPriceRow.appendChild(totalPriceCell); tbody.appendChild(totalPriceRow);
+        totalPriceRow.appendChild(totalPriceCell);
+        tbody.appendChild(totalPriceRow);
         orderSummaryTable.appendChild(tbody);
 
         const orderButton = document.createElement("button");
@@ -65,13 +80,33 @@ const createOrderOverview = (shoppingCart) => {
                     items.push({product_id: shoppingCart[i].id});
                 }
             }
-            await postOrder(user, address, items, totalPriceValue);
+            const success = await postOrder(user, address, items, totalPriceValue);
+            handleOrder(success);
         });
         orderSummaryDiv.appendChild(orderButton);
     } else {
         const emptyCart = document.createElement("p");
         emptyCart.textContent = "Your cart is empty";
         orderSummaryDiv.appendChild(emptyCart);
+    }
+}
+
+const handleOrder = (success) => {
+    if (success) {
+        modal.style.display = "flex";
+        document.getElementById("order-completed").style.display = "block";
+        document.querySelector(".order-completed").style.display = "block";
+        setTimeout(() => {
+            sessionStorage.removeItem("shoppingCart");
+            window.location.href = "index.html";
+        }, 3000)
+    } else {
+        modal.style.display = "flex";
+        document.getElementById("order-not-completed").style.display = "block";
+        document.querySelector(".order-not-completed").style.display = "block";
+        setTimeout(() => {
+            modal.style.display = "none";
+        }, 3000)
     }
 }
 

@@ -6,14 +6,16 @@
     flex: 2;
 }
 
+
 .order-container {
     display: flex;
+    animation: fadeInMoveUp 1s ease-out;
 }
 
 .customer-information {
     width: 25rem;
-    background-image: url('/media/pine-wood.jpg');
-    background-color: rgba(193, 193, 193, 0.5);
+    background-color: rgb(255, 255, 255);
+    color: rgb(32,37,54);
     background-blend-mode: multiply;
     background-size: cover;
     background-repeat: no-repeat;
@@ -54,11 +56,7 @@ h1 {
 
 .order-summary {
     width: 30rem;
-    background-image: url('/media/order-summary-background.jpg');
-    background-color: rgba(0, 0, 0, 0.3);
-    background-blend-mode: multiply;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: rgb(32,37,54);
     padding: 0 30px 30px 30px;
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
@@ -89,4 +87,116 @@ tbody tr {
 tbody td {
     text-align: left;
     margin: 7px 0 7px 0;
+}
+
+.order-summary button {
+    margin: 20px auto auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: rgb(255, 255, 255);
+    color: rgb(50,55,70);;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.order-summary button:hover {
+    transform: scale(1.2);
+    background-color: rgb(50,55,70);
+    color: rgb(255, 255, 255);;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: rgb(32,37,54);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 15px;
+    width: 25%;
+}
+
+.modal-content img {
+    width: 75px;
+    height: 75px;
+}
+
+#order-completed {
+    display: none;
+    margin: 0 auto;
+    animation: pulse 1s;
+}
+
+#order-not-completed {
+    display: none;
+    margin: 0 auto;
+    animation: shake 0.5s;
+    animation-iteration-count: 1;
+}
+
+.order-completed {
+    display: none;
+}
+
+.order-not-completed {
+    display: none;
+}
+
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0px); }
+    10% { transform: translateX(-5px); }
+    20% { transform: translateX(5px); }
+    30% { transform: translateX(-5px); }
+    40% { transform: translateX(5px); }
+    50% { transform: translateX(-5px); }
+    60% { transform: translateX(5px); }
+    70% { transform: translateX(-5px); }
+    80% { transform: translateX(5px); }
+    90% { transform: translateX(-5px); }
+    100% { transform: translateX(0px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeInMoveUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
