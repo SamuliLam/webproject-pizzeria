@@ -30,12 +30,13 @@ try {
         });
 
         categories.forEach(category => {
+            const cells = ["name", "price", "buy"];
             const headerRow = document.createElement("div");
             headerRow.classList.add("menu-row", "menu-header");
-            const headerNames = ["Name", "Description", "Price (€)", "Allergens", "Buy"];
-            headerNames.forEach(name => {
+            const headerNames = ["Name",  "Price (€)", "Buy"];
+            headerNames.forEach((name, index) => {
                 const headerCell = document.createElement("div");
-                headerCell.classList.add("menu-cell");
+                headerCell.classList.add("menu-cell", cells[index]);
                 headerCell.textContent = name;
                 headerRow.appendChild(headerCell);
             });
@@ -50,41 +51,41 @@ try {
                     const menuItem = document.createElement("div");
                     menuItem.classList.add("menu-row", "menu-item");
 
-                    const cells = ["name", "description", "price", "allergens"];
                     cells.forEach(key => {
-                        const cell = document.createElement("div");
-                        cell.classList.add("menu-cell");
-                        if (key === "allergens") {
-                            const allergenCell = document.createElement("div");
-                            allergenCell.classList.add("menu-cell");
-                            allergenCell.textContent = product.allergens.map(allergen => allergen.name).join(", ");
-                            menuItem.appendChild(allergenCell);
-                        } else {
+                        if (key === "name") {
+                            const cell = document.createElement("div");
+                            cell.classList.add("menu-cell", "name");
+                            cell.innerHTML = `<span class="product-name">${product.id}. ${product[key]}</span><br><span class="product-description">${product["description"]}, (A/A) ${product.allergens.map(allergen => allergen.name).join(", ")}</span>`;
+                            menuItem.appendChild(cell);
+                        } else if (key === "price") {
+                            const cell = document.createElement("div");
+                            cell.classList.add("menu-cell", "price");
                             cell.textContent = product[key];
                             menuItem.appendChild(cell);
+                        } else if (key === "buy") {
+                            const orderButtonCell = document.createElement("div");
+                            orderButtonCell.classList.add("menu-cell", "buy");
+                            const orderButton = document.createElement("button");
+                            orderButton.classList.add("cart-button");
+                            orderButton.innerHTML = "&#x1F6D2;";
+                            orderButton.addEventListener("click", function () {
+                                const shoppingCart = JSON.parse(sessionStorage.getItem("shoppingCart")) || [];
+
+                                if (!shoppingCart.some(item => item.id === product.id)) {
+                                    product.quantity = 1;
+                                    shoppingCart.push(product);
+                                } else {
+                                    shoppingCart.find(item => item.id === product.id).quantity++;
+                                }
+
+                                sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+                                updateCartDisplay();
+                            });
+                            orderButtonCell.appendChild(orderButton);
+                            menuItem.appendChild(orderButtonCell);
                         }
                     });
 
-                    const orderButtonCell = document.createElement("div");
-                    orderButtonCell.classList.add("menu-cell");
-                    const orderButton = document.createElement("button");
-                    orderButton.classList.add("cart-button");
-                    orderButton.innerHTML = "&#x1F6D2;";
-                    orderButton.addEventListener("click", function () {
-                        const shoppingCart = JSON.parse(sessionStorage.getItem("shoppingCart")) || [];
-
-                        if (!shoppingCart.some(item => item.id === product.id)) {
-                            product.quantity = 1;
-                            shoppingCart.push(product);
-                        } else {
-                            shoppingCart.find(item => item.id === product.id).quantity++;
-                        }
-
-                        sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
-                        updateCartDisplay();
-                    });
-                    orderButtonCell.appendChild(orderButton);
-                    menuItem.appendChild(orderButtonCell);
                     if (categoryList) {
                         categoryList.appendChild(menuItem);
                     }
