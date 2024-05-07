@@ -287,8 +287,6 @@ footer {
     filter: drop-shadow(0 0 15px black);
 }
 
-/* Responsive styles */
-
 @media screen and (max-width: 768px) {
 
     footer {
