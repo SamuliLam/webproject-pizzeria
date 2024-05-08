@@ -2,11 +2,11 @@
     background: url(../media/login-background.jpg);
 }
 
-
 .login-content {
+    width: 400px;
     padding: 20px;
     background-color: rgb(32,37,54);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     margin: 0 auto;
 }
@@ -25,7 +25,7 @@
 }
 
 input {
-    width: 90%;
+    width: 80%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -38,15 +38,22 @@ label {
 }
 
 .submit-button {
-    display: block;
-    margin: 1rem auto;
-    text-align: center;
-    background-color: #000000;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
+    margin: 20px auto auto;
+    padding: 5px;
     border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: rgb(255, 255, 255);
+    color: rgb(50,55,70);;
+    font-size: 1em;
     cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+}
+
+.submit-button:hover {
+    transform: scale(1.2);
+    background-color: rgb(50,55,70);
+    color: rgb(255, 255, 255);
 }
 
 .signup-text {
@@ -64,4 +71,3 @@ label {
     height: 20px;
     text-align: center;
 }
-

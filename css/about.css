@@ -23,14 +23,22 @@ body {
 }
 
 #left-container a {
-    margin-top: 2rem;
+    margin: 20px auto auto;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: rgb(255, 255, 255);
+    color: rgb(50,55,70);;
+    font-size: 1em;
+    cursor: pointer;
     text-decoration: none;
-    color: white;
-    background-color: lightpink;
-    height: auto;
-    width: fit-content;
-    padding: 10px 20px;
-    text-align: left;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#left-container a:hover {
+    transform: scale(1.2);
+    background-color: rgb(50,55,70);
+    color: rgb(255, 255, 255);
 }
 
 #right-container {
