@@ -191,6 +191,14 @@ h2 + small {
     .center-div-upper-container {
         flex-direction: column;
     }
+
+    #center-div-left {
+        width: 80%;
+    }
+
+    #center-div-right {
+        width: 70%;
+    }
 }
 
 @media screen and (max-width: 768px) {
