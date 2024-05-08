@@ -40,7 +40,7 @@ const postLogin = async (email, password) => {
                 sessionStorage.removeItem("intendedDestination");
             } else {
                 setTimeout(() => {
-                    window.location.href = "index.html";
+                    window.location.href = "index_fi.html";
                 }, 2000);
             }
         } else {
