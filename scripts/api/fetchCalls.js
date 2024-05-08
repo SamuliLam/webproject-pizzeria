@@ -6,7 +6,7 @@ export const getOrders = async () => {
             return data;
         }
     } catch (error) {
-        console.log(error);
+        (error);
     }
 }
 
@@ -18,7 +18,7 @@ export const getProducts = async () => {
             return data;
         }
     } catch (error) {
-        console.log(error);
+        (error);
     }
 }
 
@@ -41,7 +41,7 @@ export const postOrder = async (user, address, items, totalPriceValue) => {
         });
         const data = await response.json();
         if (response.ok) {
-            console.log(data)
+            (data)
             return true;
         } else {
             return false;
@@ -66,7 +66,7 @@ export const postLogin = async (email, password) => {
         const data = await response.json();
         return {status: response.status, ...data};
     } catch (error) {
-        console.log(error);
+        (error);
     }
 }
 
@@ -78,7 +78,7 @@ export const getOrderItemsByOrderId = async (id) => {
             return data;
         }
     } catch (error) {
-        console.log(error);
+        (error);
     }
 }
 
@@ -94,16 +94,16 @@ export async function modifyOrderStatus(id, status) {
         });
         const data = await response.json();
         if (response.ok) {
-            console.log(data)
+            (data)
             return response.status;
         }
     } catch (error) {
-        console.log(error);
+        (error);
     }
 }
 
 export async function updateProduct(id, modifiedProduct, token) {
-    console.log(JSON.stringify(modifiedProduct));
+    (JSON.stringify(modifiedProduct));
     try {
         const response = await fetch(`http://10.120.32.55/app/api/v1/products/${id}`, {
             method: 'POST',
@@ -116,11 +116,11 @@ export async function updateProduct(id, modifiedProduct, token) {
         });
         const data = await response.json();
         if (response.ok) {
-            console.log(data)
+            (data)
             return response.status;
         }
     } catch (error) {
-        console.log(error);
+        (error);
     }
 }
 
@@ -129,11 +129,11 @@ export const getOrdersByCustomerId = async (id) => {
         const response = await fetch(`http://10.120.32.55/app/api/v1/orders/customer/${id}`);
         const data = await response.json();
         if (response.ok) {
-            console.log(data)
+            (data)
             return data;
         }
     } catch (error) {
-        console.log(error);
+        (error);
     }
 }
 
@@ -165,11 +165,11 @@ export async function createProduct(product, token) {
         });
         const data = await response.json();
         if (response.ok) {
-            console.log(data)
+            (data)
             return response.status;
         }
     } catch (error) {
-        console.log(error);
+        (error);
     }
 
 }
@@ -185,11 +185,11 @@ export async function deleteProduct(id, token) {
         });
         const data = await response.json();
         if (response.ok) {
-            console.log(data)
+            (data)
             return response.status;
         }
     } catch (error) {
-        console.log(error);
+        (error);
     }
 }
 
@@ -198,11 +198,11 @@ export const getUserById = async (id) => {
         const response = await fetch(`http://10.120.32.55/app/api/v1/users/${id}`);
         const data = await response.json();
         if (response.ok) {
-            console.log(data)
+            (data)
             return data;
         }
     } catch (error) {
-        console.log(error);
+        (error);
     }
 }
 
@@ -211,13 +211,13 @@ export const getUsers = async () => {
         const response = await fetch('http://10.120.32.55/app/api/v1/users');
         const data = await response.json();
         if (response.ok) {
-            console.log(data)
+            (data)
             // Filter out the password from the user data
             return data.filter(user => user.role === 'user')
                 .map(({password, role, ...rest}) => rest);
         }
     } catch (error) {
-        console.log(error);
+        (error);
     }
 }
 
@@ -234,7 +234,7 @@ export const updateUser = async (id, modifiedUser, token) => {
         const data = await response.json();
         return {status: response.status, ...data};
     } catch (error) {
-        console.log(error);
+        (error);
     }
 }
 
@@ -253,10 +253,10 @@ export const deleteUser = async (id, token) => {
         }
 
         const data = await response.json();
-        console.log(data)
+        (data)
         return response;
     } catch (error) {
-        console.log(error);
+        (error);
         return error;
     }
 }
