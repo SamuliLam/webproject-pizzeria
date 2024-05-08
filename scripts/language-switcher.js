@@ -36,6 +36,18 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
                 }
 
+                // Update the 'intendedDestination' in the session storage
+                const intendedDestination = sessionStorage.getItem("intendedDestination");
+                if (intendedDestination) {
+                    let newDestination;
+                    if (selectedLanguage === "en") {
+                        newDestination = intendedDestination.replace("/fi/", "/en/").replace("_fi.html", ".html");
+                    } else {
+                        newDestination = intendedDestination.replace("/en/", "/fi/").replace(".html", "_fi.html");
+                    }
+                    sessionStorage.setItem("intendedDestination", newDestination);
+                }
+
                 // Remove the 'selected-flag' class from both flags
                 finnishFlag.classList.remove("selected-flag");
                 englishFlag.classList.remove("selected-flag");
