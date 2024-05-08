@@ -1,9 +1,7 @@
 'use strict';
 import {getOrderItemsByOrderId, getOrdersByCustomerId, updateUser} from "./api/fetchCalls.js";
 
-
-const shoppingCart = JSON.parse(sessionStorage.getItem('shoppingCart'));
-console.log(shoppingCart);
+const currentLanguage = window.location.pathname.includes("/fi/") ? "_fi" : ""
 
 const createUserData = (user) => {
     editForm.firstName.value = user.first_name;
@@ -17,15 +15,13 @@ const editForm = document.querySelector('.edit-form');
 let user
 
 if (!sessionStorage.getItem("token")) {
-    window.location.href = 'index.html';
+    window.location.href = 'index_fi.html';
 } else {
     user = JSON.parse(sessionStorage.getItem('user'));
     createUserData(user);
 }
 
 const saveButton = document.querySelector('#save-button');
-
-console.log('user', user);
 
 const accountOrderContainer = document.getElementById('account-orders');
 
@@ -61,11 +57,11 @@ saveButton.addEventListener('click', async (e) => {
     if (response.status === 200) {
         sessionStorage.setItem('user', JSON.stringify(newUser));
         updateMessageIcon.id = 'update-completed';
-        updateMessage.textContent = 'User information updated successfully!';
+        currentLanguage === "_fi" ? updateMessage.textContent = 'Käyttäjätiedot päivitetty' : updateMessage.textContent = 'User information updated successfully!';
         updateMessageIcon.src = '../media/checked.png';
     } else {
         updateMessageIcon.id = 'update-failed';
-        updateMessage.textContent = 'Failed to update user information';
+        currentLanguage === "_fi" ? updateMessage.textContent = 'Käyttäjätietojen päivitys epäonnistui' : updateMessage.textContent = 'Failed to update user information';
         updateMessageIcon.src = '../media/delete.png';
     }
 
@@ -97,11 +93,11 @@ const orderHeaderRow = document.createElement('div');
 orderHeaderRow.classList.add('order-headers');
 
 const dateHeader = document.createElement('div');
-dateHeader.textContent = "DATE";
+currentLanguage === "_fi" ? dateHeader.textContent = "PÄIVÄMÄÄRÄ" : "DATE";
 orderHeaderRow.appendChild(dateHeader);
 
 const statusHeader = document.createElement('div');
-statusHeader.textContent = "STATUS";
+currentLanguage === "_fi" ? statusHeader.textContent = "TILA" : "STATUS";
 orderHeaderRow.appendChild(statusHeader);
 
 orderHistory.appendChild(orderHeaderRow);

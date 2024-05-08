@@ -34,11 +34,7 @@ export const createOrderOverview = (shoppingCart) => {
     const thead = document.createElement("thead");
     const headerRow = document.createElement("tr");
     const orderSummaryHeader = document.createElement("th");
-    if (currentLanguage === "_fi") {
-        orderSummaryHeader.textContent = "Tilauksen yhteenveto";
-    } else {
-        orderSummaryHeader.textContent = "Order Summary";
-    }
+    currentLanguage === "_fi" ? orderSummaryHeader.textContent = "Tilauksen yhteenveto" : orderSummaryHeader.textContent = "Order summary";
     orderSummaryDiv.appendChild(orderSummaryTable);
     orderSummaryTable.appendChild(thead);
     thead.appendChild(headerRow);
@@ -49,27 +45,15 @@ export const createOrderOverview = (shoppingCart) => {
         const tr = document.createElement("tr");
 
         const tdName = document.createElement("td");
-        if (currentLanguage === "_fi") {
-            tdName.textContent = "Nimi: " + item.name;
-        } else {
-            tdName.textContent = "Name: " + item.name;
-        }
+        currentLanguage === "_fi" ? tdName.textContent = "Nimi: " + item.name : tdName.textContent = "Name: " + item.name;
         tr.appendChild(tdName);
 
         const tdQuantity = document.createElement("td");
-        if (currentLanguage === "_fi") {
-            tdQuantity.textContent = "Määrä: " + item.quantity;
-        } else {
-            tdQuantity.textContent = "Quantity; " + item.quantity;
-        }
+        currentLanguage === "_fi" ? tdQuantity.textContent = "Määrä: " + item.quantity : tdQuantity.textContent = "Quantity: " + item.quantity;
         tr.appendChild(tdQuantity);
 
         const tdPrice = document.createElement("td");
-        if (currentLanguage === "_fi") {
-            tdPrice.textContent = "Hinta: " + item.price;
-        } else {
-            tdPrice.textContent = "Price: " + item.price;
-        }
+        currentLanguage === "_fi" ? tdPrice.textContent = "Hinta: " + item.price + "\u20AC" : tdPrice.textContent = "Price: " + item.price + "\u20AC";
         tr.appendChild(tdPrice);
 
         tbody.appendChild(tr);
@@ -80,22 +64,14 @@ export const createOrderOverview = (shoppingCart) => {
         totalPriceRow.classList.add("order-summary-total-price");
 
         const totalPriceCell = document.createElement("td");
-        if (currentLanguage === "_fi") {
-            totalPriceCell.textContent = "Yhteensä: " + totalPriceValue + "\u20AC";
-        } else {
-            totalPriceCell.textContent = "Total price: " + totalPriceValue + "\u20AC";
-        }
+        currentLanguage === "_fi" ? totalPriceCell.textContent = "Yhteensä: " + totalPriceValue + "\u20AC" : totalPriceCell.textContent = "Total: " + totalPriceValue + "\u20AC";
 
         totalPriceRow.appendChild(totalPriceCell);
         tbody.appendChild(totalPriceRow);
         orderSummaryTable.appendChild(tbody);
 
         const orderButton = document.createElement("button");
-        if (currentLanguage === "_fi") {
-            orderButton.textContent = "Tilaa";
-        } else {
-            orderButton.textContent = "Order";
-        }
+        currentLanguage === "_fi" ? orderButton.textContent = "Tilaa" : orderButton.textContent = "Order";
         orderButton.addEventListener("click", async () => {
             const address = orderForm.address.value;
             let items = [];
@@ -110,7 +86,7 @@ export const createOrderOverview = (shoppingCart) => {
         orderSummaryDiv.appendChild(orderButton);
     } else {
         const emptyCart = document.createElement("p");
-        emptyCart.textContent = "Your cart is empty";
+        currentLanguage === "_fi" ? emptyCart.textContent = "Ostoskori on tyhjä" : emptyCart.textContent = "Shopping cart is empty";
         orderSummaryDiv.appendChild(emptyCart);
     }
 }
@@ -122,11 +98,7 @@ const handleOrder = (success) => {
         document.querySelector(".order-completed").style.display = "block";
         setTimeout(() => {
             sessionStorage.removeItem("shoppingCart");
-            if (currentLanguage) {
-                window.location.href = "index_fi.html";
-            } else {
-                window.location.href = "index.html";
-            }
+            currentLanguage === "_fi" ? window.location.href = "index_fi.html" : window.location.href = "index.html";
         }, 3000)
     } else {
         modal.style.display = "flex";
@@ -139,7 +111,7 @@ const handleOrder = (success) => {
 }
 
 if (!sessionStorage.getItem("token")) {
-    window.location.href = "../en/index.html";
+    currentLanguage === "_fi" ? window.location.href = "login_fi.html" : window.location.href = "login.html";
 } else {
     user = JSON.parse(sessionStorage.getItem('user'));
     shoppingCart = JSON.parse(sessionStorage.getItem('shoppingCart'));

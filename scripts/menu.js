@@ -1,14 +1,15 @@
 import {updateCartDisplay} from "./main.js";
 import {getProducts} from "./api/fetchCalls.js";
 
+const currentLanguage = window.location.pathname.includes("/fi/") ? "_fi" : ""
 const mergedData = [];
 const shoppingCart = [];
+
 if (sessionStorage.getItem("shoppingCart") !== null) {
     shoppingCart.push(...JSON.parse(sessionStorage.getItem("shoppingCart")));
 } else {
     sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
 }
-
 
 try {
     const data = await getProducts();
@@ -53,14 +54,16 @@ function mergeAllergens(data) {
 
 function addItems(data) {
     const categories = [...new Set(data.map(product => product.category))];
-
-
-
     categories.forEach(category => {
         const cells = ["name", "price", "buy"];
         const headerRow = document.createElement("div");
         headerRow.classList.add("menu-row", "menu-header");
-        const headerNames = ["Name",  "Price (€)", "Buy"];
+        let headerNames = [];
+        if (currentLanguage) {
+            headerNames = ["Nimi", "Hinta (€)", "Osta"];
+        } else {
+            headerNames = ["Name", "Price (€)", "Buy"];
+        }
         headerNames.forEach((name, index) => {
             const headerCell = document.createElement("div");
             headerCell.classList.add("menu-cell", cells[index]);
