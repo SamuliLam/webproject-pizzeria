@@ -13,6 +13,7 @@
     <script src="../scripts/menu.js" defer type="module"></script>
     <script src="../scripts/main.js" type="module" defer></script>
     <script src="../scripts/carousel.js" defer></script>
+    <script src="../scripts/index-carousel.js" defer></script>
     <script src="/scripts/language-switcher.js"></script>
 </head>
 <body>
@@ -107,16 +108,20 @@
         </div>
     </main>
 </div>
-<nav id="side-bar" aria-label="Sivupalkin navigointi">
+<nav id="side-bar" aria-label="Sidebar Navigation">
     <span id="hamburger-icon-sidebar">&#9776</span>
     <ul id="side-bar-links">
         <li><a href="index_fi.html">KOTI</a></li>
         <li><a href="menu_fi.html">MENU</a></li>
         <li><a href="login_fi.html" id="login-button-mobile">KIRJAUDU SISÄÄN</a></li>
-        <li><a href="account_fi.html" id="account-button-mobile" style="display: none">TILI</a></li>
-        <li><a href="index_fi.html" id="logout-button-mobile" style="display: none">KIRJAUDU</a></li>
+        <li><a href="account_fi.html" id="account-button-mobile" style="display: none">TILISI</a></li>
+        <li><a href="index_fi.html" id="logout-button-mobile" style="display: none">KIRJAUDU ULOS</a></li>
         <li><a href="about_fi.html">MEISTÄ</a></li>
     </ul>
+    <div class="language-options">
+        <img id="finnish-flag-mobile" src="../media/finnish.png" alt="Finnish flag" data-language="fi" >
+        <img id="english-flag-mobile" src="../media/english.png" alt="English flag" data-language="en">
+    </div>
 </nav>
 <footer>
     <div class="footer-content">

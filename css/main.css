@@ -318,6 +318,18 @@ footer {
     filter: drop-shadow(0 0 15px black);
 }
 
+.language-options {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 1rem;
+}
+
+.main-nav-links-root {
+    display: flex;
+    align-items: center;
+}
+
 /* Responsive styles */
 
 @media screen and (max-width: 938px) {
@@ -326,6 +338,14 @@ footer {
     }
 
     #hamburger-icon {
+        display: inline;
+    }
+
+    #finnish-flag, #english-flag {
+        display: none;
+    }
+
+    #finnish-flag-sidebar, #english-flag-sidebar {
         display: inline;
     }
 

@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     const finnishFlag = document.getElementById("finnish-flag");
     const englishFlag = document.getElementById("english-flag");
+    const finnishFlagMobile = document.getElementById("finnish-flag-mobile");
+    const englishFlagMobile = document.getElementById("english-flag-mobile");
 
     if (finnishFlag && englishFlag) {
         const pagePath = window.location.pathname;
@@ -12,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
             englishFlag.classList.add("selected-flag");
         }
 
-        [finnishFlag, englishFlag].forEach(flag => {
+        [finnishFlag, englishFlag, finnishFlagMobile, englishFlagMobile].forEach(flag => {
             flag.addEventListener("click", function() {
                 const selectedLanguage = this.dataset.language;
                 const pagePath = window.location.pathname;
@@ -37,6 +39,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Remove the 'selected-flag' class from both flags
                 finnishFlag.classList.remove("selected-flag");
                 englishFlag.classList.remove("selected-flag");
+                finnishFlagMobile.classList.remove("selected-flag");
+                englishFlagMobile.classList.remove("selected-flag");
 
                 // Add the 'selected-flag' class to the clicked flag
                 this.classList.add("selected-flag");

@@ -149,8 +149,6 @@ const displayCartContents = () => {
                     checkoutButton.parentElement.remove();
                 }
             }
-
-            //createOrderOverview();
             updateCartDisplay();
             displayCartContents();
         });
@@ -169,8 +167,6 @@ const displayCartContents = () => {
             productQuantity.textContent = product.quantity;
             sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
 
-
-            //createOrderOverview();
             updateCartDisplay();
             displayCartContents();
         });
