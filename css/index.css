@@ -111,6 +111,7 @@ h2 + small {
     justify-content: center;
     gap: 3em;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
 #upper-center-div h1 {
