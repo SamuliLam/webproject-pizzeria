@@ -60,7 +60,10 @@ hamburgerIconSideBar.addEventListener('click', () => {
 
 });
 
+
 export const updateCartDisplay = () => {
+    const cartCount = document.getElementById("cart-count");
+
     if (sessionStorage.getItem('shoppingCart')) {
         const shoppingCart = JSON.parse(sessionStorage.getItem('shoppingCart'))
         cartCount.textContent = shoppingCart.reduce((acc, product) => acc + product.quantity, 0).toString();

@@ -299,6 +299,24 @@ footer {
 
 /* Responsive styles */
 
+@media screen and (max-width: 938px) {
+    #main-nav-links {
+        display: none;
+    }
+
+    #hamburger-icon {
+        display: inline;
+    }
+
+    .navbar a {
+        margin: 10px 0;
+    }
+
+    .navbar #order {
+        margin-top: 20px;
+    }
+}
+
 @media screen and (max-width: 768px) {
 
     #social-icons {
