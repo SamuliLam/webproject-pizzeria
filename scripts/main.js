@@ -66,7 +66,7 @@ const cartContent = document.getElementById("cartContent");
 
 cartContent.style.display = "none";
 
-shoppingCart.addEventListener("click", function() {
+shoppingCart.addEventListener("click", function () {
     if (sessionStorage.getItem("shoppingCart") === null || JSON.parse(sessionStorage.getItem("shoppingCart")).length === 0) {
         cartContent.style.display = "none";
     } else {
@@ -189,11 +189,22 @@ const displayCartContents = () => {
         proceedToCheckoutButton.textContent = "Proceed to Checkout";
         proceedToCheckoutButton.classList.add("proceed-to-checkout-button");
         proceedToCheckoutButton.addEventListener("click", () => {
-            if (sessionStorage.getItem("token")) {
-                window.location.href = "checkout_fi.html";
+            const currentLanguage = window.location.pathname.includes("/fi/") ? "_fi" : ""
+            if (currentLanguage) {
+                if (sessionStorage.getItem("token")) {
+                    window.location.href = `../fi/checkout_fi.html`;
+                } else {
+                    sessionStorage.setItem("intendedDestination", `checkout${currentLanguage}.html`);
+                    window.location.href = `../fi/login${currentLanguage}.html`;
+                }
             } else {
-                sessionStorage.setItem("intendedDestination", "checkout_fi.html");
-                window.location.href = "login_fi.html";
+                if (sessionStorage.getItem("token")) {
+                    window.location.href = `../en/checkout.html`;
+                } else {
+                    sessionStorage.setItem("intendedDestination", `checkout.html`);
+                    window.location.href = `../en/login.html`;
+                }
+
             }
         });
 

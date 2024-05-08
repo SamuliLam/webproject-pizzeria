@@ -5,12 +5,13 @@ let user, shoppingCart, orderForm = document.getElementById("order-form");
 const modal = document.querySelector(".modal");
 
 const closeButton = document.querySelector(".close");
+const currentLanguage = window.location.pathname.includes("/fi/") ? "_fi" : ""
 
-closeButton.addEventListener("click", function() {
+closeButton.addEventListener("click", function () {
     modal.style.display = "none";
 });
 
-window.addEventListener("click", function(event) {
+window.addEventListener("click", function (event) {
     if (event.target === modal) {
         modal.style.display = "none";
     }
@@ -33,8 +34,11 @@ export const createOrderOverview = (shoppingCart) => {
     const thead = document.createElement("thead");
     const headerRow = document.createElement("tr");
     const orderSummaryHeader = document.createElement("th");
-    orderSummaryHeader.textContent = "Order Summary";
-
+    if (currentLanguage === "_fi") {
+        orderSummaryHeader.textContent = "Tilauksen yhteenveto";
+    } else {
+        orderSummaryHeader.textContent = "Order Summary";
+    }
     orderSummaryDiv.appendChild(orderSummaryTable);
     orderSummaryTable.appendChild(thead);
     thead.appendChild(headerRow);
@@ -45,15 +49,27 @@ export const createOrderOverview = (shoppingCart) => {
         const tr = document.createElement("tr");
 
         const tdName = document.createElement("td");
-        tdName.textContent = "Name: " + item.name;
+        if (currentLanguage === "_fi") {
+            tdName.textContent = "Nimi: " + item.name;
+        } else {
+            tdName.textContent = "Name: " + item.name;
+        }
         tr.appendChild(tdName);
 
         const tdQuantity = document.createElement("td");
-        tdQuantity.textContent = "Quantity; " + item.quantity;
+        if (currentLanguage === "_fi") {
+            tdQuantity.textContent = "Määrä: " + item.quantity;
+        } else {
+            tdQuantity.textContent = "Quantity; " + item.quantity;
+        }
         tr.appendChild(tdQuantity);
 
         const tdPrice = document.createElement("td");
-        tdPrice.textContent = "Price: " + item.price;
+        if (currentLanguage === "_fi") {
+            tdPrice.textContent = "Hinta: " + item.price;
+        } else {
+            tdPrice.textContent = "Price: " + item.price;
+        }
         tr.appendChild(tdPrice);
 
         tbody.appendChild(tr);
@@ -64,14 +80,22 @@ export const createOrderOverview = (shoppingCart) => {
         totalPriceRow.classList.add("order-summary-total-price");
 
         const totalPriceCell = document.createElement("td");
-        totalPriceCell.textContent = "Total price: " + totalPriceValue + "\u20AC";
+        if (currentLanguage === "_fi") {
+            totalPriceCell.textContent = "Yhteensä: " + totalPriceValue + "\u20AC";
+        } else {
+            totalPriceCell.textContent = "Total price: " + totalPriceValue + "\u20AC";
+        }
 
         totalPriceRow.appendChild(totalPriceCell);
         tbody.appendChild(totalPriceRow);
         orderSummaryTable.appendChild(tbody);
 
         const orderButton = document.createElement("button");
-        orderButton.textContent = "Order";
+        if (currentLanguage === "_fi") {
+            orderButton.textContent = "Tilaa";
+        } else {
+            orderButton.textContent = "Order";
+        }
         orderButton.addEventListener("click", async () => {
             const address = orderForm.address.value;
             let items = [];
@@ -98,7 +122,11 @@ const handleOrder = (success) => {
         document.querySelector(".order-completed").style.display = "block";
         setTimeout(() => {
             sessionStorage.removeItem("shoppingCart");
-            window.location.href = "index_fi.html";
+            if (currentLanguage) {
+                window.location.href = "index_fi.html";
+            } else {
+                window.location.href = "index.html";
+            }
         }, 3000)
     } else {
         modal.style.display = "flex";

@@ -25,7 +25,6 @@ test("postOrder should return a boolean if the order was successful", async () =
 test("getUserById should return an object with user data", async () => {
     const user = await getUserById(24);
     delete user.password;
-    console.log(user);
     const expectedUser = {
         id: 24,
         first_name: "jest",
@@ -43,7 +42,6 @@ describe("postLogin for valid and invalid credentials", () => {
         const email = "jest.test@mail.com";
         const password = "12345";
         const data = await postLogin(email, password);
-        console.log(data)
         expect(data.token).toBeTruthy();
         expect(data.user).toBeTruthy();
     });

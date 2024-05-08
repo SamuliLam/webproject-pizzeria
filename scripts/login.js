@@ -6,10 +6,16 @@ const loginForm = document.getElementById("loginForm");
 let message = document.querySelector("#status-message");
 
 const handleResponse = async (data) => {
+    const currentLanguage = window.location.pathname.includes("/fi/") ? "_fi" : ""
     if (data.status === 200) {
         sessionStorage.setItem("token", data.token);
         sessionStorage.setItem("user", JSON.stringify(data.user));
-        message.innerHTML = data.message + ", redirecting..."
+        if (currentLanguage) {
+            message.innerHTML = "Kirjautuminen onnistui, ohjataan..."
+        } else {
+            message.innerHTML = data.message + ", redirecting..."
+        }
+
         const intendedDestination = sessionStorage.getItem("intendedDestination");
         if (intendedDestination) {
             setTimeout(() => {
@@ -18,10 +24,17 @@ const handleResponse = async (data) => {
             sessionStorage.removeItem("intendedDestination");
         } else {
             setTimeout(() => {
-                window.location.href = "index.html";
+                if (currentLanguage) {
+                    window.location.href = `../fi/index_fi.html`;
+                } else {
+                    window.location.href = `../en/index.html`;
+                }
             }, 2000);
         }
     } else {
+        if (currentLanguage) {
+            message.innerHTML = "Sähköposti tai salasana ei täsmää"
+        }
         message.innerHTML = data.message;
     }
 }
