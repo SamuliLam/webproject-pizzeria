@@ -33,7 +33,7 @@ async function accessAdminPanel(token) {
 
         adminLink.appendChild(adminLinkAnchor);
         navLinks.appendChild(adminLink);
-        console.log('Access granted to admin panel');
+        ('Access granted to admin panel');
     }
 }
 

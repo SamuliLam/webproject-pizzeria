@@ -87,7 +87,7 @@ function createTable(menu, headers){
 
                 input.addEventListener('change', () => {
                     changedInputs[input.id] = input.value;
-                    console.log(changedInputs);
+                    (changedInputs);
                 });
 
             }
@@ -196,7 +196,7 @@ const addMenuItemForm = () => {
             allergens: allergensInput.value.split(',').map(allergen => ({name: allergen.trim()}))
         };
 
-        console.log(product)
+        (product)
 
         const token = sessionStorage.getItem('token');
 
@@ -204,11 +204,11 @@ const addMenuItemForm = () => {
         const statusMessage = document.getElementById('status-message');
 
         if (response === 201) {
-            console.log('Product created');
+            ('Product created');
             statusMessage.textContent = 'Product created';
             statusMessage.style.color = 'green';
         } else {
-            console.log('Product not created');
+            ('Product not created');
             statusMessage.textContent = 'Product not created';
             statusMessage.style.color = 'red';
         }

@@ -68,7 +68,7 @@ export const createTable = (users, headers) => {
 
                 input.addEventListener('change', () => {
                     changedInputs[input.id] = input.value;
-                    console.log(changedInputs);
+                    (changedInputs);
                 });
             }
 
@@ -86,9 +86,9 @@ export const createTable = (users, headers) => {
             }
 
             const userId = updateButton.dataset.userId;
-            console.log(userId);
+            (userId);
             const userChanges = changesByUserId[userId];
-            console.log(userChanges);
+            (userChanges);
 
             await updateUser(userId, userChanges, sessionStorage.getItem('token'));
         });
@@ -97,7 +97,7 @@ export const createTable = (users, headers) => {
             const userId = deleteButton.dataset.userId;
             const response = await deleteUser(userId, sessionStorage.getItem('token'));
             const statusMessage = document.getElementById("status-message");
-            console.log('response', response)
+            ('response', response)
 
             if (response === 200) {
                 statusMessage.textContent = `User with id ${userId} has been deleted`;
