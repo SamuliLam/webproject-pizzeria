@@ -129,14 +129,6 @@ h2 + small {
 #order-now-link:hover {
     color: var(--text-color);
 }
-.carousel-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden;
-}
 
 .carousel-slide {
     display: flex;
@@ -145,18 +137,19 @@ h2 + small {
 }
 
 .carousel-container {
-    position: relative; /* Add this */
+    position: relative;
     display: flex;
-    justify-content: center; /* Change this */
+    justify-content: center;
     align-items: center;
     overflow: hidden;
     width: 100%;
 }
 
 .carousel-btn {
-    position: absolute; /* Add this */
-    top: 50%; /* Add this */
-    transform: translateY(-50%); /* Add this */
+    font-family: "Bauhaus 93", sans-serif;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     background-color: #ffffff;
     border: none;
     font-size: 2rem;
@@ -171,19 +164,21 @@ h2 + small {
 }
 
 #prevBtn {
-    left: 0; /* Add this */
+    left: 0;
 }
 
 #nextBtn {
-    right: 0; /* Add this */
+    right: 0;
 }
 
 .carousel-item-hidden {
     display: none;
+    transform: translateX(100%);
 }
 
 .carousel-item-visible {
     display: block;
+    transform: translateX(0);
 }
 
 @media screen and (max-width: 1024px) {

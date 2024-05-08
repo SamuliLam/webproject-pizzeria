@@ -4,11 +4,11 @@
 
 
 .login-content {
-    width: 400px;
     padding: 20px;
     background-color: rgb(32,37,54);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
+    margin: 0 auto;
 }
 
 .login-header {
@@ -64,3 +64,4 @@ label {
     height: 20px;
     text-align: center;
 }
+

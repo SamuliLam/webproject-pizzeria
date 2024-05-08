@@ -126,9 +126,9 @@ main {
     width: 100%;
     text-align: center;
     font-size: 5em;
-    color: gray;
     font-style: italic;
-    font-weight: normal;
+    color: white;
+    text-shadow: 1px 1px 0 rgb(32, 37, 54), 2px 2px 0 rgb(32, 37, 54), 3px 3px 0 rgb(32, 37, 54), 4px 4px 0 rgb(32, 37, 54);
 }
 
 #menu-top-img {
