@@ -107,7 +107,6 @@ h2 + small {
 
 .center-div-upper-container {
     display: flex;
-    padding: 2em 5em;
     justify-content: center;
     gap: 3em;
     align-items: center;
