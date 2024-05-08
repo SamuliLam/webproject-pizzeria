@@ -315,6 +315,7 @@ footer {
     .navbar #order {
         margin-top: 20px;
     }
+
 }
 
 @media screen and (max-width: 768px) {
@@ -341,4 +342,5 @@ footer {
     .navbar #order {
         margin-top: 20px;
     }
+
 }
