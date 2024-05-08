@@ -48,8 +48,7 @@ h2 + small {
 }
 
 #lower-center-div img {
-    width: 20vw;
-    margin: 1em 2em;
+    width: 100%;
 }
 
 #pizza-icon-index {
@@ -110,12 +109,12 @@ h2 + small {
     display: flex;
     padding: 2em 5em;
     justify-content: center;
-    gap: 10em;
+    gap: 3em;
     align-items: center;
 }
 
 #upper-center-div h1 {
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 #upper-center-div h2 {
@@ -234,16 +233,11 @@ h2 + small {
 
 
     #center-div-right {
-        width: 100%;
+        width: 80%;
     }
 
     #lower-center-div {
         flex-direction: column;
-    }
-
-
-    #lower-center-div img {
-        width: 60vw;
     }
 
 }
