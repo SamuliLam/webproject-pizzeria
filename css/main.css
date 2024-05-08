@@ -31,6 +31,27 @@ header {
     width: 100%;
 }
 
+#title-div {
+    display: flex;
+    gap: 10px;
+}
+
+#finnish-flag, #english-flag {
+    cursor: pointer;
+    height: 25px;
+    width: 35px;
+
+    margin: auto;
+}
+
+#finnish-flag:hover, #english-flag:hover {
+    transform: scale(1.1);
+}
+
+.selected-flag {
+    border: 2px solid var(--main-color);
+}
+
 main {
     display: flex;
     flex-direction: column;

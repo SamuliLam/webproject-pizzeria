@@ -1,6 +1,8 @@
 import {authenticateAdmin} from "./api/fetchCalls.js";
 //import { createOrderOverview } from './checkout.js';
 
+const currentLanguage = window.location.pathname.includes("/fi/") ? "_fi" : ""
+
 const signupButton = document.getElementById('login-button')
 const logOutButton = document.getElementById('logout-button')
 const accountButton = document.getElementById('account-button')
@@ -192,15 +194,14 @@ const displayCartContents = () => {
     });
 
     let formattedPrice = formatter.format(totalPrice);
-    totalInfo.textContent = "Total price: " + formattedPrice;
+    currentLanguage ? totalInfo.textContent = `Yhteensä: ${formattedPrice}` : totalInfo.textContent = `Total: ${formattedPrice}`
     cartProducts.appendChild(detailContainer);
 
     if (shoppingCart.length > 0) {
         const proceedToCheckoutButton = document.createElement("button");
-        proceedToCheckoutButton.textContent = "Proceed to Checkout";
+        currentLanguage ? proceedToCheckoutButton.textContent =  "Siirry tilaamaan" : proceedToCheckoutButton.textContent = "Proceed to checkout";
         proceedToCheckoutButton.classList.add("proceed-to-checkout-button");
         proceedToCheckoutButton.addEventListener("click", () => {
-            const currentLanguage = window.location.pathname.includes("/fi/") ? "_fi" : ""
             if (currentLanguage) {
                 if (sessionStorage.getItem("token")) {
                     window.location.href = `../fi/checkout_fi.html`;

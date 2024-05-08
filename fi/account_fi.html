@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tilinhallinta</title>
+    <title>Tilin Hallinta</title>
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" type="text/css" href="../css/account.css">
-    <script src="../scripts/account.js" defer></script>
+    <script src="../scripts/account.js" type="module" defer></script>
     <script src="../scripts/main.js" type="module" defer></script>
     <script src="/scripts/language-switcher.js"></script>
 </head>
 <body>
 <header>
-    <nav id="main-nav" aria-label="Päävalikko">
+    <nav id="main-nav" aria-label="Main navigation">
         <span id="hamburger-icon">&#9776</span>
-        <div id="title-div">
-            <a class="nav-logo-box" href="index_fi.html">
+        <div>
+            <a class="nav-logo-box" href="index.html">
                 PIZZERIA EN RICO
-                <img class="icon" alt="pizza-oven" src="../media/pizza-oven.png"/>
+                <img class="icon" src="../media/pizza-oven.png"/>
             </a>
-            <label for="language-select"></label>
-            <select id="language-select">
-                <option value="en">English</option>
-                <option value="fi">Finnish</option>
-            </select>
         </div>
         <ul id="main-nav-links">
             <div class="cart-container">
@@ -39,31 +34,50 @@
             <li><a href="login_fi.html" id="login-button">KIRJAUDU SISÄÄN</a></li>
             <li><a href="account_fi.html" id="account-button" style="display: none">TILI</a></li>
             <li><a href="index_fi.html" id="logout-button" style="display: none">KIRJAUDU ULOS</a></li>
-            <li><a href="about_fi.html">TIETOJA</a></li>
+            <li><a href="about_fi.html">MEISTÄ</a></li>
         </ul>
     </nav>
 </header>
 <div class="root-container">
-    <div class="account-management">
-        <h1>Tilinhallinta</h1>
-        <form class="edit-form">
-            <label for="firstName">Etunimi</label>
-            <input type="text" id="firstName" name="firstName" >
-            <label for="lastName">Sukunimi</label>
-            <input type="text" id="lastName" name="lastName" >
-            <label for="email">Sähköposti</label>
-            <input type="email" id="email" name="email" >
-            <label for="phone">Puhelin</label>
-            <input type="tel" id="phone" name="phone" >
-            <label for="address">Osoite</label>
-            <input type="text" id="address" name="address" >
-            <label for="password">Salasana</label>
-            <input type="password" id="password" name="password">
-            <label for="confirmPassword">Vahvista salasana</label>
-            <input type="password" id="confirmPassword" name="confirmPassword">
-            <button type="submit" id="save-button">Tallenna</button>
-        </form>
+    <div class="account-management-container">
+        <div class="account-content-container">
+            <div class="account-information">
+                <span id="account-title">Tilin Hallinta</span>
+                <form class="edit-form">
+                    <label for="firstName">Etunimi</label>
+                    <input type="text" id="firstName" name="firstName">
+                    <label for="lastName">Sukunimi</label>
+                    <input type="text" id="lastName" name="lastName">
+                    <label for="email">Sähköposti</label>
+                    <input type="email" id="email" name="email">
+                    <label for="phone">Puhelin</label>
+                    <input type="tel" id="phone" name="phone">
+                    <label for="address">Osoite</label>
+                    <input type="text" id="address" name="address">
+                    <label for="password">Salasana</label>
+                    <input type="password" id="password" name="password">
+                    <label for="confirmPassword">Salasanan varmistus</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword">
+                    <button type="submit" id="save-button">Tallenna</button>
+                </form>
+            </div>
+            <div class="account-orders" id="account-orders">
+                <span id="order-title">Tilaus Historia</span>
+                <!-- Order History -->
+            </div>
+        </div>
     </div>
+    <nav id="side-bar" aria-label="Sidebar Navigation">
+        <span id="hamburger-icon-sidebar">&#9776</span>
+        <ul id="side-bar-links">
+            <li><a href="index_fi.html">KOTI</a></li>
+            <li><a href="menu_fi.html">MENU</a></li>
+            <li><a href="login_fi.html" id="login-button-mobile">KIRJAUDU SISÄÄN</a></li>
+            <li><a href="account_fi.html" id="account-button-mobile" style="display: none">TILI</a></li>
+            <li><a href="index_fi.html" id="logout-button-mobile" style="display: none">KIRJAUDU ULOS</a></li>
+            <li><a href="about_fi.html">TILI</a></li>
+        </ul>
+    </nav>
 </div>
 </body>
 </html>
