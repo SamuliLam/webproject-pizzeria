@@ -124,6 +124,19 @@ export async function updateProduct(id, modifiedProduct, token) {
     }
 }
 
+export const getOrdersByCustomerId = async (id) => {
+    try {
+        const response = await fetch(`http://10.120.32.55/app/api/v1/orders/customer/${id}`);
+        const data = await response.json();
+        if (response.ok) {
+            console.log(data)
+            return data;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export async function authenticateAdmin(token) {
     try {
         const response = await fetch(`http://10.120.32.55/app/api/v1/auth/me`, {
@@ -219,10 +232,7 @@ export const updateUser = async (id, modifiedUser, token) => {
             body: JSON.stringify(modifiedUser)
         });
         const data = await response.json();
-        if (response.ok) {
-            console.log(data)
-            return response.status;
-        }
+        return {status: response.status, ...data};
     } catch (error) {
         console.log(error);
     }

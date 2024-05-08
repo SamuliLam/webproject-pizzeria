@@ -1,3 +1,4 @@
+
 main {
     all: initial;
 }
@@ -184,8 +185,6 @@ main {
 .pizza-slide {
     animation-name: fade;
     animation-duration: 1.5s;
-    width: 40%;
-    height: 100vh;
 }
 
 .pizza-banner-slides {
@@ -234,8 +233,7 @@ main {
     }
 
     .pizza-slide {
-        width: 50%;
-        height: 400px;
+        width: 80%;
     }
 }
 
@@ -247,8 +245,7 @@ main {
     }
 
     .pizza-slide {
-        width: 50%;
-        height: 260px;
+        width: 80%;
     }
 
     .menu-cell {
@@ -268,4 +265,3 @@ main {
         max-width: 90%;
     }
 }
-

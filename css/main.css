@@ -8,13 +8,12 @@
 }
 
 header {
-
     width: 100%;
     position: fixed;
     flex-shrink: 1;
     flex-grow: 0;
     background-color: rgb(32,37,54);
-    z-index: 1000;
+    z-index: 2;
 }
 
 :root {
@@ -55,6 +54,7 @@ main {
     letter-spacing: 1px;
     font-size: large;
     align-items: center;
+    padding-left: 0;
 }
 
 #main-nav-links li, .cart-container img, .nav-logo-box {
@@ -106,6 +106,7 @@ body {
 }
 
 .icon {
+    z-index: 1;
     filter: invert(1);
 }
 
@@ -181,7 +182,7 @@ body {
 .proceed-to-checkout-button {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: rgb(50, 55, 70);
     color: #fff;
     border: none;
     cursor: pointer;
@@ -190,7 +191,7 @@ body {
 }
 
 .proceed-to-checkout-button:hover {
-    background-color: #0056b3;
+    background-color: rgb(32, 37, 54);
 }
 
 .single-price {
@@ -232,23 +233,15 @@ footer {
     list-style: none;
 }
 
-#title-div {
-    display: flex;
-    flex-direction: row;
-}
-
-#title-div select {
-    margin: 0 1em;
-}
-
 #hamburger-icon-sidebar {
     position: absolute;
     right: 10px;
-    font-size: 1.875rem;
+    font-size: 2rem;
     cursor: pointer;
 }
 
 #side-bar {
+    z-index: 3;
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -256,8 +249,7 @@ footer {
     left: 0;
     width: 30%;
     height: 100%;
-    /*placeholder color */
-    background-color: #7e0030;
+    background-color: rgb(32,37,54);
     transform: translateX(-100%);
     transition: transform 0.3s ease-out;
 }
@@ -270,6 +262,15 @@ footer {
     list-style: none;
     padding: 0.5rem;
     margin: 0;
+}
+
+#side-bar-links li {
+    margin: 1rem 0;
+    text-align: left;
+}
+
+#side-bar-links a {
+    text-align: left;
 }
 
 #hamburger-icon {
@@ -296,11 +297,9 @@ footer {
     filter: drop-shadow(0 0 15px black);
 }
 
-@media screen and (max-width: 768px) {
+/* Responsive styles */
 
-    footer {
-        padding: 0;
-    }
+@media screen and (max-width: 768px) {
 
     #social-icons {
         margin-top: 0.5rem;

@@ -4,18 +4,21 @@ import {authenticateAdmin} from "./api/fetchCalls.js";
 const signupButton = document.getElementById('login-button')
 const logOutButton = document.getElementById('logout-button')
 const accountButton = document.getElementById('account-button')
-const cartCount = document.getElementById('cart-count')
+const signupButtonMobile = document.getElementById('login-button-mobile')
+const logOutButtonMobile = document.getElementById('logout-button-mobile')
+const accountButtonMobile = document.getElementById('account-button-mobile')
 
-// const productCount = JSON.parse(sessionStorage.getItem('shoppingCart')) || []
-// cartCount.textContent = productCount.reduce((acc, product) => acc + product.quantity, 0).toString();
 if (sessionStorage.getItem('token')) {
     signupButton.style.display = 'none'
     logOutButton.style.display = 'block'
     accountButton.style.display = 'block'
 
+    signupButtonMobile.style.display = 'none'
+    logOutButtonMobile.style.display = 'block'
+    accountButtonMobile.style.display = 'block'
+
     await accessAdminPanel(sessionStorage.getItem('token'))
 }
-
 async function accessAdminPanel(token) {
     const isAdmin = await authenticateAdmin(token);
     const navLinks = document.getElementById('main-nav-links');
@@ -46,11 +49,16 @@ logOutButton.addEventListener('click', () => {
 });
 
 const hamburgerIcon = document.getElementById('hamburger-icon')
+const hamburgerIconSideBar = document.getElementById('hamburger-icon-sidebar')
 const sidebar = document.getElementById('side-bar')
 hamburgerIcon.addEventListener('click', () => {
     sidebar.classList.toggle('show')
 });
 
+hamburgerIconSideBar.addEventListener('click', () => {
+    sidebar.classList.toggle('show')
+
+});
 
 export const updateCartDisplay = () => {
     if (sessionStorage.getItem('shoppingCart')) {
