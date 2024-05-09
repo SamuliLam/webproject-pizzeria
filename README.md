@@ -16,6 +16,10 @@
   - Express.js
   - Linkki backendiin [GitHub](https://github.com/SamuliLam/restaurant-backend/tree/master).
 
+**Dokumentaatio**
+  - JsDoc
+  - ApiDoc
+    
 **Ohjeistus miten sovellus testataan, jotta kaikki toiminnalisuudet löytyvät**
 
 
@@ -36,5 +40,8 @@
     - Käyttäjätunnus käyttäjänimesi@metropolia.fi
     - Salasana: *******
   
-
+**Insinöörit:**
+  - Samuli Lamminmäki
+  - Stefanos Thomas
+  - Ismet Ymeri
 
