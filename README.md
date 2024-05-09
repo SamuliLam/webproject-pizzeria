@@ -20,7 +20,7 @@
 
 ## Dokumentaatio
   - [JsDoc](https://users.metropolia.fi/~ismety/js/RavintolaProjekti/jsdoc/out/).
-  - ApiDoc 
+  - [ApiDoc](https://users.metropolia.fi/~stefanot/ravintola/apidoc/apiDoc.html).
 
 ## Arviointi
   - Google forms arviointilomake [Form](https://docs.google.com/forms/d/e/1FAIpQLSf7uOY3-H_FKjQRg45jCyiq8mieoM5Ek93nM9pjTg2STNXu1Q/viewform).
