@@ -111,7 +111,7 @@ tbody td {
 }
 
 .modal {
-    display: none;
+    display: flex;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -128,15 +128,17 @@ tbody td {
     border: 1px solid #888;
     border-radius: 15px;
     width: 25%;
+    max-height: 25%;
 }
 
 .modal-content img {
+    padding-left: 20px;
     width: 75px;
     height: 75px;
 }
 
 #order-completed {
-    display: none;
+    display: flex;
     margin: 0 auto;
     animation: pulse 1s;
 }
@@ -149,13 +151,12 @@ tbody td {
 }
 
 .order-completed {
-    display: none;
+    display: block;
 }
 
 .order-not-completed {
     display: none;
 }
-
 
 .close {
     color: #aaa;
@@ -169,6 +170,15 @@ tbody td {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+.order-summary-table tbody::-webkit-scrollbar-button {
+    display: block;
+}
+
+.order-summary-table tbody::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 8px;
 }
 
 @keyframes shake {
@@ -201,5 +211,81 @@ tbody td {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media screen and (max-width: 1054px) {
+
+    .cart-content {
+        font-size: 10px;
+        max-height: 40vh;
+        left: -430%;
+        top: 166%;
+    }
+
+    #main-nav-links {
+        display: none;
+    }
+
+    #hamburger-icon {
+        display: inline;
+    }
+
+    #finnish-flag, #english-flag {
+        display: none;
+    }
+
+    #finnish-flag-sidebar, #english-flag-sidebar {
+        display: inline;
+    }
+
+    .navbar a {
+        margin: 10px 0;
+    }
+
+    .navbar #order {
+        margin-top: 20px;
+    }
+
+}
+
+@media screen and (max-width: 886px) {
+    .modal-content {
+        width: 50%;
+        margin-top: 6rem;
+    }
+    .order-container {
+        flex-direction: column;
+        margin: 6rem 0 6rem 0;
+    }
+
+    .customer-information {
+        border-bottom: none;
+        border-bottom-left-radius: 0;
+        border-right: solid 3px rgb(32, 37, 54);
+        border-top-right-radius: 15px;
+    }
+
+    .order-summary {
+        border-top: none;
+        width: 25rem;
+
+        border-top-right-radius: 0;
+        border-left: solid 3px #f2f2f2;
+        border-bottom-left-radius: 15px;
+    }
+    .update-message-icon {
+        width: 10vw;
+    }
+}
+
+@media screen and (max-width: 406px) {
+    .customer-information {
+        margin: auto;
+        width: 80vw;
+    }
+    .order-summary {
+        margin: auto;
+        width: 80vw;
     }
 }
