@@ -1,7 +1,15 @@
-/* signup.css */
-
 .root-container {
     background: url(../media/login-background.jpg);
+}
+
+.signup-container {
+    padding: 0 10px 0 10px;
+    background-color: rgb(32,37,54);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
 }
 
 .signup-header {
@@ -17,39 +25,17 @@
     color: #ffffff;
 }
 
-.signup-container {
-    margin-top: 70px;
-    width: 25%;
-    padding: 10px;
-    background-color: rgb(32,37,54);
-    box-shadow: rgba(0, 0, 0, 0.2) 0 60px 40px -7px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 15px;
-}
-
-.signup-container label {
-    margin: auto;
-}
-
-.signup-container input {
-    width: 24vw;
-    padding: 8px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    margin-bottom: 7px;
-}
-
-.signup-title {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.signup-subtitle {
-    font-size: 1em;
+label {
+    margin-top: 5px;
+    display: block;
     color: #ffffff;
-    margin-bottom: 20px;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
 .submit-button {
@@ -62,7 +48,6 @@
     font-size: 1em;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
-
 }
 
 .submit-button:hover {
@@ -89,4 +74,28 @@
 #status-message {
     height: 20px;
     text-align: center;
+}
+
+@media (max-width: 600px) {
+    .root-container{
+        font-size: 0.8em;
+    }
+    .signup-container {
+        width: 80%;
+    }
+}
+
+@media (max-width: 400px) {
+    .root-container{
+        margin-top: 2rem;
+        font-size: 0.6em;
+        
+    }
+    .signup-container {
+        width: 80%;
+    }
+
+    input {
+        padding: 5px;
+    }
 }
