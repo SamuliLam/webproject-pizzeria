@@ -14,7 +14,7 @@
 
 **Backend:**
   - Express.js
-  - Linkki backendiin github [GitHub Pages](https://pages.github.com/).
+  - Linkki backendiin [GitHub](https://github.com/SamuliLam/restaurant-backend/tree/master).
 
 **Ohjeistus miten sovellus testataan, jotta kaikki toiminnalisuudet löytyvät**
 
