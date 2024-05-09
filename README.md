@@ -44,7 +44,7 @@
   
 ## Insinöörit:
 
-   * *- Samuli Lamminmäki* *
-   **- Stefanos Thomas**
-   **- Ismet Ymeri**
+  - *Samuli Lamminmäki*
+  - **Stefanos Thomas**
+  - **Ismet Ymeri**
 
