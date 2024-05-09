@@ -163,13 +163,11 @@ export async function createProduct(product, token) {
             },
             body: JSON.stringify(product)
         });
-        const data = await response.json();
         if (response.ok) {
-            (data)
             return response.status;
         }
     } catch (error) {
-        (error);
+        console.log(error);
     }
 
 }

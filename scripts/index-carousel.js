@@ -18,7 +18,7 @@ function updateSlidePosition() {
     slides[slidePosition].classList.add('carousel-item-visible');
 }
 
-updateSlidePosition(); // Call the function here
+updateSlidePosition();
 
 function moveToNextSlide() {
     if (slidePosition === totalSlides - 1) {
