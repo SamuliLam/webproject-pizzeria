@@ -1,4 +1,4 @@
-**P I Z Z E R I A EN R I C O**
+# PIZZERIA EN RICO
 
 **Sovelluksen idea ja kohderyhmä**
   
