@@ -25,7 +25,7 @@ signupForm.addEventListener("submit", async (e) => {
 
 const postSignup = async (firstName, lastName, email, phone, address, password) => {
     try {
-        const response = await fetch('http://10.120.32.55/app/api/v1/users', {
+        const response = await fetch('https://10.120.32.55/app/api/v1/users', {
             method: "POST",
             headers: {
                 "Content-type": "application/json",

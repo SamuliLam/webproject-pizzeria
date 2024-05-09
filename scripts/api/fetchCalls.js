@@ -1,6 +1,6 @@
 export const getOrders = async () => {
     try {
-        const response = await fetch('http://10.120.32.55/app/api/v1/orders');
+        const response = await fetch('https://10.120.32.55/app/api/v1/orders');
         const data = await response.json();
         if (response.ok) {
             return data;
@@ -12,7 +12,7 @@ export const getOrders = async () => {
 
 export const getProducts = async () => {
     try {
-        const response = await fetch('http://10.120.32.55/app/api/v1/products');
+        const response = await fetch('https://10.120.32.55/app/api/v1/products');
         const data = await response.json();
         if (response.ok) {
             return data;
@@ -24,7 +24,7 @@ export const getProducts = async () => {
 
 export const postOrder = async (user, address, items, totalPriceValue) => {
     try {
-        const response = await fetch("http://10.120.32.55/app/api/v1/orders/", {
+        const response = await fetch("https://10.120.32.55/app/api/v1/orders/", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ export const postOrder = async (user, address, items, totalPriceValue) => {
 
 export const postLogin = async (email, password) => {
     try {
-        const response = await fetch('http://10.120.32.55/app/api/v1/auth/login', {
+        const response = await fetch('https://10.120.32.55/app/api/v1/auth/login', {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -72,7 +72,7 @@ export const postLogin = async (email, password) => {
 
 export const getOrderItemsByOrderId = async (id) => {
     try {
-        const response = await fetch(`http://10.120.32.55/app/api/v1/orders/${id}/items`);
+        const response = await fetch(`https://10.120.32.55/app/api/v1/orders/${id}/items`);
         const data = await response.json();
         if (response.ok) {
             return data;
@@ -85,7 +85,7 @@ export const getOrderItemsByOrderId = async (id) => {
 
 export async function modifyOrderStatus(id, status) {
     try {
-        const response = await fetch(`http://10.120.32.55/app/api/v1/orders/${id}`, {
+        const response = await fetch(`https://10.120.32.55/app/api/v1/orders/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -105,7 +105,7 @@ export async function modifyOrderStatus(id, status) {
 export async function updateProduct(id, modifiedProduct, token) {
     (JSON.stringify(modifiedProduct));
     try {
-        const response = await fetch(`http://10.120.32.55/app/api/v1/products/${id}`, {
+        const response = await fetch(`https://10.120.32.55/app/api/v1/products/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -126,7 +126,7 @@ export async function updateProduct(id, modifiedProduct, token) {
 
 export const getOrdersByCustomerId = async (id) => {
     try {
-        const response = await fetch(`http://10.120.32.55/app/api/v1/orders/customer/${id}`);
+        const response = await fetch(`https://10.120.32.55/app/api/v1/orders/customer/${id}`);
         const data = await response.json();
         if (response.ok) {
             (data)
@@ -139,7 +139,7 @@ export const getOrdersByCustomerId = async (id) => {
 
 export async function authenticateAdmin(token) {
     try {
-        const response = await fetch(`http://10.120.32.55/app/api/v1/auth/me`, {
+        const response = await fetch(`https://10.120.32.55/app/api/v1/auth/me`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -155,7 +155,7 @@ export async function authenticateAdmin(token) {
 
 export async function createProduct(product, token) {
     try {
-        const response = await fetch(`http://10.120.32.55/app/api/v1/products/`, {
+        const response = await fetch(`https://10.120.32.55/app/api/v1/products/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -174,7 +174,7 @@ export async function createProduct(product, token) {
 
 export async function deleteProduct(id, token) {
     try {
-        const response = await fetch(`http://10.120.32.55/app/api/v1/products/${id}`, {
+        const response = await fetch(`https://10.120.32.55/app/api/v1/products/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -193,7 +193,7 @@ export async function deleteProduct(id, token) {
 
 export const getUserById = async (id) => {
     try {
-        const response = await fetch(`http://10.120.32.55/app/api/v1/users/${id}`);
+        const response = await fetch(`https://10.120.32.55/app/api/v1/users/${id}`);
         const data = await response.json();
         if (response.ok) {
             (data)
@@ -206,7 +206,7 @@ export const getUserById = async (id) => {
 
 export const getUsers = async () => {
     try {
-        const response = await fetch('http://10.120.32.55/app/api/v1/users');
+        const response = await fetch('https://10.120.32.55/app/api/v1/users');
         const data = await response.json();
         if (response.ok) {
             (data)
@@ -221,7 +221,7 @@ export const getUsers = async () => {
 
 export const updateUser = async (id, modifiedUser, token) => {
     try {
-        const response = await fetch(`http://10.120.32.55/app/api/v1/users/${id}`, {
+        const response = await fetch(`https://10.120.32.55/app/api/v1/users/${id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -238,7 +238,7 @@ export const updateUser = async (id, modifiedUser, token) => {
 
 export const deleteUser = async (id, token) => {
     try {
-        const response = await fetch(`http://10.120.32.55/app/api/v1/users/${id}`, {
+        const response = await fetch(`https://10.120.32.55/app/api/v1/users/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
