@@ -21,9 +21,11 @@
 ## Dokumentaatio
   - JsDoc
   - ApiDoc
-  
-## Ohjeistus miten sovellus testataan, jotta kaikki toiminnalisuudet löytyvät
+
+## Arviointi
   - Google forms arviointilomake [Form](https://docs.google.com/forms/d/e/1FAIpQLSf7uOY3-H_FKjQRg45jCyiq8mieoM5Ek93nM9pjTg2STNXu1Q/viewform).
+## Ohjeistus miten sovellus testataan, jotta kaikki toiminnalisuudet löytyvät
+  
 
 ## What the project does
   
