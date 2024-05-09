@@ -23,6 +23,10 @@ Why the project is useful
   - käyttäjille selkeyttä tilaamiseen ja ravintolan omistajalle mahdollisuus tuotteiden myyntiin, mainostamiseen ja laajentumiseen.
 
 How users can get started with the project (nää tarkoittaa asennusohjeita, jos haluaa omalla koneella ajaa)
-  -
+  - VPN GlobalProtect
+    - Osoite: Vgnp.metropolia.fi
+    - Käyttäjätunnus käyttäjänimesi@metropolia.fi
+    - Salasana: *******
+  
 
 
