@@ -1,4 +1,4 @@
-import {updateCartDisplay} from "./main.js";
+import {updateCartDisplay, displayCartContents} from "./main.js";
 import {getProducts} from "./api/fetchCalls.js";
 
 const currentLanguage = window.location.pathname.includes("/fi/") ? "_fi" : ""
@@ -109,6 +109,7 @@ function addItems(data) {
 
                             sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
                             updateCartDisplay();
+                            displayCartContents();
                         });
                         orderButtonCell.appendChild(orderButton);
                         menuItem.appendChild(orderButtonCell);

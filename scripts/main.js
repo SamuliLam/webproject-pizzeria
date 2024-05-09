@@ -88,7 +88,7 @@ shoppingCart.addEventListener("click", function () {
 
 const cartProducts = document.getElementById("cartProducts");
 
-const displayCartContents = () => {
+export const displayCartContents = () => {
     let totalPrice = 0;
     while (cartProducts.firstChild) {
         cartProducts.removeChild(cartProducts.firstChild);
