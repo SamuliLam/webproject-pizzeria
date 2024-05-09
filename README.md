@@ -42,7 +42,8 @@
     - Käyttäjätunnus käyttäjänimesi@metropolia.fi
     - Salasana: *******
   
-## Insinöörit:**
+## Insinöörit:
+
    - Samuli Lamminmäki
    **- Stefanos Thomas**
    **- Ismet Ymeri**
