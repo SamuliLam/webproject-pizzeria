@@ -58,7 +58,7 @@
     border-radius: 5px;
     border: 1px solid #ccc;
     background-color: rgb(255, 255, 255);
-    color: rgb(50,55,70);;
+    color: rgb(50,55,70);
     font-size: 1em;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
@@ -68,7 +68,7 @@
 .submit-button:hover {
     transform: scale(1.2);
     background-color: rgb(50,55,70);
-    color: rgb(255, 255, 255);;
+    color: rgb(255, 255, 255);
 }
 
 .login-text {

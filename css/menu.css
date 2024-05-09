@@ -4,7 +4,7 @@ main {
 }
 
 #menu {
-    box-shadow: 0px -25px 20px -20px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 -25px 20px -20px rgba(0, 0, 0, 0.45);
     padding: 1px;
     background-image: url('/media/beige-background-menu.jpg');
     background-size: cover;
@@ -188,14 +188,6 @@ main {
     justify-content: center;
     align-items: center;
     margin: 2em 0.25em;
-}
-
-@media screen and (max-width: 1300px) {
-
-}
-
-@media screen and (max-width: 1024px) {
-
 }
 
 @media screen and (max-width: 768px) {
