@@ -23,7 +23,7 @@
   - ApiDoc
   
 ## Ohjeistus miten sovellus testataan, jotta kaikki toiminnalisuudet löytyvät
-  - Google forms arviointilomake [Form](https://docs.google.com/forms/d/1p76RkNIWltEXUN634ReaiaXXf8OIxHOMPSmfN31-byg/prefill).
+  - Google forms arviointilomake [Form](https://docs.google.com/forms/d/e/1FAIpQLSf7uOY3-H_FKjQRg45jCyiq8mieoM5Ek93nM9pjTg2STNXu1Q/viewform).
 
 ## What the project does
   
