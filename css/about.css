@@ -27,7 +27,7 @@ body {
     border-radius: 5px;
     border: 1px solid #ccc;
     background-color: rgb(255, 255, 255);
-    color: rgb(50,55,70);;
+    color: rgb(50,55,70);
     font-size: 1em;
     cursor: pointer;
     text-decoration: none;
@@ -71,9 +71,6 @@ body {
         width: 60vw;
     }
 
-    #right-container > div {
-        flex: 1 1 100%;
-    }
 
     .about-container img {
         height: auto;
