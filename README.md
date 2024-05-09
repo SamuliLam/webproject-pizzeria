@@ -49,4 +49,5 @@
   - *Samuli Lamminmäki*
   - **Stefanos Thomas**
   - **Ismet Ymeri**
-
+## Sovelluksen linkki
+  [Restaurant EnRico](https://users.metropolia.fi/~stefanot/ravintola/en/)
