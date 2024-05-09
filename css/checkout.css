@@ -111,7 +111,7 @@ tbody td {
 }
 
 .modal {
-    display: flex;
+    display: none; 
     position: fixed;
     z-index: 1;
     left: 0;
@@ -128,7 +128,7 @@ tbody td {
     border: 1px solid #888;
     border-radius: 15px;
     width: 25%;
-    max-height: 25%;
+    max-height: 30%;
 }
 
 .modal-content img {
@@ -138,7 +138,7 @@ tbody td {
 }
 
 #order-completed {
-    display: flex;
+    display: none;
     margin: 0 auto;
     animation: pulse 1s;
 }
@@ -151,11 +151,11 @@ tbody td {
 }
 
 .order-completed {
-    display: block;
+    display: none;
 }
 
 .order-not-completed {
-    display: none;
+    display: none; 
 }
 
 .close {
