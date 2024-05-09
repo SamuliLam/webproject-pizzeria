@@ -33,7 +33,7 @@ function showPizzaSlides() {
     setTimeout(showPizzaSlides, 2500);
 }
 
-showPizzaSlides(); // Call
+showPizzaSlides();
 
 
 

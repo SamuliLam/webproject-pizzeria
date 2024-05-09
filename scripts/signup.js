@@ -5,7 +5,7 @@ const signupForm = document.getElementById("signupForm");
 let message = document.querySelector("#status-message");
 
 
-signupForm.addEventListener("submit", (e) => {
+signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
     let firstName = signupForm.firstname.value;
     let lastName = signupForm.lastname.value;
@@ -19,7 +19,7 @@ signupForm.addEventListener("submit", (e) => {
         message.innerHTML = "Passwords do not match";
         return;
     } else {
-        postSignup(firstName, lastName, email, address, phone, password);
+        await postSignup(firstName, lastName, email, address, phone, password);
     }
 });
 

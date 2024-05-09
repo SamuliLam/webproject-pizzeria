@@ -1,5 +1,4 @@
 import {authenticateAdmin} from "./api/fetchCalls.js";
-//import { createOrderOverview } from './checkout.js';
 
 const currentLanguage = window.location.pathname.includes("/fi/") ? "_fi" : ""
 
@@ -33,7 +32,6 @@ async function accessAdminPanel(token) {
 
         adminLink.appendChild(adminLinkAnchor);
         navLinks.appendChild(adminLink);
-        ('Access granted to admin panel');
     }
 }
 

@@ -13,7 +13,6 @@ if (sessionStorage.getItem("shoppingCart") !== null) {
 
 try {
     const data = await getProducts();
-    (data);
     mergeAllergens(data);
     addItems(data);
 

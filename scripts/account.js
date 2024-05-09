@@ -68,7 +68,6 @@ saveButton.addEventListener('click', async (e) => {
 })
 
 const customerOrders = await getOrdersByCustomerId(user.id);
-('customer orders', customerOrders);
 
 let orderDateAndStatus = {};
 let orderIds;
@@ -130,12 +129,10 @@ if (orderIds.length !== 0) {
         orderContainer.appendChild(orderItemsContainer);
 
         orderRow.addEventListener('click', async () => {
-            ('Order row clicked');
             if (orderItemsContainer.classList.contains('visible')) {
-                ('Hiding order items');
+
                 orderItemsContainer.classList.remove('visible');
             } else {
-                ('Showing order items');
                 orderItemsContainer.classList.add('visible');
 
                 orderItemsContainer.innerHTML = '';
