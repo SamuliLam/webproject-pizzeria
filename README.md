@@ -44,7 +44,6 @@
 
 ## How users can get started with the project (nää tarkoittaa asennusohjeita, jos haluaa omalla koneella ajaa)
   ## Backend linkki
-     ## Backend linkki
 [sertifikaatti](https://10.120.32.55/app)
 
 
