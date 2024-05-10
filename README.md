@@ -46,6 +46,7 @@
   ### - Backend linkki
         [backend sertifikaatti](https://10.120.32.55/app/)
 
+
   ### - VPN GlobalProtect
     - Osoite: Vgnp.metropolia.fi
     - Käyttäjätunnus käyttäjänimesi@metropolia.fi
