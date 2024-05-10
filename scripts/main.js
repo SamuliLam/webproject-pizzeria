@@ -46,6 +46,10 @@ logOutButton.addEventListener('click', () => {
     signupButton.style.display = 'block';
     logOutButton.style.display = 'none';
     accountButton.style.display = 'none';
+
+    signupButtonMobile.style.display = 'block';
+    logOutButtonMobile.style.display = 'none';
+    accountButtonMobile.style.display = 'none';
 });
 
 const hamburgerIcon = document.getElementById('hamburger-icon')
