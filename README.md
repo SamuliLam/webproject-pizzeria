@@ -44,7 +44,7 @@
 
 ## How users can get started with the project (nää tarkoittaa asennusohjeita, jos haluaa omalla koneella ajaa)
   ### - Backend linkki
-        [backend sertifikaatti](https://10.120.32.55/app/)
+        [backend sertifikaatti](https://10.120.32.55/app/).
 
   ### - VPN GlobalProtect
     - Osoite: Vgnp.metropolia.fi
