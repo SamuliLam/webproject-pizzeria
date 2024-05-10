@@ -45,7 +45,8 @@
     - Salasana: *******
 
   ### - Admin tunnukset
-    - 
+    - käyttäjätunnus : admin@admin
+    - salasana : admin
   
 ## Insinöörit:
 
