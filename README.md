@@ -43,8 +43,9 @@
   - käyttäjille selkeyttä tilaamiseen ja ravintolan omistajalle mahdollisuus tuotteiden myyntiin, mainostamiseen ja laajentumiseen.
 
 ## How users can get started with the project (nää tarkoittaa asennusohjeita, jos haluaa omalla koneella ajaa)
-  ### - Backend linkki
-        [sertifikaatti](https://10.120.32.55/app)
+  ## Backend linkki
+[sertifikaatti](https://10.120.32.55/app/)
+
 
   ### - VPN GlobalProtect
     - Osoite: Vgnp.metropolia.fi
