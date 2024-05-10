@@ -15,10 +15,10 @@
 .customer-information {
     width: 25rem;
     background-color: rgb(255, 255, 255);
-    color: rgb(32,37,54);
-    border-left:solid 3px rgb(32,37,54);
-    border-top: solid 3px rgb(32,37,54);
-    border-bottom: solid 3px rgb(32,37,54);
+    color: rgb(32, 37, 54);
+    border-left: solid 3px rgb(32, 37, 54);
+    border-top: solid 3px rgb(32, 37, 54);
+    border-bottom: solid 3px rgb(32, 37, 54);
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     padding-bottom: 20px;
@@ -56,9 +56,9 @@ h1 {
 
 .order-summary {
     width: 30rem;
-    background-color: rgb(32,37,54);
+    background-color: rgb(32, 37, 54);
     padding-bottom: 30px;
-    border-right:solid 3px #f2f2f2;
+    border-right: solid 3px #f2f2f2;
     border-top: solid 3px #f2f2f2;
     border-bottom: solid 3px #f2f2f2;
     border-top-right-radius: 15px;
@@ -98,7 +98,7 @@ tbody td {
     border-radius: 5px;
     border: 1px solid #ccc;
     background-color: rgb(255, 255, 255);
-    color: rgb(50,55,70);
+    color: rgb(50, 55, 70);
     font-size: 1em;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s ease;
@@ -106,12 +106,12 @@ tbody td {
 
 .order-summary button:hover {
     transform: scale(1.2);
-    background-color: rgb(50,55,70);
+    background-color: rgb(50, 55, 70);
     color: rgb(255, 255, 255);
 }
 
 .modal {
-    display: none; 
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -122,7 +122,7 @@ tbody td {
 }
 
 .modal-content {
-    background-color: rgb(32,37,54);
+    background-color: rgb(32, 37, 54);
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
@@ -155,7 +155,7 @@ tbody td {
 }
 
 .order-not-completed {
-    display: none; 
+    display: none;
 }
 
 .close {
@@ -182,25 +182,57 @@ tbody td {
 }
 
 @keyframes shake {
-    0% { transform: translateX(0px); }
-    10% { transform: translateX(-5px); }
-    20% { transform: translateX(5px); }
-    30% { transform: translateX(-5px); }
-    40% { transform: translateX(5px); }
-    50% { transform: translateX(-5px); }
-    60% { transform: translateX(5px); }
-    70% { transform: translateX(-5px); }
-    80% { transform: translateX(5px); }
-    90% { transform: translateX(-5px); }
-    100% { transform: translateX(0px); }
+    0% {
+        transform: translateX(0px);
+    }
+    10% {
+        transform: translateX(-5px);
+    }
+    20% {
+        transform: translateX(5px);
+    }
+    30% {
+        transform: translateX(-5px);
+    }
+    40% {
+        transform: translateX(5px);
+    }
+    50% {
+        transform: translateX(-5px);
+    }
+    60% {
+        transform: translateX(5px);
+    }
+    70% {
+        transform: translateX(-5px);
+    }
+    80% {
+        transform: translateX(5px);
+    }
+    90% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    25% { transform: scale(1.1); }
-    50% { transform: scale(1); }
-    75% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 @keyframes fadeInMoveUp {
@@ -211,6 +243,13 @@ tbody td {
     100% {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+@media (max-width: 1200px) {
+    .order-container {
+        margin-bottom: 5rem;
+        margin-top: 5rem;
     }
 }
 
@@ -254,6 +293,7 @@ tbody td {
         width: 50%;
         margin-top: 6rem;
     }
+
     .order-container {
         flex-direction: column;
         margin: 6rem 0 6rem 0;
@@ -274,6 +314,7 @@ tbody td {
         border-left: solid 3px #f2f2f2;
         border-bottom-left-radius: 15px;
     }
+
     .update-message-icon {
         width: 10vw;
     }
@@ -284,6 +325,7 @@ tbody td {
         margin: auto;
         width: 80vw;
     }
+
     .order-summary {
         margin: auto;
         width: 80vw;
