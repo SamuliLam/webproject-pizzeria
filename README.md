@@ -43,6 +43,9 @@
     - Osoite: Vgnp.metropolia.fi
     - Käyttäjätunnus käyttäjänimesi@metropolia.fi
     - Salasana: *******
+
+  ### - Admin tunnukset
+    - 
   
 ## Insinöörit:
 
