@@ -1,5 +1,6 @@
 # PIZZERIA EN RICO
 
+## HUOM ADBLOCKILLA EI VOI KÄYTTÄÄ SIVUA!
 ## Sovelluksen idea ja kohderyhmä
   
   -Tämä projekti on ollut osana Metropolia AMK:n opintoja toisella vuosikurssilla. Projektin tavoite oli luoda käyttäjäystävällinen, dynaaminen ja monipuolinen nettisivu jonka teemana on ravintola. Sovellus mahdollistaa     
