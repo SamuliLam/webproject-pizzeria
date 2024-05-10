@@ -47,6 +47,16 @@ logOutButton.addEventListener('click', () => {
     logOutButton.style.display = 'none';
     accountButton.style.display = 'none';
 
+});
+
+logOutButtonMobile.addEventListener('click', () => {
+    const shoppingCartData = sessionStorage.getItem('shoppingCart');
+    sessionStorage.clear();
+
+    if (shoppingCartData) {
+        sessionStorage.setItem('shoppingCart', shoppingCartData);
+    }
+
     signupButtonMobile.style.display = 'block';
     logOutButtonMobile.style.display = 'none';
     accountButtonMobile.style.display = 'none';
