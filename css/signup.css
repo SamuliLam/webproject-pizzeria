@@ -62,7 +62,7 @@ input {
 }
 
 .login-link {
-    color: #000000;
+    color: #ffffff;
     text-decoration: none;
     font-style: italic;
 }
@@ -74,6 +74,13 @@ input {
 #status-message {
     height: 20px;
     text-align: center;
+}
+
+@media (max-width: 1300px) {
+    .signup-container {
+        width: fit-content;
+        margin: 5rem 0 5rem 0;
+    }
 }
 
 @media (max-width: 600px) {
