@@ -14,6 +14,7 @@
   -Sovellus mahdollistaa tilaamisen ravintolasta, menu sivusta. Jotta Sovelluksesta voi tilata tuotteita täytyy rekisteröityä ja kirjautua. ​
   -Sovelluksessa on mahdollista käyttää kahta eri kieltä suomea ja englantia.​
   -Kirjautuminen ja rekisteröityminen sekä tilinhallinta.
+  -Admin pysyty hallinoimaan käyttäjiä, tuotteita, tilauksia 
 
 ## Backend:
   - Express.js
