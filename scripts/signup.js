@@ -1,9 +1,8 @@
 'use strict';
 
 const signupForm = document.getElementById("signupForm");
-
 let message = document.querySelector("#status-message");
-
+const currentLanguage = window.location.pathname.includes("/fi/") ? "_fi" : ""
 
 signupForm.addEventListener("submit", async (e) => {
     e.preventDefault();
@@ -44,7 +43,11 @@ const postSignup = async (firstName, lastName, email, phone, address, password) 
         if (response.status === 201) {
             message.innerHTML = data.message + ", redirecting..."
             setTimeout(() => {
-                window.location.href = "login_fi.html";
+                if (currentLanguage) {
+                    window.location.href = `../fi/login_fi.html`;
+                } else {
+                    window.location.href = `../en/login.html`;
+                }
             }, 2000);
         } else {
             message.innerHTML = data.message;
