@@ -61,5 +61,5 @@
   - *Samuli Lamminmäki*
   - **Stefanos Thomas**
   - **Ismet Ymeri**
-## Sovelluksen linkki
+## Sovelluksen linkki (Huom, tuotteiden lataus sivulla vaatii Metropolian VPN-yhteyden)
   [Restaurant EnRico](https://users.metropolia.fi/~stefanot/ravintola/en/)
