@@ -1,7 +1,7 @@
 # PIZZERIA EN RICO
 
-## HUOM ADBLOCKILLA EI VOI KÄYTTÄÄ SIVUA!
-  - Adblock estää bannerit Menu sivulla ja tämä aiheuttaa sen, että kaikki tuotteet eivät näy
+This project consists of two repositories: [Frontend](https://github.com/SamuliLam/webproject-pizzeria) and [Backend](https://github.com/SamuliLam/restaurant-backend)
+
 ## Sovelluksen idea ja kohderyhmä
   
   -Tämä projekti on ollut osana Metropolia AMK:n opintoja toisella vuosikurssilla. Projektin tavoite oli luoda käyttäjäystävällinen, dynaaminen ja monipuolinen nettisivu jonka teemana on ravintola. Sovellus mahdollistaa     
