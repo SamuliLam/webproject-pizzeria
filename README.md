@@ -1,4 +1,6 @@
 # PIZZERIA EN RICO
+## Sovelluksen linkki (Huom, tuotteiden lataus sivulla vaatii Metropolian VPN-yhteyden)
+  [Restaurant EnRico](https://users.metropolia.fi/~stefanot/ravintola/en/)
 
 This project consists of two repositories: [Frontend](https://github.com/SamuliLam/webproject-pizzeria) and [Backend](https://github.com/SamuliLam/restaurant-backend)
 
@@ -61,5 +63,4 @@ This project consists of two repositories: [Frontend](https://github.com/SamuliL
   - *Samuli Lamminmäki*
   - **Stefanos Thomas**
   - **Ismet Ymeri**
-## Sovelluksen linkki (Huom, tuotteiden lataus sivulla vaatii Metropolian VPN-yhteyden)
-  [Restaurant EnRico](https://users.metropolia.fi/~stefanot/ravintola/en/)
+
